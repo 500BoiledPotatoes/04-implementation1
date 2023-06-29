@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.138.0/build/three.module.js",
+                "OrbitControls": "https://unpkg.com/three@0.138.0/examples/jsm/controls/OrbitControls.js"
+            }
+        }
+
+    </script>
+    <meta charset="utf-8">
+    <title>My first three.js app</title>
+    <style>
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="btn-box">
+    <button class="btn btn-success" style="margin: 5px" id="btn1">main</button>
+    <button class="btn btn-success" style="margin: 5px" id="btn2">Bed room1</button>
+    <button class="btn btn-success" style="margin: 5px" id="btn3">Bath room1</button>
+    <button class="btn btn-success" style="margin: 5px" id="btn4">stair</button>
+    <button class="btn btn-success" style="margin: 5px" id="btn5">Bath room2</button>
+    <button class="btn btn-success" style="margin: 5px" id="btn6">Bed room2</button>
+    <button class="btn btn-success" style="margin: 5px" id="btn7">Bed room3</button>
+    <button class="btn btn-success" style="margin: 5px" id="btn8">door</button>
+    <button class="btn btn-success" style="margin: 5px" id="btn9">entertain room</button>
+    <button class="btn btn-success" style="margin: 5px" id="btn10">lobby</button>
+</div>
+<div id="container" style="height: 100%; ">
+
+</div>
+
+
+</body>
+<script type="module">
+    import * as THREE from 'three';
+    import {OrbitControls} from 'OrbitControls';
+    // let img1 = require('./vr1.jpg')
+    // let img2 = require('./vr2.jpg')
+    const scene = new THREE.Scene();
+    const ax = new THREE.AxesHelper(500)
+     // scene.add(ax)
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1100);
+    camera.position.set(0, 0, 1)
+    const textureLoader = new THREE.TextureLoader()
+    // const texture1 = textureLoader.load('../static/images/accommodations/0/bed/15_b.jpg')
+    const geometry = new THREE.BoxGeometry(100, 100, 100)
+    geometry.scale(-1, 1, 1)
+    const pathArr1 = [
+        '../images/accommodations/8/main/4_r.jpg',
+        '../images/accommodations/8/main/4_l.jpg',
+        '../images/accommodations/8/main/4_u.jpg',
+        '../images/accommodations/8/main/4_d.jpg',
+        '../images/accommodations/8/main/4_f.jpg',
+        '../images/accommodations/8/main/4_b.jpg'
+    ]
+    const pathArr2 = [
+        '../images/accommodations/8/bed/6_r.jpg',
+        '../images/accommodations/8/bed/6_l.jpg',
+        '../images/accommodations/8/bed/6_u.jpg',
+        '../images/accommodations/8/bed/6_d.jpg',
+        '../images/accommodations/8/bed/6_f.jpg',
+        '../images/accommodations/8/bed/6_b.jpg'
+    ]
+    const pathArr3 = [
+        '../images/accommodations/8/bath/10_r.jpg',
+        '../images/accommodations/8/bath/10_l.jpg',
+        '../images/accommodations/8/bath/10_u.jpg',
+        '../images/accommodations/8/bath/10_d.jpg',
+        '../images/accommodations/8/bath/10_f.jpg',
+        '../images/accommodations/8/bath/10_b.jpg'
+    ]
+    const pathArr4 = [
+        '../images/accommodations/8/stair/11_r.jpg',
+        '../images/accommodations/8/stair/11_l.jpg',
+        '../images/accommodations/8/stair/11_u.jpg',
+        '../images/accommodations/8/stair/11_d.jpg',
+        '../images/accommodations/8/stair/11_f.jpg',
+        '../images/accommodations/8/stair/11_b.jpg'
+    ]
+    const pathArr5 = [
+        '../images/accommodations/8/bath2/25_r.jpg',
+        '../images/accommodations/8/bath2/25_l.jpg',
+        '../images/accommodations/8/bath2/25_u.jpg',
+        '../images/accommodations/8/bath2/25_d.jpg',
+        '../images/accommodations/8/bath2/25_f.jpg',
+        '../images/accommodations/8/bath2/25_b.jpg'
+    ]
+    const pathArr6 = [
+        '../images/accommodations/8/bed2/16_r.jpg',
+        '../images/accommodations/8/bed2/16_l.jpg',
+        '../images/accommodations/8/bed2/16_u.jpg',
+        '../images/accommodations/8/bed2/16_d.jpg',
+        '../images/accommodations/8/bed2/16_f.jpg',
+        '../images/accommodations/8/bed2/16_b.jpg'
+    ]
+    const pathArr7 = [
+        '../images/accommodations/8/bed3/23_r.jpg',
+        '../images/accommodations/8/bed3/23_l.jpg',
+        '../images/accommodations/8/bed3/23_u.jpg',
+        '../images/accommodations/8/bed3/23_d.jpg',
+        '../images/accommodations/8/bed3/23_f.jpg',
+        '../images/accommodations/8/bed3/23_b.jpg'
+    ]
+    const pathArr8 = [
+        '../images/accommodations/8/door/13_r.jpg',
+        '../images/accommodations/8/door/13_l.jpg',
+        '../images/accommodations/8/door/13_u.jpg',
+        '../images/accommodations/8/door/13_d.jpg',
+        '../images/accommodations/8/door/13_f.jpg',
+        '../images/accommodations/8/door/13_b.jpg'
+    ]
+    const pathArr9 = [
+        '../images/accommodations/8/entertain/14_r.jpg',
+        '../images/accommodations/8/entertain/14_l.jpg',
+        '../images/accommodations/8/entertain/14_u.jpg',
+        '../images/accommodations/8/entertain/14_d.jpg',
+        '../images/accommodations/8/entertain/14_f.jpg',
+        '../images/accommodations/8/entertain/14_b.jpg'
+    ]
+    const pathArr10 = [
+        '../images/accommodations/8/lobby/2_r.jpg',
+        '../images/accommodations/8/lobby/2_l.jpg',
+        '../images/accommodations/8/lobby/2_u.jpg',
+        '../images/accommodations/8/lobby/2_d.jpg',
+        '../images/accommodations/8/lobby/2_f.jpg',
+        '../images/accommodations/8/lobby/2_b.jpg'
+    ]
+    const material = pathArr1.map(path => {
+        const map = textureLoader.load(path)
+        return new THREE.MeshBasicMaterial({
+            map
+        })
+    })
+    const material2 = pathArr2.map(path => {
+        const map = textureLoader.load(path)
+        return new THREE.MeshBasicMaterial({
+            map
+        })
+    })
+    const material3 = pathArr3.map(path => {
+        const map = textureLoader.load(path)
+        return new THREE.MeshBasicMaterial({
+            map
+        })
+    })
+    const material4 = pathArr4.map(path => {
+        const map = textureLoader.load(path)
+        return new THREE.MeshBasicMaterial({
+            map
+        })
+    })
+    const material5 = pathArr5.map(path => {
+        const map = textureLoader.load(path)
+        return new THREE.MeshBasicMaterial({
+            map
+        })
+    })
+    const material6 = pathArr6.map(path => {
+        const map = textureLoader.load(path)
+        return new THREE.MeshBasicMaterial({
+            map
+        })
+    })
+    const material7 = pathArr7.map(path => {
+        const map = textureLoader.load(path)
+        return new THREE.MeshBasicMaterial({
+            map
+        })
+    })
+    const material8 = pathArr8.map(path => {
+        const map = textureLoader.load(path)
+        return new THREE.MeshBasicMaterial({
+            map
+        })
+    })
+    const material9 = pathArr9.map(path => {
+        const map = textureLoader.load(path)
+        return new THREE.MeshBasicMaterial({
+            map
+        })
+    })
+    const material10 = pathArr10.map(path => {
+        const map = textureLoader.load(path)
+        return new THREE.MeshBasicMaterial({
+            map
+        })
+    })
+    const cube1 = new THREE.Mesh(geometry, material)
+    const cube2 = new THREE.Mesh(geometry, material2)
+    const cube3 = new THREE.Mesh(geometry, material3)
+    const cube4 = new THREE.Mesh(geometry, material4)
+    const cube5 = new THREE.Mesh(geometry, material5)
+    const cube6 = new THREE.Mesh(geometry, material6)
+    const cube7 = new THREE.Mesh(geometry, material7)
+    const cube8 = new THREE.Mesh(geometry, material8)
+    const cube9 = new THREE.Mesh(geometry, material9)
+    const cube10 = new THREE.Mesh(geometry, material10)
+
+    scene.add(cube1)
+    const renderer = new THREE.WebGLRenderer()
+    renderer.setSize(window.innerWidth, window.innerHeight)
+    document.getElementById('container').replaceChildren(renderer.domElement)
+    const controls = new OrbitControls(camera, renderer.domElement)
+    controls.zoomSpeed = 0
+
+    function animation() {
+        controls.update()
+        renderer.render(scene, camera)
+        requestAnimationFrame(animation)
+    }
+
+    window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight
+        camera.updateProjectionMatrix()
+        renderer.setSize(window.innerWidth, window.innerHeight)
+        renderer.setPixelRatio(window.devicePixelRatio)
+    })
+
+    document.getElementById('btn1').onclick = function (){
+        scene.clear()
+        scene.add(cube1)
+    }
+    document.getElementById('btn2').onclick = function (){
+        scene.clear()
+        scene.add(cube2)
+    }
+    document.getElementById('btn3').onclick = function (){
+        scene.clear()
+        scene.add(cube3)
+    }
+    document.getElementById('btn4').onclick = function (){
+        scene.clear()
+        scene.add(cube4)
+    }
+    document.getElementById('btn5').onclick = function (){
+        scene.clear()
+        scene.add(cube5)
+    }
+    document.getElementById('btn6').onclick = function (){
+        scene.clear()
+        scene.add(cube6)
+    }
+    document.getElementById('btn7').onclick = function (){
+        scene.clear()
+        scene.add(cube7)
+    }
+    document.getElementById('btn8').onclick = function (){
+        scene.clear()
+        scene.add(cube8)
+    }
+    document.getElementById('btn9').onclick = function (){
+        scene.clear()
+        scene.add(cube9)
+    }
+    document.getElementById('btn10').onclick = function (){
+        scene.clear()
+        scene.add(cube10)
+    }
+    animation()
+
+</script>
+</html>

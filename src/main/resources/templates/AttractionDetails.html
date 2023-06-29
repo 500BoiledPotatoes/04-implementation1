@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <title>Travel Agent</title>
+
+    <!-- Fav Icon -->
+
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,500;1,9..144,600;1,9..144,700;1,9..144,800;1,9..144,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link href="../css/font-awesome-all.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/CustomizedBootStrap.css">
+    <link href="../css/flaticon.css" rel="stylesheet">
+    <link href="../css/owl2.css" rel="stylesheet">
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../css/jquery.fancybox.min.css" rel="stylesheet">
+    <link href="../css/animate.css" rel="stylesheet">
+    <link href="../css/nice-select.css" rel="stylesheet">
+    <link href="../css/elpath.css" rel="stylesheet">
+    <link href="../css/color/theme-color.css" id="jssDefault" rel="stylesheet">
+    <link href="../css/switcher-style.css" rel="stylesheet">
+    <link href="../css/rtl.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/module-css/page-title.css" rel="stylesheet">
+    <link href="../css/module-css/team-details.css" rel="stylesheet">
+    <link href="../css/module-css/blog-details.css" rel="stylesheet">
+    <link href="../css/module-css/skills.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
+    <link href="../css/banner2.css" rel="stylesheet">
+
+    <link href="../css/RadioButton2.css" rel="stylesheet">
+
+</head>
+
+
+<!-- page wrapper -->
+<body>
+
+
+
+
+<!-- preloader -->
+<!-- preloader end -->
+
+
+
+<input th:value="${attractionDetail.getAttractionID()}" id="AttractionId" style="display: none">
+
+<!--Search Popup-->
+<div id="search-popup" class="search-popup">
+    <div class="popup-inner">
+        <div class="upper-box clearfix">
+            <figure class="logo-box pull-left"><a href="index.html"><img src="assets/images/logo.png" alt=""></a></figure>
+            <div class="close-search pull-right"><span class="far fa-times"></span></div>
+        </div>
+        <div class="overlay-layer"></div>
+        <div class="auto-container">
+            <div class="search-form">
+                <form method="post" th:action="@{/findAttraction}">
+                    <div class="form-group">
+                        <fieldset>
+                            <input type="search" th:if="${language ne 1}" class="form-control" name="attraction" value="" placeholder="Type your attraction keyword and hit" required >
+                            <input type="search" th:if="${language eq 1}" class="form-control" name="attraction" value="" placeholder="请输入您想要查询的景点信息" required >
+                            <button type="submit" ><i class="far fa-search"></i></button>
+                        </fieldset>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- main header -->
+<div th:insert="~{Navigation :: #main}" th:if="${language ne 1}"></div>
+<div th:insert="~{Navigation :: #mainChinese}" th:if="${language eq 1}"></div>
+<!-- main-header end -->
+
+<!-- Mobile Menu  -->
+<!-- End Mobile Menu -->
+
+
+<!-- page-title -->
+<section class="page-title p_relative centred" th:if="${language ne 1}">
+    <div class="bg-layer" style="background-image: url(/images/bora-bora-g19ecb3d37_1920.jpg);"></div>
+    <div class="auto-container">
+        <div class="content-box">
+            <h1>Attraction Details</h1>
+            <ul class="bread-crumb clearfix">
+                <li><a href="/">Home</a></li>
+                <li>Attraction Details</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<section class="page-title p_relative centred" th:if="${language eq 1}">
+    <div class="bg-layer" style="background-image: url(/images/bora-bora-g19ecb3d37_1920.jpg);"></div>
+    <div class="auto-container">
+        <div class="content-box">
+            <h1>景点明细</h1>
+            <ul class="bread-crumb clearfix">
+                <li><a href="/">主页</a></li>
+                <li>景点明细</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- page-title end -->
+
+
+<!-- team-details -->
+<section class="team-details pt_150 pb_140">
+    <div class="auto-container">
+        <div class="team-details-content mb_90">
+            <div class="row clearfix">
+                <div class="col-lg-6 col-md-12 col-sm-12 image-column" >
+                    <!--                            <figure class="image-box mr_40"><img src="assets/images/team/team-14.jpg" alt=""></figure>-->
+                    <section class="banner-section p_relative">
+                        <div class="banner-carousel owl-theme owl-carousel owl-dots-none">
+                            <div class="slide-item p_relative">
+                                <div class="auto-container">
+                                    <div class="row align-items-center">
+                                        <div class="image-box p_relative">
+                                            <figure class="image clearfix"><img th:src="${attractionDetail.getImagePath()}" alt=""></figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slide-item p_relative">
+                                <div class="auto-container">
+                                    <div class="row align-items-center">
+
+                                        <div class="image-box p_relative">
+                                            <figure class="image clearfix"><img th:src="${attractionDetail.getImagePath()}" alt=""></figure>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+<!--                            <div class="slide-item p_relative">-->
+<!--                                <div class="auto-container">-->
+<!--                                    <div class="row align-items-center">-->
+<!--                                        <div class="image-box p_relative">-->
+<!--                                            <figure class="image clearfix"><img src="../pictureResouce/book3.png" alt=""></figure>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="slide-item p_relative">-->
+<!--                                <div class="auto-container">-->
+<!--                                    <div class="row align-items-center">-->
+<!--                                        <div class="image-box p_relative">-->
+<!--                                            <figure class="image clearfix"><img src="../images/team/team-14.jpg" alt=""></figure>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+                        </div>
+                    </section>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 content-column" th:if="${language ne 1}" >
+                    <div class="content-box ml_40">
+                        <h2 th:text="${attractionDetail.getAttractionName()}">
+                        </h2>
+                        <button type="button" class="theme-btn btn-one" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"  style="width: 150px;height: 40px;line-height: 0px;font-size: 14px;margin-bottom: 50px" th:if="${sloginJudge ne 1 and loginJudge eq 1}"><span>Subscribe</span></button>
+                        <button type="button" class="ToLogin theme-btn btn-one"  style="width: 165px;height: 40px;line-height: 0px;font-size: 14px;margin-bottom: 50px" th:if="${sloginJudge ne 1 and loginJudge ne 1}" onclick="toLogin()">Please Login</button>
+                        <button type="button" class="theme-btn btn-one" data-bs-toggle="modal" data-bs-target="#EditexampleModal" data-bs-whatever="@mdo"  style="width: 200px;height: 40px;line-height: 0px;font-size: 14px;margin-bottom: 50px" th:if="${sloginJudge eq 1}"><span>Edit</span></button>
+                        <div class="text-box mb_25">
+                            <div class="skills-column">
+                                <div class="skills-inner mr_20">
+                                    <div class="text-box mb_13">
+                                        <h3>Favorability</h3>
+                                    </div>
+                                    <div class="progress-inner">
+                                        <div class="progress-box">
+                                            <p>Favorability rate</p>
+                                            <div class="bar">
+                                                <div class="bar-inner count-bar" th:data-percent="${score}+'%'"></div>
+                                                <div class="count-text" th:text="${score}"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-6 col-md-12 col-sm-12 content-column" th:if="${language eq 1}" >
+                    <div class="content-box ml_40">
+                        <h2 th:text="${attractionDetail.getAttractionNameCn()}">
+                        </h2>
+                        <button type="button" class="theme-btn btn-one" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"  style="width: 150px;height: 40px;line-height: 0px;font-size: 14px;margin-bottom: 50px" th:if="${sloginJudge ne 1 and loginJudge eq 1}"><span>订阅</span></button>
+                        <button type="button" class="ToLogin theme-btn btn-one"   style="width: 165px;height: 40px;line-height: 0px;font-size: 14px;margin-bottom: 50px" th:if="${sloginJudge ne 1 and loginJudge ne 1}" onclick="toLogin()"><span>登录</span></button>
+                        <button type="button" class="theme-btn btn-one" data-bs-toggle="modal" data-bs-target="#EditexampleModal" data-bs-whatever="@mdo"  style="width: 200px;height: 40px;line-height: 0px;font-size: 14px;margin-bottom: 50px" th:if="${sloginJudge eq 1}"><span>编辑</span></button>
+                        <div class="text-box mb_25">
+                            <div class="skills-column">
+                                <div class="skills-inner mr_20">
+                                    <div class="text-box mb_13">
+                                        <h3>评价</h3>
+                                    </div>
+                                    <div class="progress-inner">
+                                        <div class="progress-box">
+                                            <p>好评度</p>
+                                            <div class="bar">
+                                                <div class="bar-inner count-bar" th:data-percent="${score}+'%'"></div>
+                                                <div class="count-text" th:text="${score}"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="biography mb_90" th:each="i:${attractionDetail}" th:if="${language eq 1}">
+            <h3 th:text="${i.getAttractionNameCn()}"></h3>
+            <p th:text="${attractionDetail.getAttractionIntroCn()}"></p>
+            <div th:insert="~{Comment :: #AttComment}" ></div>
+        </div>
+
+        <div class="biography mb_90" th:each="i:${attractionDetail}" th:if="${language ne 1}">
+            <h3 th:text="${i.getAttractionName()}"></h3>
+            <p th:text="${attractionDetail.getAttractionIntro()}"></p>
+            <div th:insert="~{Comment :: #AttComment}" ></div>
+        </div>
+
+
+    </div>
+</section>
+
+
+
+
+
+<!-- team-details end -->
+
+
+<!-- main-footer -->
+<!--        <footer class="main-footer">-->
+<!--            <div class="pattern-layer" style="background-image: url(assets/images/shape/shape-13.png);"></div>-->
+<!--            <div class="footer-upper">-->
+<!--                <div class="auto-container">-->
+<!--                    <div class="upper-inner">-->
+<!--                        <figure class="footer-logo"><a href="index.html"><img src="assets/images/logo-2.png" alt=""></a></figure>-->
+<!--                        <div class="right-column">-->
+<!--                            <h3>Subscribe now</h3>-->
+<!--                            <div class="form-inner">-->
+<!--                                <form method="post" action="contact.html">-->
+<!--                                    <div class="form-group">-->
+<!--                                        <input type="email" name="email" placeholder="Your email" required>-->
+<!--                                        <button type="submit" class="theme-btn btn-one"><span>Subscribe</span></button>-->
+<!--                                    </div>-->
+<!--                                </form>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="footer-top">-->
+<!--                <div class="auto-container">-->
+<!--                    <div class="row clearfix">-->
+<!--                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">-->
+<!--                            <div class="footer-widget about-widget mr_60">-->
+<!--                                <div class="widget-title">-->
+<!--                                    <h3>About</h3>-->
+<!--                                </div>-->
+<!--                                <div class="text-box">-->
+<!--                                    <p>Lorem ipsum dolor sit amet consectetur diam ultricies leo etiam nibh tristique.</p>-->
+<!--                                    <p>odio feugiat vitae libero vestibu viverra elementum luctus.</p>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="col-lg-2 col-md-6 col-sm-12 footer-column">-->
+<!--                            <div class="footer-widget links-widget ml_40">-->
+<!--                                <div class="widget-title">-->
+<!--                                    <h3>Links</h3>-->
+<!--                                </div>-->
+<!--                                <div class="widget-content">-->
+<!--                                    <ul class="links-list clearfix">-->
+<!--                                        <li><a href="index.html">About Us</a></li>-->
+<!--                                        <li><a href="index.html">Services</a></li>-->
+<!--                                        <li><a href="index.html">Case</a></li>-->
+<!--                                        <li><a href="index.html">Request Pickup</a></li>-->
+<!--                                        <li><a href="index.html">Contact Us</a></li>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="col-lg-4 col-md-6 col-sm-12 footer-column">-->
+<!--                            <div class="footer-widget schedule-widget ml_60 mr_70">-->
+<!--                                <div class="widget-title">-->
+<!--                                    <h3>Working Hours</h3>-->
+<!--                                </div>-->
+<!--                                <div class="widget-content">-->
+<!--                                    <p>Tincidunt neque pretium lectus donec risus.</p>-->
+<!--                                    <ul class="schedule-list clearfix">-->
+<!--                                        <li>Mon - Fri: 9:00AM - 6:00PM</li>-->
+<!--                                        <li>Sat - Sun: 8:00AM - 4:00PM</li>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">-->
+<!--                            <div class="footer-widget contact-widget">-->
+<!--                                <div class="widget-title">-->
+<!--                                    <h3>Get In Touch</h3>-->
+<!--                                </div>-->
+<!--                                <div class="widget-content">-->
+<!--                                    <ul class="info-list mb_30 clearfix">-->
+<!--                                        <li><i class="icon-3"></i>Add:  New Hyde Park, NY 11040</li>-->
+<!--                                        <li><i class="icon-2"></i>Email:  <a href="mailto:example@info.com">example@info.com</a></li>-->
+<!--                                        <li><i class="icon-4"></i>Phone:  <a href="">333 666 0000</a></li>-->
+<!--                                    </ul>-->
+<!--                                    <ul class="social-links clearfix">-->
+<!--                                        <li><a href="index-3.html"><i class="fab fa-facebook-f"></i></a></li>-->
+<!--                                        <li><a href="index-3.html"><i class="fab fa-twitter"></i></a></li>-->
+<!--                                        <li><a href="index-3.html"><i class="fab fa-instagram"></i></a></li>-->
+<!--                                        <li><a href="index-3.html"><i class="fab fa-linkedin-in"></i></a></li>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="footer-bottom centred">-->
+<!--                <div class="auto-container">-->
+<!--                    <div class="copyright">-->
+<!--                        <p>Copyright 2023 by <a href="http://www.bootstrapMB.com">bootstrapMB</a> template All Right Reserved.</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </footer>-->
+<!-- main-footer -->
+
+
+
+<!--Scroll to top-->
+
+<!-- Scroll to top end -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" th:if="${sloginJudge ne 1 and loginJudge eq 1}">
+    <div class="modal-dialog" style="width: 100%">
+        <div class="modal-content">
+            <h4 class="modal-title align-items-center text-center">Add Booking Form</h4>
+            <div class="modal-header">
+                <div class="modal-body">
+                    <div>
+                        <form id="addToWaitingList" th:action="@{/addBooking}" method="post">
+                            <div class="form-group">
+                                <input type="text"  class="form-control" style="display: none" name="destinationId" th:value="${attractionDetail.getDestination().getDestinationId()}">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" style="display: none" name="accommodationId" value="-1">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="attractionId" style="display: none" th:value="${attractionDetail.getAttractionID()}">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="customerId" style="display: none" th:value="${customer.getCustomerId()}">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" th:if="${language ne 1}">Start Date</label>
+                                <label class="control-label" th:if="${language eq 1}">开始日期</label>
+                                <input type="datetime-local" class="form-control" name="startTime" value="">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" th:if="${language ne 1}">End Date</label>
+                                <label class="control-label" th:if="${language eq 1}">结束日期</label>
+                                <input type="datetime-local" class="form-control" name="endTime" value="">
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary form-control mt-7" th:if="${language ne 1}">Confirm</button>
+                                <button type="submit" class="btn btn-primary form-control mt-7" th:if="${language eq 1}">确定</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="EditexampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" th:if="${sloginJudge eq 1 and loginJudge ne 1}">
+    <div class="modal-dialog" style="width: 100%">
+        <div class="modal-content">
+            <h4 class="modal-title align-items-center text-center">Edit Attraction Form</h4>
+            <div class="modal-header">
+                <div class="modal-body">
+                    <div>
+                        <div id="EditBooking" >
+
+                            <div class="form-group">
+                                <input type="text" class="form-control attractionName" name="attractionName"  th:value="${attractionDetail.getAttractionName()}">
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <input type="text" class="form-control attractionNameCn" name="attractionNameCn"  th:value="${attractionDetail.getAttractionNameCn()}">
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <input type="text" class="form-control address" name="address"  th:value="${attractionDetail.getAddress()}">
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <input type="text" class="form-control addressCn" name="addressCn"  th:value="${attractionDetail.getAddressCn()}">
+                            </div>
+                            <fieldset>
+                                <label ></label><textarea name="attractionIntro" rows="6"
+                                                          th:text="${attractionDetail.getAttractionIntro()}"
+                                                                       class="form-control attractionIntro"></textarea>
+                            </fieldset>
+                            <fieldset>
+                                <label ></label><textarea name="attractionIntroCn" rows="6"
+                                                          th:text="${attractionDetail.getAttractionIntroCn()}"
+                                                                       class="form-control attractionIntroCn"></textarea>
+                            </fieldset>
+
+
+                            <div class="form-group">
+                                <button id="edit1" type="submit" th:value="${attractionDetail.getAttractionID()}" class="btn btn-primary form-control mt-7" th:if="${language ne 1}">Confirm</button>
+                                <button id="edit2" type="submit" th:value="${attractionDetail.getAttractionID()}" class="btn btn-primary form-control mt-7" th:if="${language eq 1}">确定</button>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <button id="delete1" type="button" th:value="${attractionDetail.getAttractionID()}" class="btn btn-primary form-control mt-7" onclick="Del()" th:if="${language ne 1}">Delete</button>
+                                <button id="delete2" type="button" th:value="${attractionDetail.getAttractionID()}" class="btn btn-primary form-control mt-7" onclick="Del2()" th:if="${language eq 1}">删除</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- jequery plugins -->
+<script src="../js/jquery.js"></script>
+
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/bootstrap.js"></script>
+<script src="../js/owl2.js"></script>
+<script src="../js/wow.js"></script>
+<script src="../js/validation.js"></script>
+<script src="../js/jquery.fancybox.js"></script>
+<script src="../js/appear.js"></script>
+<script src="../js/isotope.js"></script>
+<script src="../js/parallax-scroll.js"></script>
+<script src="../js/jquery.nice-select.min.js"></script>
+<script src="../js/jQuery.style.switcher.min.js"></script>
+
+<!-- main-js -->
+<script src="../js/script.js"></script>
+<script type="text/javascript">
+
+
+    function Del() {
+        var bid = $("#delete1").val();
+
+        // get the order id
+        $.ajax({
+            url: "/deleteAttraction",
+            method: "POST",
+            data: {
+                "bid": bid,
+            },
+            // pass it to order.py
+            success: function (result) {
+                console.log(result);
+                if (result.state === 0) {
+                    console.log(result.message);
+                    alert("Delete successfully");
+                    // top.location.href = "/";
+                } else {
+                    alert(result.message);
+                    $(".warning").text(result.message)
+                }
+                location.href="/staffDestinations"
+            },
+            error: function (result) {
+                console.log(result);
+                alert("No such User Found");
+            }
+        });
+    }
+    function Del2() {
+        var bid = $("#delete2").val();
+
+        // get the order id
+        $.ajax({
+            url: "/deleteAttraction",
+            method: "POST",
+            data: {
+                "bid": bid,
+            },
+            // pass it to order.py
+            success: function (result) {
+                console.log(result);
+                if (result.state === 0) {
+                    console.log(result.message);
+                    alert("Delete successfully");
+                    // top.location.href = "/";
+                } else {
+                    alert(result.message);
+                    $(".warning").text(result.message)
+                }
+                location.href="/staffDestinations"
+            },
+            error: function (result) {
+                console.log(result);
+                alert("No such User Found");
+            }
+        });
+    }
+
+
+    // var exampleModal = document.getElementById('exampleModal')
+    // exampleModal.addEventListener('show.bs.modal', function (event) {
+    // })
+    // $(function() {
+    //     $('#submitAccommodationInfo').one('click', function() {
+    //
+    //     });
+    // });
+    function Common (){
+        let AttractionId = document.getElementById("AttractionId").value;
+        $.ajax({
+            url: "/AttReviewCommon",
+            method: "GET",
+            data: {
+                "attractionId": AttractionId
+            },
+            // pass it to order.py
+            success: function (result) {
+                $("#list").html(result);
+                console.log(220);
+            },
+
+        });
+    }
+    function Bed (){
+        let AttractionId = document.getElementById("AttractionId").value;
+        $.ajax({
+            url: "/AttReviewBad",
+            method: "GET",
+            data: {
+                "attractionId": AttractionId
+            },
+            // pass it to order.py
+            success: function (result) {
+                $("#list").html(result);
+                console.log(220);
+            },
+
+        });
+    }
+    function Good (){
+        let AttractionId = document.getElementById("AttractionId").value;
+        $.ajax({
+            url: "/AttReviewGood",
+            method: "GET",
+            data: {
+                "attractionId": AttractionId
+            },
+            // pass it to order.py
+            success: function (result) {
+                $("#list").html(result);
+                console.log(220);
+            },
+
+        });
+    }
+
+    function toLogin(){
+        top.location.href="/toLogin";
+        console.log(1);
+    }
+
+    $("#edit1").on("click", function (){
+        var aid = $(this).val()
+        var attractionName = $(".attractionName").val()
+        var attractionNameCn = $(".attractionNameCn").val()
+        var attractionIntro = $(".attractionIntro").val()
+        var attractionIntroCn = $(".attractionIntroCn").val()
+        var address = $(".address").val()
+        var addressCn = $(".addressCn").val()
+        $.ajax({
+            url: "/editAttraction",
+            method: "POST",
+            data: {
+                "aid": aid,
+                "attractionName": attractionName,
+                "attractionNameCn": attractionNameCn,
+                "attractionIntro": attractionIntro,
+                "attractionIntroCn": attractionIntroCn,
+                "address": address,
+                "addressCn": addressCn
+            },
+            // pass it to sb.py
+            success: function (result) {
+
+                console.log(result);
+                if (result.state === 0) {
+                    // if successfully submitted
+                    alert(result.message);
+
+                    top.location.href = "/attractionDetail?attractionId=" + aid;
+                } else {
+                    alert(result.message);
+
+                }
+            },
+            error: function (result) {
+                console.log(result);
+                alert("error");
+            }
+        });
+
+    })
+
+
+
+
+    function checkingAttractionComment(){
+        var customerId = $(".customerId").val();
+        var attractionId = $(".attractionId").val();
+        var attractionContent = $(".attractionContent").val();
+        var formData = new FormData();
+
+        formData.append("customerId",customerId);
+        formData.append("content", attractionContent);
+        formData.append("attractionId", attractionId);
+
+        $.ajax({
+            url: "/addAttractionReview",
+            method: "POST",
+            data: formData,
+            processData : false,
+            contentType : false,
+            async:false,
+            // pass it to sb.py
+            success: function (result) {
+
+                console.log(result);
+                if (result.state === 0) {
+                    // if successfully submitted
+                    console.log(result.message);
+
+                    top.location.href = "/attractionDetail?attractionId=" + attractionId;
+                } else {
+                    alert(result.message);
+                    $(".warning").text(result.message)
+                }
+            },
+            error: function (result) {
+                alert(result.message);
+            }
+        });
+
+
+    }
+
+</script>
+</body><!-- End of .page_wrapper -->
+</html>

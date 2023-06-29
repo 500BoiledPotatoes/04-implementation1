@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <title>Travel Agent</title>
+
+    <!-- Fav Icon -->
+
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,500;1,9..144,600;1,9..144,700;1,9..144,800;1,9..144,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link href="../css/font-awesome-all.css" rel="stylesheet">
+    <link href="../css/flaticon.css" rel="stylesheet">
+    <link href="../css/owl.css" rel="stylesheet">
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../css/jquery.fancybox.min.css" rel="stylesheet">
+    <link href="../css/animate.css" rel="stylesheet">
+    <link href="../css/nice-select.css" rel="stylesheet">
+    <link href="../css/elpath.css" rel="stylesheet">
+    <link href="../css/color/theme-color.css" id="jssDefault" rel="stylesheet">
+    <link href="../css/switcher-style.css" rel="stylesheet">
+    <link href="../css/rtl.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/module-css/page-title.css" rel="stylesheet">
+    <link href="../css/module-css/news.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
+
+</head>
+
+
+<!-- page wrapper -->
+<body>
+
+<div class="boxed_wrapper ltr">
+    <input type="hidden" id="destinationNameCn" th:value="${destination.getDestinationNameCn()}">
+
+    <!-- preloader -->
+
+    <!-- preloader end -->
+
+
+    <!-- page-direction -->
+
+    <!-- page-direction end -->
+
+
+    <!-- switcher menu -->
+    <!-- end switcher menu -->
+
+
+    <!--Search Popup-->
+    <div id="search-popup" class="search-popup">
+        <div class="popup-inner">
+            <div class="upper-box clearfix">
+                <figure class="logo-box pull-left"><a href="index.html"><img src="assets/images/logo.png" alt=""></a></figure>
+                <div class="close-search pull-right"><span class="far fa-times"></span></div>
+            </div>
+            <div class="overlay-layer"></div>
+            <div class="auto-container">
+                <div class="search-form">
+                    <form method="post" th:action="@{/findDestination}" id="selectBook">
+                        <div class="form-group">
+                            <fieldset>
+                                <input type="search" th:if="${language ne 1}" class="form-control" name="destination" value="" placeholder="Type your destination keyword and hit" required >
+                                <input type="search" th:if="${language eq 1}" class="form-control" name="destination" value="" placeholder="请输入您想要查询的目的地名称" required >
+                                <button type="submit" ><i class="far fa-search"></i></button>
+                            </fieldset>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- main header -->
+    <div th:insert="~{Navigation :: #mainNoSearch}" th:if="${language ne 1}"></div>
+    <div th:insert="~{Navigation :: #mainChineseNoSearch}" th:if="${language eq 1}"></div>
+    <!-- main-header end -->
+
+    <!-- Mobile Menu  -->
+    <!-- End Mobile Menu -->
+
+
+    <!-- page-title -->
+    <section class="page-title p_relative centred" th:if="${language ne 1}">
+        <div class="bg-layer" style="background-image: url(/images/background/house.jpg);"></div>
+        <div class="auto-container">
+            <div class="content-box">
+                <h1 th:text="${destination.getDestinationName()}">Destinations Details</h1>
+                <ul class="bread-crumb clearfix">
+                    <li><a href="/">Home</a></li>
+                    <li>Destinations Details</li>
+                    <li><a id="subway" href="javascript:void(0);">Subway Instruction</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="page-title p_relative centred" th:if="${language eq 1}">
+        <div class="bg-layer" style="background-image: url(/images/background/house.jpg);"></div>
+        <div class="auto-container">
+            <div class="content-box">
+                <h1 th:text="${destination.getDestinationNameCn()}">目的地明细</h1>
+                <ul class="bread-crumb clearfix">
+                    <li><a href="/">主页</a></li>
+                    <li>目的地明细</li>
+                    <li><a id="subwayCn" href="javascript:void(0);">展示地铁图</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- page-title end -->
+
+
+    <section class="project-details pt_140 pb_150">
+        <div class="auto-container">
+            <div class="project-details-content">
+                <div class="title-box">
+                    <h2 th:if="${language ne 1}">Introduction</h2>
+                    <h2 th:if="${language eq 1}">介绍</h2>
+                    <p th:if="${language ne 1}" th:text="${destination.getDestinationIntro()}"></p>
+                    <p th:if="${language eq 1}" th:text="${destination.getDestinationIntroCn()}"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- blog-grid -->
+    <section class="project-details pt_20 pb_30">
+        <div class="auto-container">
+            <div class="project-details-content">
+                <div class="title-box">
+                    <h2 th:if="${language ne 1}">Attractions</h2>
+                    <h2 th:if="${language eq 1}">景点</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="blog-grid pb_150">
+        <div class="auto-container">
+            <div class="row clearfix">
+                <div class="col-lg-4 col-md-6 col-sm-12 news-block" th:each="i:${attractions}">
+                    <div class="news-block-two wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <figure class="image ToDetails" style="height: 240px;width: 360px"><a><img th:src="${i.getImagePath()}" alt=""></a></figure>
+<!--                                <span class="post-date">12 DEC</span>-->
+                            </div>
+                            <div class="lower-content">
+                                <span class="category" th:if="${language ne 1}">Attraction</span>
+                                <span class="category" th:if="${language eq 1}">景点</span>
+                                <h3><a class="ToDetails" th:if="${language ne 1}"  th:text="${i.getAttractionName()}">202020</a></h3>
+                                <h3><a class="ToDetails" th:if="${language eq 1}"  th:text="${i.getAttractionNameCn()}">202020</a></h3>
+                                <button th:if="${language ne 1}" th:value="${i.getAttractionID()}" id="ToAttDetails" class="ToAttDetails theme-btn btn-one" style="width: 150px;height: 40px" type="button"  onclick="ToAttDetails()">View Details</button>
+                                <button th:if="${language eq 1}" th:value="${i.getAttractionID()}"  class="ToAttDetails theme-btn btn-one" style="width: 150px;height: 40px" type="button"  onclick="ToAttDetails()">详细信息</button>
+                                <!--                <ul class="post-info clearfix">-->
+                                <!--                  <li class="author-box">-->
+                                <!--                    <div class="author-thumb"><img src="assets/images/news/author-1.jpg" alt=""></div>-->
+                                <!--                    By <a href="blog-details.html">Devon Lane</a>-->
+                                <!--                  </li>-->
+                                <!--                  <li><i class="icon-25"></i>20</li>-->
+                                <!--                </ul>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pagination-wrapper centred">
+            </div>
+        </div>
+    </section>
+    <!-- blog-grid end -->
+
+
+    <section class="project-details pt_20 pb_30">
+        <div class="auto-container">
+            <div class="project-details-content">
+                <div class="title-box">
+                    <h2 th:if="${language ne 1}">Accommodations</h2>
+                    <h2 th:if="${language eq 1}">住宿</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="blog-grid pb_150">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <div class="col-lg-4 col-md-6 col-sm-12 news-block" th:each="i:${accommodations}">
+                <div class="news-block-two wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                    <div class="inner-box">
+                        <div class="image-box">
+                            <figure class="image ToDetails" style="height: 240px;width: 360px"><a><img th:src="${i.getFilepath()}" alt=""></a></figure>
+<!--                            <span class="post-date">12 DEC</span>-->
+                        </div>
+                        <div class="lower-content">
+                            <span class="category" th:if="${language ne 1}">Accommodation</span>
+                            <span class="category" th:if="${language eq 1}">住宿</span>
+                            <h3><a class="ToDetails" th:if="${language ne 1}" href="/Details" th:text="${i.getAccommodationName()}">202020</a></h3>
+                            <h3><a class="ToDetails" th:if="${language eq 1}" href="/Details" th:text="${i.getAccommodationNameCn()}">202020</a></h3>
+                            <button th:if="${language ne 1}" th:value="${i.getAccommodationId()}" id="ToAccDetails" class="ToAccDetails theme-btn btn-one" style="width: 150px;height: 40px" type="button" onclick="ToAccDetails()" >View Details</button>
+                            <button th:if="${language eq 1}" th:value="${i.getAccommodationId()}" class="ToAccDetails theme-btn btn-one" style="width: 150px;height: 40px" type="button" onclick="ToAccDetails()" >详细信息</button>
+                            <!--                <ul class="post-info clearfix">-->
+                            <!--                  <li class="author-box">-->
+                            <!--                    <div class="author-thumb"><img src="assets/images/news/author-1.jpg" alt=""></div>-->
+                            <!--                    By <a href="blog-details.html">Devon Lane</a>-->
+                            <!--                  </li>-->
+                            <!--                  <li><i class="icon-25"></i>20</li>-->
+                            <!--                </ul>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pagination-wrapper centred">
+
+        </div>
+    </div>
+</section>
+    <!-- main-footer -->
+    <!-- main-footer -->
+
+
+
+    <!--Scroll to top-->
+    <div class="scroll-to-top">
+        <div>
+            <div class="scroll-top-inner">
+                <div class="scroll-bar">
+                    <div class="bar-inner"></div>
+                </div>
+                <div class="scroll-bar-text">Go To Top</div>
+            </div>
+        </div>
+    </div>
+    <!-- Scroll to top end -->
+
+</div>
+
+
+<!-- jequery plugins -->
+<script src="../js/jquery.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/owl.js"></script>
+<script src="../js/wow.js"></script>
+<script src="../js/validation.js"></script>
+<script src="../js/jquery.fancybox.js"></script>
+<script src="../js/appear.js"></script>
+<script src="../js/isotope.js"></script>
+<script src="../js/parallax-scroll.js"></script>
+<script src="../js/jquery.nice-select.min.js"></script>
+<script src="../js/jQuery.style.switcher.min.js"></script>
+
+<!-- main-js -->
+<script src="../js/script.js"></script>
+
+
+<script>
+    var destinationNameCn =document.getElementById('destinationNameCn').value
+
+    $("#subway").on("click", function () {
+        window.open("/subwayPresent?destinationNameCn="+destinationNameCn)
+    })
+
+    $("#subwayCn").on("click", function () {
+        window.open("/subwayPresent?destinationNameCn="+destinationNameCn)
+    })
+
+    $(".ToAttDetails").on("click", function () {
+        a = $(this).val();
+        top.location.href = "/attractionDetail?attractionId=" + a;
+        console.log(a);
+    })
+
+    $(".ToAccDetails").on("click", function () {
+        a = $(this).val();
+        top.location.href = "/accommodationDetail?accommodationId=" + a;
+        console.log(a);
+    })
+
+
+</script>
+
+<script type="text/javascript">
+    function ToAttDetails(){
+        a = document.getElementById('ToAttDetails').value
+        top.location.href="/attractionDetail?attractionId=" + a;
+        console.log(1);
+    }
+
+    function ToAccDetails(){
+        a = document.getElementById('ToAccDetails').value
+        top.location.href= "/accommodationDetail?accommodationId=" + a;
+        console.log(1);
+    }
+</script>
+
+
+</body><!-- End of .page_wrapper -->
+</html>

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Travel Agent</title>
+
+    <!-- Fav Icon -->
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,500;1,9..144,600;1,9..144,700;1,9..144,800;1,9..144,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/font-awesome-all.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/flaticon.css"  type="text/css" media="all">
+    <link rel="stylesheet" href="../css/owl.css"  type="text/css" media="all">
+    <link rel="stylesheet" href="../css/bootstrap.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/jquery.fancybox.min.css"  type="text/css" media="all">
+    <link rel="stylesheet" href="../css/animate.css"  type="text/css" media="all">
+    <link rel="stylesheet" href="../css/nice-select.css"  type="text/css" media="all">
+    <link rel="stylesheet" href="../css/elpath.css"  type="text/css" media="all">
+    <link rel="stylesheet" href="../css/color/theme-color.css" id="jssDefault"  type="text/css" media="all">
+
+    <link rel="stylesheet" href="../css/switcher-style.css"  type="text/css" media="all">
+    <link rel="stylesheet" href="../css/rtl.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/style.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/module-css/page-title.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/module-css/news.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/module-css/sidebar.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/responsive.css" type="text/css" media="all">
+
+
+
+
+
+</head>
+
+
+<!-- page wrapper -->
+<body>
+
+<div th:insert="~{Navigation :: #mainNoSearch}" th:if="${language ne 1}"></div>
+<div th:insert="~{Navigation :: #mainChineseNoSearch}" th:if="${language eq 1}"></div>
+
+
+
+<div class="boxed_wrapper ltr">
+
+    <header class="main-header header-style-two">
+
+    </header>
+    <section class="page-title p_relative centred" th:if="${language ne 1}">
+        <div class="bg-layer" style="background-image: url(/images/background/house.jpg);"></div>
+        <div class="pattern-layer">
+            <!--            <div class="pattern-1" style="background-image: url(../static/images/shape/shape-14.png);"></div>-->
+            <!--            <div class="pattern-2" style="background-image: url(../static/images/shape/shape-14.png);"></div>-->
+            <!--            <div class="pattern-3 rotate-me" style="background-image: url(../static/images/shape/shape-15.png);"></div>-->
+            <!--            <div class="pattern-4 float-bob-y" style="background-image: url(../static/images/shape/shape-16.png);"></div>-->
+        </div>
+        <div class="auto-container">
+            <div class="content-box">
+                <h1>Staff Page</h1>
+                <ul class="bread-crumb clearfix">
+                    <li><a href="Trueindex.html">Home</a></li>
+                    <li>Staff Page</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="page-title p_relative centred" th:if="${language eq 1}">
+        <div class="bg-layer" style="background-image: url(/images/background/house.jpg);"></div>
+        <div class="pattern-layer">
+            <!--            <div class="pattern-1" style="background-image: url(../static/images/shape/shape-14.png);"></div>-->
+            <!--            <div class="pattern-2" style="background-image: url(../static/images/shape/shape-14.png);"></div>-->
+            <!--            <div class="pattern-3 rotate-me" style="background-image: url(../static/images/shape/shape-15.png);"></div>-->
+            <!--            <div class="pattern-4 float-bob-y" style="background-image: url(../static/images/shape/shape-16.png);"></div>-->
+        </div>
+        <div class="auto-container">
+            <div class="content-box">
+                <h1>管理员主页</h1>
+                <ul class="bread-crumb clearfix">
+                    <li><a href="Trueindex.html">主页</a></li>
+                    <li>管理员主页</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- page-title end -->
+
+
+    <!-- sidebar-page-container -->
+    <section th:if="${language ne 1}">
+
+        <div class="auto-container">
+            <div >
+
+                <div class="col-lg-8 col-md-12 col-sm-12" style="margin-left: 250px">
+                    <div class="popup-inner">
+                        <div class="upper-box clearfix">
+                        </div>
+                        <div class="overlay-layer"></div>
+                        <div class="auto-container">
+
+                            <br>
+                            <br>
+                            <div class="group-title">
+                                <h3>Add accommodation</h3>
+                            </div>
+
+                            <div class="search-form ">
+                                <div>
+                                    <div class="form-group">
+                                        <br>
+                                        <input type="text" class="form-control accommodationName" name="accommodationName" placeholder="Type the name of the accommodation" >
+                                        <br>
+                                        <input type="text" class="form-control accommodationNameCn" name="accommodationNameCn" placeholder="Type the chinese name of the accommodation" >
+                                        <br>
+                                        <input type="text" name="address" class="form-control address" placeholder="Type the address" >
+                                        <br>
+                                        <input type="text" name="addressCn" class="form-control addressCn" placeholder="Type the chinese name of the address" >
+                                        <br>
+                                        <input type="text" class="form-control destination" name="destination" placeholder="Type the name of the destination" >
+                                        <br>
+                                        <input type="text" class="form-control destinationCn" name="destinationCn" placeholder="Type the chinese name of the destination" >
+
+
+                                        <fieldset>
+                                            <label for="content"></label><textarea onkeydown="checkCharacterLength(event, 'accommodationIntro')" name="accommodationIntro" rows="6"  placeholder="Type the intro of the accommodation" required class="form-control accommodationIntro"></textarea>
+                                        </fieldset>
+                                        <br>
+                                        <fieldset>
+                                            <label for="content"></label><textarea onkeydown="checkCharacterLength(event, 'accommodationIntroCn')" name="accommodationIntroCn" rows="6"  placeholder="Type the chinese intro of the accommodation" required class="form-control accommodationIntroCn"></textarea>
+                                        </fieldset>
+                                        <br>
+
+                                        <input type="file" name="file" id="file" class="form-control-file file" style='display:none;' onchange="$('#fileShowName').val($(this).val());">
+                                        <div class="btn-box">
+                                            <button id="upload"  type="button" onclick="file.click()" class="theme-btn btn-one" style="width: 300px;height: 50px">Upload accommodation picture</button>
+                                        </div>
+                                        <br>
+                                        <input type="text" class="form-control"  id="fileShowName" readonly="readonly" >
+
+                                        <!--                                        <input type="file" name="file" id="file" class="form-control file-selector-button" value="choose your picture">-->
+                                        <br>
+
+                                        <!--                                            <button class="fa" type="submit"></button>-->
+                                        <div class="btn-box">
+                                            <button class="theme-btn btn-one" onclick="checkingAccommodation()" id="" type="submit" style="width: 80px;height: 50px">Add
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section th:if="${language eq 1}">
+
+        <div class="auto-container">
+            <div >
+
+                <div class="col-lg-8 col-md-12 col-sm-12" style="margin-left: 250px">
+                    <div class="popup-inner">
+                        <div class="upper-box clearfix">
+                        </div>
+                        <div class="overlay-layer"></div>
+                        <div class="auto-container">
+
+                            <br>
+                            <br>
+                            <div class="group-title">
+                                <h3>添加住宿</h3>
+                            </div>
+
+                            <div class="search-form ">
+                                <div>
+                                    <div class="form-group">
+                                        <br>
+                                        <input type="text" class="form-control accommodationName" name="accommodationName" placeholder="添加英文住宿名称" >
+                                        <br>
+                                        <input type="text" class="form-control accommodationNameCn" name="accommodationNameCn" placeholder="添加中文住宿名称" >
+                                        <br>
+                                        <input type="text" name="address" class="form-control address" placeholder="添加英文地址">
+                                        <br>
+                                        <input type="text" name="addressCn" class="form-control addressCn" placeholder="添加中文地址">
+                                        <br>
+                                        <input type="text" class="form-control destination" name="destination" placeholder="所属目的地">
+
+
+                                        <fieldset>
+                                            <label for="content"></label><textarea onkeydown="checkCharacterLength(event, 'accommodationIntro')" name="accommodationIntro"   rows="6"  placeholder="添加英文简介" required class="form-control accommodationIntro"></textarea>
+                                        </fieldset>
+                                        <br>
+
+                                        <fieldset>
+                                            <label for="content"></label><textarea onkeydown="checkCharacterLength(event, 'accommodationIntro')" name="accommodationIntroCn"  rows="6"  placeholder="添加中文简介" required class="form-control accommodationIntroCn"></textarea>
+                                        </fieldset>
+                                        <br>
+
+
+                                        <input type="file" name="file"  id="file2" class="form-control-file" style='display:none;' onchange="$('#fileShowName2').val($(this).val());">
+
+
+                                        <div class="btn-box">
+                                            <button  type="button" class="theme-btn btn-one fileCn" style="width: 300px;height: 50px">上传图片</button>
+                                        </div>
+                                        <br>
+                                        <input type="text" class="form-control" id="fileShowName2"  readonly="readonly" >
+
+                                        <!--                                        <input type="file" name="file" id="file" class="form-control file-selector-button" value="choose your picture">-->
+                                        <br>
+
+                                        <!--                                            <button class="fa" type="submit"></button>-->
+                                        <div class="btn-box">
+                                            <button class="theme-btn btn-one"  onclick="checkingAccommodationCn()" type="submit" style="width: 80px;height: 50px">添加
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!--Scroll to top-->
+    <div class="scroll-to-top" th:if="${language ne 1}">
+        <div>
+            <div class="scroll-top-inner">
+                <div class="scroll-bar">
+                    <div class="bar-inner"></div>
+                </div>
+                <div class="scroll-bar-text">Go To Top</div>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-to-top" th:if="${language eq 1}">
+        <div>
+            <div class="scroll-top-inner">
+                <div class="scroll-bar">
+                    <div class="bar-inner"></div>
+                </div>
+                <div class="scroll-bar-text">返回顶部</div>
+            </div>
+        </div>
+    </div>
+    <!-- Scroll to top end -->
+
+</div>
+
+
+<!-- jequery plugins -->
+<script src="../js/jquery.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/owl.js"></script>
+<script src="../js/wow.js"></script>
+<script src="../js/validation.js"></script>
+<script src="../js/jquery.fancybox.js"></script>
+<script src="../js/appear.js"></script>
+<script src="../js/isotope.js"></script>
+<script src="../js/parallax-scroll.js"></script>
+<script src="../js/jquery.nice-select.min.js"></script>
+<script src="../js/jQuery.style.switcher.min.js"></script>
+<script src="../js/click.js"></script>
+
+<!-- main-js -->
+<script src="../js/script.js"></script>
+
+<script th:inline="javascript">
+
+
+    function checkCharacterLength(event, className) {
+
+        var characterLength = $("."+ className).val();
+
+
+        var key = event.key;
+
+
+        var maxLength = 0;
+        if (className == 'accommodationIntro') {
+            maxLength = 1600
+        }
+        if (className == 'accommodationIntroCn') {
+            maxLength = 400
+        }
+
+
+        if (characterLength.length >= maxLength && key !== 'Backspace') {
+
+            event.preventDefault();
+        }
+    }
+
+    $(".fileCn").click(function(e){
+        document.getElementById('file2').click();
+    });
+
+    function checkingAccommodation(){
+        var accommodationName = $(".accommodationName").val();
+        var accommodationNameCn = $(".accommodationNameCn").val();
+        var address = $(".address").val();
+        var addressCn = $(".addressCn").val();
+        var destination = $(".destination").val();
+        var destinationCn = $(".destinationCn").val();
+        var accommodationIntro = $(".accommodationIntro").val();
+        var accommodationIntroCn = $(".accommodationIntroCn").val();
+
+
+        var formData = new FormData();
+        var img_file = document.getElementById("file");
+        var fileObj = img_file.files[0];
+        formData.append("accommodationName",accommodationName);
+        formData.append("accommodationIntro", accommodationIntro);
+        formData.append("address", address);
+        formData.append("accommodationNameCn", accommodationNameCn);
+        formData.append("accommodationIntroCn", accommodationIntroCn);
+        formData.append("addressCn", addressCn);
+        formData.append("destination", destination);
+        formData.append("file", fileObj);
+        $.ajax({
+            url: "/addAccommodation",
+            method: "POST",
+            data: formData,
+            processData : false,
+            contentType : false,
+            async:false,
+            // pass it to sb.py
+            success: function (result) {
+
+                console.log(result);
+                if (result.state === 0) {
+                    // if successfully submitted
+                    console.log(result.message);
+
+                    top.location.href = "/staffAccommodations";
+                } else {
+                    alert(result.message);
+                    $(".warning").text(result.message)
+                }
+            },
+            error: function (result) {
+                alert("picture too large");
+            }
+        });
+
+
+    }
+
+    function checkingAccommodationCn(){
+        var accommodationName = $(".accommodationName").val();
+        var accommodationNameCn = $(".accommodationNameCn").val();
+        var address = $(".address").val();
+        var addressCn = $(".addressCn").val();
+        var destination = $(".destination").val();
+        var destinationCn = $(".destinationCn").val();
+        var accommodationIntro = $(".accommodationIntro").val();
+        var accommodationIntroCn = $(".accommodationIntroCn").val();
+
+
+        var formData = new FormData();
+        var img_file = document.getElementById("file2");
+        var fileObj = img_file.files[0];
+        formData.append("accommodationName",accommodationName);
+        formData.append("accommodationIntro", accommodationIntro);
+        formData.append("address", address);
+        formData.append("accommodationNameCn", accommodationNameCn);
+        formData.append("accommodationIntroCn", accommodationIntroCn);
+        formData.append("addressCn", addressCn);
+        formData.append("destination", destination);
+        formData.append("file", fileObj);
+        $.ajax({
+            url: "/addAccommodation",
+            method: "POST",
+            data: formData,
+            processData : false,
+            contentType : false,
+            async:false,
+            // pass it to sb.py
+            success: function (result) {
+
+                console.log(result);
+                if (result.state === 0) {
+                    // if successfully submitted
+                    console.log(result.message);
+
+                    top.location.href = "/staffAccommodations";
+                } else {
+                    alert(result.message);
+                    $(".warning").text(result.message)
+                }
+            },
+            error: function (result) {
+                alert("picture too large");
+            }
+        });
+
+
+    }
+
+
+</script>
+</body><!-- End of .page_wrapper -->
+</html>

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <title>Travel Agent</title>
+
+    <!-- Fav Icon -->
+
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,500;1,9..144,600;1,9..144,700;1,9..144,800;1,9..144,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link href="../css/font-awesome-all.css" rel="stylesheet">
+    <link href="../css/flaticon.css" rel="stylesheet">
+    <link href="../css/owl.css" rel="stylesheet">
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../css/jquery.fancybox.min.css" rel="stylesheet">
+    <link href="../css/animate.css" rel="stylesheet">
+    <link href="../css/nice-select.css" rel="stylesheet">
+    <link href="../css/elpath.css" rel="stylesheet">
+    <link href="../css/color/theme-color.css" id="jssDefault" rel="stylesheet">
+    <link href="../css/switcher-style.css" rel="stylesheet">
+    <link href="../css/rtl.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/module-css/pricing.css" rel="stylesheet">
+    <link href="../css/module-css/page-title.css" rel="stylesheet">
+    <link href="../css/module-css/news.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
+
+</head>
+
+
+<!-- page wrapper -->
+<body>
+
+<div class="boxed_wrapper ltr">
+
+
+    <!-- preloader -->
+
+    <!-- preloader end -->
+
+
+    <!-- page-direction -->
+
+    <!-- page-direction end -->
+
+
+    <!-- switcher menu -->
+    <!-- end switcher menu -->
+
+
+    <!--Search Popup-->
+    <div id="search-popup" class="search-popup" >
+        <div class="popup-inner">
+            <div class="upper-box clearfix">
+                <figure class="logo-box pull-left"><a href="index.html"><img src="assets/images/logo.png" alt=""></a></figure>
+                <div class="close-search pull-right"><span class="far fa-times"></span></div>
+            </div>
+            <div class="overlay-layer"></div>
+            <div class="auto-container">
+                <div class="search-form">
+                    <form method="post" th:action="@{/stafffindTraffic}">
+                        <div class="form-group">
+                            <fieldset>
+                                <input type="search" class="form-control" name="traffic" value="" placeholder="Type your traffic keyword and hit" required th:if="${language ne 1}">
+                                <input type="search" class="form-control" name="traffic" value="" placeholder="输入查询通行信息关键词" required th:if="${language eq 1}">
+                                <button type="submit" ><i class="far fa-search"></i></button>
+                            </fieldset>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- main header -->
+    <div th:insert="~{Navigation :: #mainNoSearch}" th:if="${language ne 1}"></div>
+    <div th:insert="~{Navigation :: #mainChineseNoSearch}" th:if="${language eq 1}"></div>
+    <!-- main-header end -->
+
+    <!-- Mobile Menu  -->
+    <!-- End Mobile Menu -->
+
+
+    <!-- page-title -->
+    <section class="page-title p_relative centred" th:if="${language ne 1}">
+        <div class="bg-layer" style="background-image: url(/images/background/house.jpg);"></div>
+        <div class="auto-container">
+            <div class="content-box">
+                <h1>Package Details</h1>
+                <ul class="bread-crumb clearfix">
+                    <li><a href="/">Home</a></li>
+                    <li>Pacakge Details</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="page-title p_relative centred" th:if="${language eq 1}">
+        <div class="bg-layer" style="background-image: url(/images/background/house.jpg);"></div>
+        <div class="auto-container">
+            <div class="content-box">
+                <h1 th:text="${pack.getName()}">旅行套餐</h1>
+                <ul class="bread-crumb clearfix">
+                    <li><a href="/">主页</a></li>
+                    <li>套餐信息</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- page-title end -->
+
+
+    <!-- blog-grid -->
+    <section class="blog-grid pt_150 pb_150" style="margin-top: -150px" th:if="${language ne 1}">
+        <div class="auto-container">
+            <section class="pricing-section sec-pad centred">
+                <div class="auto-container">
+                    <div class="sec-title mb_50">
+                        <span class="sub-title">Package List</span>
+                        <h2>Not any hidden charge, choose <br />our travel package</h2>
+                    </div>
+                    <div class="tabs-box">
+                        <div class="tabs-content">
+                            <div class="tab active-tab" id="tab-1">
+                                <div class="row clearfix">
+                                    <div class="col-lg-4 col-md-6 col-sm-12 pricing-block" style="margin-bottom: 20px" >
+                                        <div class="pricing-block-one">
+                                            <div class="pricing-table">
+                                                <div class="table-header">
+                                                    <div class="icon-box"><img  src="../images/bora-bora-g19ecb3d37_1920.jpg" style="height: 190px" alt=""></div>
+<!--                                                    <h3 th:text="${i.getTypeCn()}">32 Gallon Trash</h3>-->
+                                                </div>
+                                                <div class="table-content">
+                                                    <ul class="feature-list mb_35 clearfix">
+                                                        <li  th:text="' '"></li>
+                                                        <li  th:text="' '"></li>
+                                                        <li  th:text="' '"></li>
+                                                    </ul>
+                                                    <div style="height: 95px">
+
+                                                    </div>
+                                                    <a href="javascript:void(0);" class="theme-btn" onclick="TrafficIdEn.click()" th:if="${sloginJudge eq 1}"><span>Add Item</span></a>
+                                                    <a href="javascript:void(0);" onclick="change()" class="theme-btn" th:if="${loginJudge eq 1}"><span>Select this Package</span></a>
+                                                    <button  id="TrafficIdEn" name="TrafficIdEn" class="theme-btn" style="display: none" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Select this Plan</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-sm-12 pricing-block" th:each="i:${items}" style="margin-bottom: 20px">
+                                        <div class="pricing-block-one">
+                                            <div class="pricing-table">
+                                                <div class="table-header">
+                                                    <div class="icon-box"><img style="height: 190px" th:src="${i.getAccommodation() != null ? i.getAccommodation().getFilepath():i.getAttraction().getImagePath()}" alt=""></div>
+<!--                                                    <h3 th:text="${i.getType()}">32 Gallon Trash</h3>-->
+                                                </div>
+                                                <div class="table-content">
+                                                    <ul class="feature-list mb_35 clearfix">
+                                                        <li  th:text="${i.getDestination().getDestinationName()}"></li>
+                                                        <li  th:text="${i.getAccommodation() != null ? i.getAccommodation().getAccommodationName():' '}"></li>
+                                                        <li  th:text="${i.getAttraction()!= null ? i.getAttraction().getAttractionName():' '}" ></li>
+                                                        <li  th:text="${#strings.replace(i.getStartDate(),'T',' ')}"></li>
+                                                        <li  th:text="${#strings.replace(i.getEndDate(),'T',' ')}"></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+<!--            <div class="row clearfix">-->
+<!--                <div class="col-lg-4 col-md-6 col-sm-12 news-block">-->
+<!--                    <div class="news-block-two wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">-->
+<!--                        <div class="inner-box">-->
+<!--                            <div class="image-box">-->
+<!--                                <figure class="image"><a><img src="../images/news/news-4.jpg" alt=""></a></figure>-->
+<!--                            </div>-->
+<!--                            <div class="lower-content">-->
+<!--                                <button class="staffToTra theme-btn btn-one" style="width: 200px;height: 40px" type="button" >Add Traffic</button>-->
+<!--                                &lt;!&ndash;                <ul class="post-info clearfix">&ndash;&gt;-->
+<!--                                &lt;!&ndash;                  <li class="author-box">&ndash;&gt;-->
+<!--                                &lt;!&ndash;                    <div class="author-thumb"><img src="assets/images/news/author-1.jpg" alt=""></div>&ndash;&gt;-->
+<!--                                &lt;!&ndash;                    By <a href="blog-details.html">Devon Lane</a>&ndash;&gt;-->
+<!--                                &lt;!&ndash;                  </li>&ndash;&gt;-->
+<!--                                &lt;!&ndash;                  <li><i class="icon-25"></i>20</li>&ndash;&gt;-->
+<!--                                &lt;!&ndash;                </ul>&ndash;&gt;-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+            <div class="pagination-wrapper centred">
+            </div>
+        </div>
+    </section>
+
+
+    <section class="blog-grid pt_150 pb_150" style="margin-top: -150px" th:if="${language eq 1}">
+        <div class="auto-container">
+            <section class="pricing-section sec-pad centred">
+                <div class="auto-container">
+                    <div class="sec-title mb_50">
+                        <span class="sub-title">套餐列表</span>
+                        <h2>您可先选择一些<br />套餐</h2>
+                    </div>
+                    <div class="tabs-box">
+                        <div class="tabs-content">
+                            <div class="tab active-tab">
+                                <div class="row clearfix">
+                                    <div class="col-lg-4 col-md-6 col-sm-12 pricing-block" style="margin-bottom: 20px">
+                                        <div class="pricing-block-one">
+                                            <div class="pricing-table">
+                                                <div class="table-header">
+                                                    <div class="icon-box"><img style="height: 190px" src="../images/bora-bora-g19ecb3d37_1920.jpg" alt=""></div>
+                                                    <!--                                                    <h3 th:text="${i.getTypeCn()}">32 Gallon Trash</h3>-->
+                                                </div>
+                                                <div class="table-content">
+                                                    <ul class="feature-list mb_35 clearfix">
+                                                        <li  th:text="' '"></li>
+                                                        <li  th:text="' '"></li>
+                                                        <li  th:text="' '"></li>
+                                                    </ul>
+                                                    <div style="height: 95px">
+
+                                                    </div>
+                                                    <a href="javascript:void(0);" class="theme-btn" onclick="TrafficIdEn.click()" th:if="${sloginJudge eq 1}"><span>添加条目</span></a>
+                                                    <a href="javascript:void(0);" onclick="change()" class="theme-btn" th:if="${loginJudge eq 1}"><span>选择该套餐</span></a>
+                                                    <button  id="TrafficIdEn" name="TrafficIdEn" class="theme-btn" style="display: none" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Select this Plan</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-sm-12 pricing-block" th:each="i:${items}" style="margin-bottom: 20px">
+                                        <div class="pricing-block-one">
+                                            <div class="pricing-table">
+                                                <div class="table-header">
+                                                    <div class="icon-box"  th:if="${i.getAccommodation() eq null}"><img style="height: 190px" th:src="${i.getAttraction().getImagePath()}" alt=""></div>
+                                                    <div class="icon-box"  th:if="${i.getAttraction() eq null}"><img style="height: 190px" th:src="${i.getAccommodation().getFilepath()}" alt=""></div>
+                                                    <!--                                                    <h3 th:text="${i.getType()}">32 Gallon Trash</h3>-->
+                                                </div>
+                                                <div class="table-content">
+                                                    <ul class="feature-list mb_35 clearfix">
+                                                        <li  th:text="${i.getDestination().getDestinationNameCn()}"></li>
+                                                        <li  th:text="${i.getAccommodation() != null ? i.getAccommodation().getAccommodationNameCn():' '}"></li>
+                                                        <li  th:text="${i.getAttraction()!= null ? i.getAttraction().getAttractionNameCn():' '}" ></li>
+                                                        <li  th:text="${#strings.replace(i.getStartDate(),'T',' ')}"></li>
+                                                        <li  th:text="${#strings.replace(i.getEndDate(),'T',' ')}"></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--            <div class="row clearfix">-->
+            <!--                <div class="col-lg-4 col-md-6 col-sm-12 news-block">-->
+            <!--                    <div class="news-block-two wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">-->
+            <!--                        <div class="inner-box">-->
+            <!--                            <div class="image-box">-->
+            <!--                                <figure class="image"><a><img src="../images/news/news-4.jpg" alt=""></a></figure>-->
+            <!--                            </div>-->
+            <!--                            <div class="lower-content">-->
+            <!--                                <button class="staffToTra theme-btn btn-one" style="width: 200px;height: 40px" type="button" >Add Traffic</button>-->
+            <!--                                &lt;!&ndash;                <ul class="post-info clearfix">&ndash;&gt;-->
+            <!--                                &lt;!&ndash;                  <li class="author-box">&ndash;&gt;-->
+            <!--                                &lt;!&ndash;                    <div class="author-thumb"><img src="assets/images/news/author-1.jpg" alt=""></div>&ndash;&gt;-->
+            <!--                                &lt;!&ndash;                    By <a href="blog-details.html">Devon Lane</a>&ndash;&gt;-->
+            <!--                                &lt;!&ndash;                  </li>&ndash;&gt;-->
+            <!--                                &lt;!&ndash;                  <li><i class="icon-25"></i>20</li>&ndash;&gt;-->
+            <!--                                &lt;!&ndash;                </ul>&ndash;&gt;-->
+            <!--                            </div>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <div class="pagination-wrapper centred">
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+        <div class="modal-dialog" style="width: 100%">
+            <div class="modal-content">
+                <h4 class="modal-title align-items-center text-center">Add Item</h4>
+                <div class="modal-header">
+                    <div class="modal-body">
+                        <div>
+                            <div >
+                                <div class="form-group">
+                                    <input type="text" name="pid" id="pid"  style="display: none" class="form-control" th:value="${packId}">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" th:if="${language ne 1}">Destination Id</label>
+                                    <label class="control-label" th:if="${language eq 1}">目的地编号</label>
+                                    <input type="number" id="Destination" class="form-control"  name="Destination" >
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" th:if="${language ne 1}">Accommodation Id</label>
+                                    <label class="control-label" th:if="${language eq 1}">住宿编号</label>
+                                    <input type="number" id="Accommodation" class="form-control"  name="Accommodation" >
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" th:if="${language ne 1}">Attraction Id</label>
+                                    <label class="control-label" th:if="${language eq 1}">景点编号</label>
+                                    <input type="number" id="Attraction" class="form-control" name="Attraction" >
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" th:if="${language ne 1}">Start Date</label>
+                                    <label class="control-label" th:if="${language eq 1}">开始日期</label>
+                                    <input type="datetime-local" id="start" class="form-control" name="start" value="">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" th:if="${language ne 1}">End Date</label>
+                                    <label class="control-label" th:if="${language eq 1}">结束日期</label>
+                                    <input type="datetime-local" id="end" class="form-control" name="end" value="">
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary form-control mt-7" onclick="addItem()" th:if="${language ne 1}">Add</button>
+                                    <button type="submit" class="btn btn-primary form-control mt-7" onclick="addItem()" th:if="${language eq 1}">添加</button>
+                                </div>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- blog-grid end -->
+
+
+    <!-- main-footer -->
+    <!-- main-footer -->
+
+
+
+    <!--Scroll to top-->
+    <div class="scroll-to-top" th:if="${language ne 1}">
+        <div>
+            <div class="scroll-top-inner">
+                <div class="scroll-bar">
+                    <div class="bar-inner"></div>
+                </div>
+                <div class="scroll-bar-text">Go To Top</div>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-to-top" th:if="${language eq 1}">
+        <div>
+            <div class="scroll-top-inner">
+                <div class="scroll-bar">
+                    <div class="bar-inner"></div>
+                </div>
+                <div class="scroll-bar-text">返回顶部</div>
+            </div>
+        </div>
+    </div>
+    <!-- Scroll to top end -->
+
+</div>
+
+
+<!-- jequery plugins -->
+<script src="../js/jquery.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/owl.js"></script>
+<script src="../js/wow.js"></script>
+<script src="../js/validation.js"></script>
+<script src="../js/jquery.fancybox.js"></script>
+<script src="../js/appear.js"></script>
+<script src="../js/isotope.js"></script>
+<script src="../js/parallax-scroll.js"></script>
+<script src="../js/jquery.nice-select.min.js"></script>
+<script src="../js/jQuery.style.switcher.min.js"></script>
+
+<!-- main-js -->
+<script src="../js/script.js"></script>
+
+
+
+
+<script th:inline="javascript">
+
+
+    function change(){
+        a = $("#pid").val();
+        top.location.href = "/changePackToBooking?pack_id=" + a;
+        console.log(a);
+    }
+
+    $(".staffToAdd").on("click", function () {
+        top.location.href = "/staffAddDes";
+    })
+
+    function addItem(){
+        var destinationId = $("#Destination").val();
+        var packageId = $("#pid").val();
+        var accommodationId = $("#Accommodation").val();
+        var attractionId = $("#Attraction").val();
+        var startTime = $("#start").val();
+        var endTime = $("#end").val();
+        if(accommodationId===""){
+            accommodationId=-1
+        }
+        if(attractionId===""){
+            attractionId=-1
+        }
+        console.log(destinationId)
+        console.log(packageId)
+        console.log(accommodationId)
+        console.log(attractionId)
+        console.log(startTime)
+        console.log(endTime)
+        $.ajax({
+            url: "/addItem",
+            method: "POST",
+            data: {
+                "destinationId": destinationId,
+                "packageId": packageId,
+                "accommodationId": accommodationId,
+                "attractionId": attractionId,
+                "startTime": startTime,
+                "endTime": endTime
+            },
+            // pass it to order.py
+            success: function (result) {
+                if (result.state === 0) {
+                    // if successfully submitted
+                    console.log(result.message);
+                    alert(result.message);
+                    // top.location.href = "/";
+                    top.location.href = "/getItems?packId=" + $("#pid").val();
+                }else {
+                    alert(result.message);
+                }
+
+            },
+            error: function (result){
+                console.log(result);
+                alert("add failed, please check the input time");
+            }
+        });
+    }
+</script>
+
+</body><!-- End of .page_wrapper -->
+</html>

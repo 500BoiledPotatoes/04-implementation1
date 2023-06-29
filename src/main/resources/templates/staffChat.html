@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum=1.0, user-scalable=no shrink-to-fit=no" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>ChatRoom</title>
+  <script type="text/javascript" src="../js/jquery.js" ></script>
+
+  <link rel="stylesheet" href="../css/flaticon.css" type="text/css" media="all">
+  <link rel="stylesheet" href="../css/flaticon2.css" type="text/css" media="all">
+  <link rel="stylesheet" href="../css/base.css" type="text/css" media="all" />
+  <script async src="https://hm.baidu.com/hm.js?85fad12bb9a6dab448f4eff0a19299a5"></script>
+
+</head>
+<body style="background: #e4eaff">
+
+
+<link rel="stylesheet" href="../css/communicate.css"  type="text/css" media="all">
+<link rel="stylesheet" href="../css/communicatestyle.css"  type="text/css" media="all">
+
+<section class="voice-box" style="display: none">
+  <input type="search" name="voice" id="voice-txt" />
+  <button id="startbtn">start</button>
+</section>
+
+<section class="fixed-box" id="fixed-box" style="position: fixed;">
+  <div class="fixed-main">
+    <button class="fixed-close" id="close-btn"></button>
+    <div id="fixed-txt">Hello</div>
+    <div class="fixed-icon">
+      <img src="../img/voice.png" alt="" />
+    </div>
+  </div>
+</section>
+
+
+<div class="container" style="z-index: 1;position: fixed;">
+  <div class="header">
+    <div class="imgText">
+      <div class="userimg">
+        <img src="../images/icons/customer.svg" class="cover">
+      </div>
+      <h4 style="padding: 10px;font-size: 30px" >Customer<br></h4>
+    </div>
+  </div>
+  <div class="content" id="communicate">
+
+  </div>
+  <div class="input-area">
+    <div style="display:flex">
+      <a  style="width: 30px;height: 30px;margin: 10px;"><img onclick="file.click()" id="image" style="width: 30px;height: 30px;" src="../communicate/image.svg"></a>
+      <a  style="width: 30px;height: 30px;margin: 10px;"><img onclick="startbtn.click()"  style="width: 30px;height: 30px;" src="../communicate/vocie.svg"></a>
+    </div>
+    <textarea name="text" id="sendMsg"></textarea>
+    <form id="clientChat">
+      <input type="text" style="display: none;" id="userName"  />
+      <input type="text" style="display: none;" id="targetUserName" />
+      <div class="button-area">
+        <button id="send-btn" type="button" onclick="send()">Send</button>
+        <input type="file" id="file" onchange="chooseFile()" style="display: none"/>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="../js/communicate.js"></script>
+<script src="../js/crypto-js.min.js"></script>
+<script src="../js/voice.js"></script>
+</body>
+<script>
+
+  window.onload = function () {
+    const voiceTxt = document.querySelector('#sendMsg');
+    const startBtn = document.querySelector('#startbtn');
+    const fixedBox = document.querySelector('#fixed-box');
+    const fixedTxt = document.querySelector('#fixed-txt');
+    const closeBtn = document.querySelector('#close-btn');
+    let times = null;
+
+    // 实例化迅飞语音听写（流式版）WebAPI
+    const voice = new Voice({
+
+      // 服务接口认证信息 注：apiKey 和 apiSecret 的长度都差不多，请要填错哦，！
+      appId: 'ed2782fa',
+      apiSecret: 'MjBjMWU2NmJhYmJhODNjNTAzYmRmMjI3',
+      apiKey: '274f9ccde1d2e7deef92e6994da3bdbd',
+      // 注：要获取以上3个参数，请到迅飞开放平台：https://www.xfyun.cn/services/voicedictation 【注：这是我的迅飞语音听写（流式版）每天服务量500（也就是调500次），如果你需求里大请购买服务量：https://www.xfyun.cn/services/voicedictation?target=price】
+
+      onWillStatusChange: function (oldStatus, newStatus) {
+        //可以在这里进行页面中一些交互逻辑处理：注：倒计时（语音听写只有60s）,录音的动画，按钮交互等！
+        fixedBox.style.display = 'block';
+      },
+      onTextChange: function (text) {
+        //监听识别结果的变化
+        voiceTxt.value = text;
+        fixedTxt.innerText = text;
+
+        // 3秒钟内没有说话，就自动关闭
+        if (text) {
+          clearTimeout(times);
+          times = setTimeout(() => {
+            this.stop(); // voice.stop();
+            fixedBox.style.display = 'none';
+          }, 3000);
+        };
+      }
+    });
+
+    // 开始识别
+    startBtn['onclick'] = function () {
+      voice.start();
+    };
+
+    // 关闭识别
+    closeBtn['onclick'] = function () {
+      voice.stop();
+      fixedBox.style.display = 'none';
+    };
+  };
+
+
+
+
+  var websocket = null;
+  var Ip = window.location.host;
+  var userId = null;
+
+  //判断当前浏览器是否支持WebSocket
+  if('WebSocket' in window){
+    websocket = new WebSocket("ws://"+Ip+"/websocket/0");
+  } else {
+    alert("Don't support websocket!")
+  }
+
+  //连接发生错误的回调方法
+  websocket.onerror = function(){
+    alert("Connect error!");
+  };
+
+  //连接成功建立的回调方法
+  websocket.onopen = function(event){
+    setAttribute("Connection established！");
+  }
+
+  //接收到消息的回调方法
+  websocket.onmessage = function(event){
+    var result = event.data
+    var ob = JSON.parse(result)
+    //判断用户状态
+
+    if(ob.state != undefined && ob.state != "success"){
+      setMessageInnerHTML("Illegal connection！");
+      websocket.close();
+    }
+    console.log(ob.msg)
+    //判断是否有消息
+    if(ob.msg != undefined && ob.msg != ""){
+      if (ob.code == 1){
+        setMessageInnerHTML(ob.msg);
+      }else if (ob.code == 2){
+        setIconInnerHTML(ob.msg);
+      }
+
+    }
+    if(ob.msg1 != undefined){
+      setAttribute(ob.msg1);
+    }
+  }
+
+  //连接关闭的回调方法
+  websocket.onclose = function(){
+    setAttribute("The server has been close, please refresh this page.");
+  }
+
+  //监听窗口关闭事件，当窗口关闭时，主动去关闭websocket连接，防止连接还没断开就关闭窗口，server端会抛异常。
+  window.onbeforeunload = function(){
+    websocket.close();
+  }
+
+  //将消息显示在网页上
+
+  function setAttribute(innerHTML){
+    let div1 = document.createElement('div');
+    div1.classList.add('item');
+    div1.classList.add('item-center');
+
+    let span = document.createElement('span');
+    span.innerHTML=innerHTML
+
+    let area = document.getElementById('communicate');
+    div1.appendChild(span);
+    area.appendChild(div1);
+  }
+
+
+
+  function setMessageInnerHTML(innerHTML){
+    let div1 = document.createElement('div');
+    div1.classList.add('item');
+    div1.classList.add('item-left');
+    let div2 = document.createElement('div');
+    div2.classList.add('avatar');
+    let div3 = document.createElement('div');
+    div3.classList.add('bubble');
+    div3.classList.add('bubble-left');
+    div3.setAttribute("id", "ClientMessage");
+    div3.innerHTML = innerHTML;
+    let img1 = document.createElement('img');
+    img1.setAttribute("src", "/images/icons/customer.svg");
+    let area = document.getElementById('communicate');
+    div1.appendChild(div2);
+    div1.appendChild(div3);
+    div2.appendChild(img1);
+    area.appendChild(div1);
+  }
+
+
+
+  function setIconInnerHTML(innerHTML) {
+    let div1 = document.createElement('div');
+    div1.classList.add('item');
+    div1.classList.add('item-left');
+    let div2 = document.createElement('div');
+    div2.classList.add('avatar');
+    let div3 = document.createElement('div');
+    div3.classList.add('bubble');
+    div3.classList.add('bubble-left');
+    div3.setAttribute("id", "ClientMessageIcon");
+    div3.innerHTML ='<img width="150px" src='+innerHTML+'>';
+    let img1 = document.createElement('img');
+    img1.setAttribute("src", "/images/icons/customer.svg");
+    let area = document.getElementById('communicate');
+    div1.appendChild(div2);
+    div1.appendChild(div3);
+    div2.appendChild(img1);
+    area.appendChild(div1);
+  }
+
+
+  function setClientIconInnerHTML(innerHTML) {
+    let div1 = document.createElement('div');
+    div1.classList.add('item');
+    div1.classList.add('item-right');
+    let div2 = document.createElement('div');
+    div2.classList.add('avatar');
+    let div3 = document.createElement('div');
+    div3.classList.add('bubble');
+    div3.classList.add('bubble-right');
+    div3.setAttribute("id", "messageIcon");
+    div3.innerHTML ='<img width="150px" src='+innerHTML+'>';
+    let img1 = document.createElement('img');
+    img1.setAttribute("src", "/images/icons/service.svg");
+    let area = document.getElementById('communicate');
+    div1.appendChild(div3);
+    div1.appendChild(div2);
+    div2.appendChild(img1);
+    area.appendChild(div1);
+  }
+
+
+  function setClientMessageInnerHTML(innerHTML){
+    let div1 = document.createElement('div');
+    div1.classList.add('item');
+    div1.classList.add('item-right');
+    let div2 = document.createElement('div');
+    div2.classList.add('avatar');
+    let div3 = document.createElement('div');
+    div3.classList.add('bubble');
+    div3.classList.add('bubble-right');
+    div3.setAttribute("id", "message");
+    div3.innerHTML = innerHTML;
+    let img1 = document.createElement('img');
+    img1.setAttribute("src", "/images/icons/service.svg");
+    let area = document.getElementById('communicate');
+    div1.appendChild(div3);
+    div1.appendChild(div2);
+    div2.appendChild(img1);
+    area.appendChild(div1);
+  }
+
+
+  //关闭连接
+  function closeWebSocket(){
+    websocket.close();
+  }
+
+  //发送消息
+  function send(){
+
+    var sendMsg = $("#sendMsg").val();
+    var socketConfig = {
+      code:1,
+      msg: sendMsg,
+    };
+    console.log(socketConfig)
+    if (sendMsg != ""){
+      setClientMessageInnerHTML(sendMsg)
+      websocket.send(JSON.stringify(socketConfig));
+    }
+
+    $("#sendMsg").val("");
+  }
+
+  function chooseFile() {
+    var fileList = document.getElementById("file").files;
+
+    if(fileList.length > 0){
+      var fileReader = new FileReader();
+      fileReader.readAsDataURL(fileList[0]);
+      fileReader.onload = function (e) {
+        var socketConfig = {
+          msg: e.target.result,
+          code: 2
+        };
+        websocket.send(JSON.stringify(socketConfig));
+        var msg = e.target.result;
+        setClientIconInnerHTML(msg)
+      }
+
+    }
+  }
+</script>
+
+
+
+</html>

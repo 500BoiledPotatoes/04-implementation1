@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <title>Travel Agent</title>
+
+    <!-- Fav Icon -->
+
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,500;1,9..144,600;1,9..144,700;1,9..144,800;1,9..144,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link href="../css/font-awesome-all.css" rel="stylesheet">
+    <link href="../css/flaticon.css" rel="stylesheet">
+    <link href="../css/owl.css" rel="stylesheet">
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../css/jquery.fancybox.min.css" rel="stylesheet">
+    <link href="../css/animate.css" rel="stylesheet">
+    <link href="../css/nice-select.css" rel="stylesheet">
+    <link href="../css/elpath.css" rel="stylesheet">
+    <link href="../css/color/theme-color.css" id="jssDefault" rel="stylesheet">
+    <link href="../css/switcher-style.css" rel="stylesheet">
+    <link href="../css/rtl.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/module-css/pricing.css" rel="stylesheet">
+    <link href="../css/module-css/page-title.css" rel="stylesheet">
+    <link href="../css/module-css/news.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
+
+</head>
+
+
+<!-- page wrapper -->
+<body>
+
+<div class="boxed_wrapper ltr">
+
+
+    <!-- preloader -->
+
+    <!-- preloader end -->
+
+
+    <!-- page-direction -->
+
+    <!-- page-direction end -->
+
+
+    <!-- switcher menu -->
+    <!-- end switcher menu -->
+
+
+    <!--Search Popup-->
+    <div id="search-popup" class="search-popup" >
+        <div class="popup-inner">
+            <div class="upper-box clearfix">
+                <figure class="logo-box pull-left"><a href="index.html"><img src="assets/images/logo.png" alt=""></a></figure>
+                <div class="close-search pull-right"><span class="far fa-times"></span></div>
+            </div>
+            <div class="overlay-layer"></div>
+            <div class="auto-container">
+                <div class="search-form">
+                    <form method="post" th:action="@{/stafffindTraffic}">
+                        <div class="form-group">
+                            <fieldset>
+                                <input type="search" class="form-control" name="traffic" value="" placeholder="Type your traffic keyword and hit" required th:if="${language ne 1}">
+                                <input type="search" class="form-control" name="traffic" value="" placeholder="输入查询通行信息关键词" required th:if="${language eq 1}">
+                                <button type="submit" ><i class="far fa-search"></i></button>
+                            </fieldset>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- main header -->
+    <div th:insert="~{Navigation :: #mainNoSearch}" th:if="${language ne 1}"></div>
+    <div th:insert="~{Navigation :: #mainChineseNoSearch}" th:if="${language eq 1}"></div>
+    <!-- main-header end -->
+
+    <!-- Mobile Menu  -->
+    <!-- End Mobile Menu -->
+
+
+    <!-- page-title -->
+    <section class="page-title p_relative centred" th:if="${language ne 1}">
+        <div class="bg-layer" style="background-image: url(/images/background/house.jpg);"></div>
+        <div class="auto-container">
+            <div class="content-box">
+                <h1>Traffic List</h1>
+                <ul class="bread-crumb clearfix">
+                    <li><a href="/">Home</a></li>
+                    <li>Traffic List</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="page-title p_relative centred" th:if="${language eq 1}">
+        <div class="bg-layer" style="background-image: url(/images/background/house.jpg);"></div>
+        <div class="auto-container">
+            <div class="content-box">
+                <h1>所有通行方式</h1>
+                <ul class="bread-crumb clearfix">
+                    <li><a href="/">主页</a></li>
+                    <li>所有通行方式</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- page-title end -->
+
+
+    <!-- blog-grid -->
+    <section class="blog-grid pt_150 pb_150" style="margin-top: -150px" th:if="${language ne 1}">
+        <div class="auto-container">
+            <section class="pricing-section sec-pad centred">
+                <div class="auto-container">
+                    <div class="sec-title mb_50">
+                        <span class="sub-title">Traffic List</span>
+                        <h2>Not any hidden charge, choose <br />our traffic plan</h2>
+                    </div>
+                    <div class="tabs-box">
+                        <div class="tabs-content">
+                            <div class="tab active-tab" id="tab-1">
+                                <div class="row clearfix">
+                                    <div class="col-lg-4 col-md-6 col-sm-12 pricing-block" th:each="i:${traffics}" style="margin-bottom: 20px">
+                                        <div class="pricing-block-one">
+                                            <div class="pricing-table">
+                                                <div class="table-header">
+                                                    <div th:if="${i.getType() eq 'Train'}" class="icon-box"><img src="../images/train-gbc5e69f9a_640.jpg" alt=""></div>
+                                                    <div th:if="${i.getType() eq 'Airline'}" class="icon-box"><img src="../images/airplane-g9b59a5b7d_640.jpg" alt=""></div>
+                                                    <div th:if="${i.getType() eq 'High-speed Rail'}" class="icon-box"><img style="height: 227px" src="../images/rail-gf2483f9c1_640.jpg" alt=""></div>
+                                                    <h3 th:text="${i.getType()}">32 Gallon Trash</h3>
+                                                </div>
+                                                <div class="table-content">
+                                                    <ul class="feature-list mb_35 clearfix">
+                                                        <li th:text="'From: '+${i.getFromPlace()}">From:</li>
+                                                        <li th:text="'To: '+${i.getToPlace()}">To:</li>
+                                                        <li th:text="'Departure Time: '+${#strings.replace(i.getStartDate(),'T',' ')}">Departure Time:</li>
+                                                        <li th:text="'Arrive Time: '+${#strings.replace(i.getEndDate(),'T',' ')}">Service: Every Day</li>
+                                                    </ul>
+                                                    <h2 th:text="'$'+${i.getPrice}">$20.99</h2>
+                                                    <p>Price</p>
+                                                    <a href="javascript:void(0);" th:onclick="selectTraffic1([[${i.getTrafficId()}]])" class="selectTraffic1 theme-btn" th:if="${sloginJudge eq 0}"><span>Select this Plan</span></a>
+                                                    <button th:value="${i.getTrafficId()}" id="TrafficIdEn" class="theme-btn" style="display: none">Select this Plan</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+<!--            <div class="row clearfix">-->
+<!--                <div class="col-lg-4 col-md-6 col-sm-12 news-block">-->
+<!--                    <div class="news-block-two wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">-->
+<!--                        <div class="inner-box">-->
+<!--                            <div class="image-box">-->
+<!--                                <figure class="image"><a><img src="../images/news/news-4.jpg" alt=""></a></figure>-->
+<!--                            </div>-->
+<!--                            <div class="lower-content">-->
+<!--                                <button class="staffToTra theme-btn btn-one" style="width: 200px;height: 40px" type="button" >Add Traffic</button>-->
+<!--                                &lt;!&ndash;                <ul class="post-info clearfix">&ndash;&gt;-->
+<!--                                &lt;!&ndash;                  <li class="author-box">&ndash;&gt;-->
+<!--                                &lt;!&ndash;                    <div class="author-thumb"><img src="assets/images/news/author-1.jpg" alt=""></div>&ndash;&gt;-->
+<!--                                &lt;!&ndash;                    By <a href="blog-details.html">Devon Lane</a>&ndash;&gt;-->
+<!--                                &lt;!&ndash;                  </li>&ndash;&gt;-->
+<!--                                &lt;!&ndash;                  <li><i class="icon-25"></i>20</li>&ndash;&gt;-->
+<!--                                &lt;!&ndash;                </ul>&ndash;&gt;-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+            <div class="pagination-wrapper centred">
+            </div>
+        </div>
+    </section>
+
+
+    <section class="blog-grid pt_150 pb_150" style="margin-top: -150px" th:if="${language eq 1}">
+        <div class="auto-container">
+            <section class="pricing-section sec-pad centred">
+                <div class="auto-container">
+                    <div class="sec-title mb_50">
+                        <span class="sub-title">交通方式列表</span>
+                        <h2>您可以在这里选择<br />交通方式</h2>
+                    </div>
+                    <div class="tabs-box">
+                        <div class="tabs-content">
+                            <div class="tab active-tab" >
+                                <div class="row clearfix">
+                                    <div class="col-lg-4 col-md-6 col-sm-12 pricing-block" th:each="i:${traffics}" style="margin-bottom: 20px">
+                                        <div class="pricing-block-one">
+                                            <div class="pricing-table">
+                                                <div class="table-header">
+                                                    <div th:if="${i.getType() eq 'Train'}" class="icon-box"><img src="../images/train-gbc5e69f9a_640.jpg" alt=""></div>
+                                                    <div th:if="${i.getType() eq 'Airline'}" class="icon-box"><img  src="../images/airplane-g9b59a5b7d_640.jpg" alt=""></div>
+                                                    <div th:if="${i.getType() eq 'High-speed Rail'}"  class="icon-box"><img style="height: 227px" src="../images/rail-gf2483f9c1_640.jpg" alt=""></div>
+                                                    <h3 th:text="${i.getTypeCn()}">32 Gallon Trash</h3>
+                                                </div>
+                                                <div class="table-content">
+                                                    <ul class="feature-list mb_35 clearfix">
+                                                        <li th:text="'出发地: '+${i.getFromPlaceCn()}">From:</li>
+                                                        <li th:text="'目的地: '+${i.getToPlaceCn()}">To:</li>
+                                                        <li th:text="'出发时间: '+${#strings.replace(i.getStartDate(),'T',' ')}">Departure Time:</li>
+                                                        <li th:text="'到达时间: '+${#strings.replace(i.getEndDate(),'T',' ')}">Service: Every Day</li>
+                                                    </ul>
+                                                    <h2 th:text="'$'+${i.getPrice}">$20.99</h2>
+                                                    <p>价格</p>
+                                                    <a href="javascript:void(0);" th:onclick="selectTraffic1([[${i.getTrafficId()}]])" class=" theme-btn" th:if="${sloginJudge eq 0}"><span>选择该方案</span></a>
+                                                    <button th:value="${i.getTrafficId()}" id="TrafficIdCn" class="theme-btn" style="display: none"><span>Select this Plan</span></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--            <div class="row clearfix">-->
+            <!--                <div class="col-lg-4 col-md-6 col-sm-12 news-block">-->
+            <!--                    <div class="news-block-two wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">-->
+            <!--                        <div class="inner-box">-->
+            <!--                            <div class="image-box">-->
+            <!--                                <figure class="image"><a><img src="../images/news/news-4.jpg" alt=""></a></figure>-->
+            <!--                            </div>-->
+            <!--                            <div class="lower-content">-->
+            <!--                                <button class="staffToTra theme-btn btn-one" style="width: 200px;height: 40px" type="button" >Add Traffic</button>-->
+            <!--                                &lt;!&ndash;                <ul class="post-info clearfix">&ndash;&gt;-->
+            <!--                                &lt;!&ndash;                  <li class="author-box">&ndash;&gt;-->
+            <!--                                &lt;!&ndash;                    <div class="author-thumb"><img src="assets/images/news/author-1.jpg" alt=""></div>&ndash;&gt;-->
+            <!--                                &lt;!&ndash;                    By <a href="blog-details.html">Devon Lane</a>&ndash;&gt;-->
+            <!--                                &lt;!&ndash;                  </li>&ndash;&gt;-->
+            <!--                                &lt;!&ndash;                  <li><i class="icon-25"></i>20</li>&ndash;&gt;-->
+            <!--                                &lt;!&ndash;                </ul>&ndash;&gt;-->
+            <!--                            </div>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <div class="pagination-wrapper centred">
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- blog-grid end -->
+
+
+    <!-- main-footer -->
+    <!-- main-footer -->
+
+
+
+    <!--Scroll to top-->
+    <div class="scroll-to-top" th:if="${language ne 1}">
+        <div>
+            <div class="scroll-top-inner">
+                <div class="scroll-bar">
+                    <div class="bar-inner"></div>
+                </div>
+                <div class="scroll-bar-text">Go To Top</div>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-to-top" th:if="${language eq 1}">
+        <div>
+            <div class="scroll-top-inner">
+                <div class="scroll-bar">
+                    <div class="bar-inner"></div>
+                </div>
+                <div class="scroll-bar-text">返回顶部</div>
+            </div>
+        </div>
+    </div>
+    <!-- Scroll to top end -->
+
+</div>
+
+
+<!-- jequery plugins -->
+<script src="../js/jquery.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/owl.js"></script>
+<script src="../js/wow.js"></script>
+<script src="../js/validation.js"></script>
+<script src="../js/jquery.fancybox.js"></script>
+<script src="../js/appear.js"></script>
+<script src="../js/isotope.js"></script>
+<script src="../js/parallax-scroll.js"></script>
+<script src="../js/jquery.nice-select.min.js"></script>
+<script src="../js/jQuery.style.switcher.min.js"></script>
+
+<!-- main-js -->
+<script src="../js/script.js"></script>
+
+
+
+
+<script th:inline="javascript">
+
+    function selectTraffic1(TrafficId){
+        console.log(TrafficId)
+        $.ajax({
+            url: "/addTrafficBooking",
+            method: "POST",
+            data: {
+                "traffic_id": TrafficId,
+            },
+
+            // pass it to order.py
+            success: function (result) {
+                if (result.state === 0) {
+                    // if successfully submitted
+                    console.log(result.message);
+                    alert(result.message);
+                    // top.location.href = "/";
+                }else {
+                    alert(result.message);
+                }
+            },
+            error: function (result){
+                console.log(result);
+                alert("add failed");
+            }
+
+
+        });
+    }
+    // $(".selectTraffic1").on("click", function () {
+    //     var a = document.getElementById("TrafficIdCn").value;
+    //     console.log(a)
+    //     $.ajax({
+    //         url: "/addTrafficBooking",
+    //         method: "POST",
+    //         data: {
+    //             "traffic_id": a,
+    //         },
+    //
+    //         // pass it to order.py
+    //         success: function (result) {
+    //             if (result.state === 0) {
+    //                 // if successfully submitted
+    //                 console.log(result.message);
+    //                 alert(result.message);
+    //                 // top.location.href = "/";
+    //             }else {
+    //                 alert(result.message);
+    //             }
+    //         },
+    //         error: function (result){
+    //             console.log(result);
+    //             alert("add failed");
+    //         }
+    //
+    //
+    //     });
+    // })
+    $(".selectTraffic2").on("click", function () {
+        var a = document.getElementById("TrafficIdCn").value;
+        console.log(a)
+        $.ajax({
+            url: "/addTrafficBooking",
+            method: "POST",
+            data: {
+                "traffic_id": a,
+            },
+
+            // pass it to order.py
+            success: function (result) {
+                if (result.state === 0) {
+                    // if successfully submitted
+                    console.log(result.message);
+                    alert(result.message);
+                    // top.location.href = "/";
+                }else {
+                    alert(result.message);
+                }
+            },
+            error: function (result){
+                console.log(result);
+                alert("add failed");
+            }
+
+
+        });
+    })
+
+</script>
+
+
+</body><!-- End of .page_wrapper -->
+</html>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <title>Search Results</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Fav Icon -->
+
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,500;1,9..144,600;1,9..144,700;1,9..144,800;1,9..144,900&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+          rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link href="../css/font-awesome-all.css" rel="stylesheet">
+    <link href="../css/flaticon.css" rel="stylesheet">
+    <link href="../css/owl.css" rel="stylesheet">
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../css/jquery.fancybox.min.css" rel="stylesheet">
+    <link href="../css/animate.css" rel="stylesheet">
+    <link href="../css/nice-select.css" rel="stylesheet">
+    <link href="../css/elpath.css" rel="stylesheet">
+    <link href="../css/color/theme-color.css" id="jssDefault" rel="stylesheet">
+    <link href="../css/switcher-style.css" rel="stylesheet">
+    <link href="../css/rtl.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/module-css/page-title.css" rel="stylesheet">
+    <link href="../css/module-css/news.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
+
+
+</head>
+
+
+<!-- page wrapper -->
+<body>
+
+<div class="boxed_wrapper ltr">
+
+
+    <!-- preloader -->
+
+    <!-- preloader end -->
+
+
+    <!-- page-direction -->
+
+    <!-- page-direction end -->
+
+
+    <!-- switcher menu -->
+    <!-- end switcher menu -->
+
+
+    <!--Search Popup-->
+    <div id="search-popup" class="search-popup">
+        <div class="popup-inner">
+            <div class="upper-box clearfix">
+                <figure class="logo-box pull-left"><a href="index.html"><img src="assets/images/logo.png" alt=""></a>
+                </figure>
+                <div class="close-search pull-right"><span class="far fa-times"></span></div>
+            </div>
+            <div class="overlay-layer"></div>
+            <div class="auto-container">
+                <div class="search-form">
+                    <form method="get" th:action="@{/search}" id="selectBook">
+                        <div class="form-group">
+                            <fieldset>
+                                <input type="search" class="form-control" name="name" th:value="${query}" value=""
+                                       placeholder="Type your customer keyword and hit" required>
+                                <button type="submit"><i class="far fa-search"></i></button>
+                            </fieldset>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- main header -->
+    <header class="main-header header-style-two">
+        <!-- header-lower -->
+        <div class="header-lower">
+            <div class="outer-box">
+                <div class="menu-area">
+                    <!--Mobile Navigation Toggler-->
+                    <div class="mobile-nav-toggler">
+                        <i class="icon-bar"></i>
+                        <i class="icon-bar"></i>
+                        <i class="icon-bar"></i>
+                    </div>
+                    <nav class="main-menu navbar-expand-md navbar-light clearfix">
+                        <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+                            <ul class="navigation clearfix">
+                                <li><a href="/">Home</a></li>
+                                <li class="current dropdown"><a>Staff Services</a>
+                                    <ul>
+                                        <li><a href="/staffDestinations">Destinations</a></li>
+                                        <li><a href="/staffAccommodations">Accommodations</a></li>
+                                        <li><a href="/staffAttractions">Attractions</a></li>
+                                        <li><a href="/staffAddDes">Add Destination</a></li>
+                                        <li><a href="/staffAddAcc">Add Accommodation</a></li>
+                                        <li><a href="/staffAddAtt">Add Attraction</a></li>
+                                        <li><a href="/CustomersList">Customers List</a></li>
+                                        <li><a href="/showAllBookings">Bookings List</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown"><a>Pages</a>
+                                    <ul>
+                                        <li><a href="/toReadMore">Read More</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="/toContact">Contact</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                <ul class="menu-right-content">
+                    <li class="support-box">
+                        <i class="icon-4"></i>
+                        <a>(+86)17801070400</a>
+                    </li>
+                    <li class="search-box-outer search-toggler">
+                        <i class="icon-5"></i>
+                    </li>
+                    <li class="btn-box">
+                        <a href="/staff" class="theme-btn btn-one"><span>Staff Page</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!--sticky Header-->
+        <div class="sticky-header">
+            <div class="outer-container">
+                <div class="outer-box">
+                    <div class="menu-area">
+                        <nav class="main-menu clearfix">
+                            <!--Keep This Empty / Menu will come through Javascript-->
+                            <div class="collapse navbar-collapse show clearfix">
+                                <ul class="navigation clearfix">
+                                    <li><a href="/">Home</a></li>
+                                    <li class="current dropdown"><a>StaffServices</a>
+                                        <ul>
+                                            <li><a href="/staffDestinations">Destinations</a></li>
+                                            <li><a href="/staffAccommodations">Accommodations</a></li>
+                                            <li><a href="/staffAttractions">Attractions</a></li>
+                                            <li><a href="/staffAddDes">Add Destination</a></li>
+                                            <li><a href="/staffAddAcc">Add Accommodation</a></li>
+                                            <li><a href="/staffAddAtt">Add Attraction</a></li>
+                                            <li><a href="/CustomersList">Customers List</a></li>
+                                            <li><a href="/showAllBookings">Bookings List</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown"><a>Pages</a>
+                                        <ul>
+                                            <li><a href="/toReadMore">Read More</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="/toContact">Contact</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                        <ul class="menu-right-content">
+                            <li class="support-box">
+                                <i class="icon-4"></i>
+                                <a>(+86)17801070400</a>
+                            </li>
+                            <li class="search-box-outer search-toggler">
+                                <i class="icon-5"></i>
+                            </li>
+                            <li class="btn-box">
+                                <a href="/staff" class="theme-btn btn-one"><span>Staff Page</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- main-header end -->
+
+    <!-- Mobile Menu  -->
+    <!-- End Mobile Menu -->
+
+
+    <!-- page-title -->
+    <section class="page-title p_relative centred">
+        <div class="bg-layer" style="background-image: url(images/background/page-title.jpg);"></div>
+        <div class="auto-container">
+            <div class="content-box">
+                <h1>Destinations</h1>
+                <ul class="bread-crumb clearfix">
+                    <li><a href="/">Home</a></li>
+                    <li>Destinations</li>
+                    <li th:text="${query}"></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- page-title end -->
+
+    <!--  <form id="selectBook1" th:action="@{/findDestination}" method="post">-->
+    <!--    <input name="destination" placeholder="destination">-->
+    <!--    <button type="submit" class = "findDestination">findDestination</button>-->
+    <!--  </form>-->
+    <!-- blog-grid -->
+    <!--    <div class="content-box">-->
+    <!--        <h1>Results for "<span th:text="${query}"></span>"</h1>-->
+    <!--    </div>-->
+
+    <section class="blog-grid pt_100">
+        <div class="auto-container">
+            <div class="row clearfix">
+                <div class="col-lg-4 col-md-6 col-sm-12 news-block" th:each="destination : ${results}">
+                    <div class="news-block-two wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <figure class="image"><a><img src="../images/news/news-4.jpg" alt=""></a></figure>
+                                <span class="post-date">12 DEC</span>
+                            </div>
+                            <div class="lower-content">
+                                <span class="category">Destination</span>
+                                <h3><a th:text="${destination.destinationIntro}">202020</a></h3>
+                                <h3><a th:text="${destination.destinationId}">202020</a></h3>
+                                <button th:value="${destination.destinationId}" class="ToDetails theme-btn btn-one"
+                                        style="width: 150px;height: 40px" type="button">View Details
+                                </button>
+                                <!--                <ul class="post-info clearfix">-->
+                                <!--                  <li class="author-box">-->
+                                <!--                    <div class="author-thumb"><img src="assets/images/news/author-1.jpg" alt=""></div>-->
+                                <!--                    By <a href="blog-details.html">Devon Lane</a>-->
+                                <!--                  </li>-->
+                                <!--                  <li><i class="icon-25"></i>20</li>-->
+                                <!--                </ul>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div th:text="${currentPage}"></div>
+        <div th:text="${totalPages}"></div>
+    </section>
+
+    <nav aria-label="Page navigation example" class="centred" style="margin-bottom: 50px">
+        <ul class="pagination centred">
+            <li class="btn-box" th:classappend="${currentPage == 1} ? disabled : 'Disabled'">
+                <a class="theme-btn btn-one page-link centred"
+                   th:href="@{/search(page=${currentPage - 1}, name=${query})}"><-</a>
+            </li>
+            <li th:each="pageNumber : ${pageNumbers}" class="btn-box"
+                th:classappend="${pageNumber == currentPage} ? active : ''">
+                <a class="theme-btn btn-one page-link" th:href="@{/search(name=${query},page=${pageNumber})}"
+                   th:text="${pageNumber}">1</a>
+            </li>
+            <li class="btn-box" th:classappend="${currentPage >= totalPages} ? disabled : ''">
+                <a class="theme-btn btn-one page-link centred"
+                   th:href="@{/search(page=${currentPage + 1}, name=${query})}">-></a>
+            </li>
+        </ul>
+    </nav>
+    <!-- blog-grid end -->
+    <!-- main-footer -->
+    <!-- main-footer -->
+
+
+    <!--Scroll to top-->
+    <div class="scroll-to-top">
+        <div>
+            <div class="scroll-top-inner">
+                <div class="scroll-bar">
+                    <div class="bar-inner"></div>
+                </div>
+                <div class="scroll-bar-text">Go To Top</div>
+            </div>
+        </div>
+    </div>
+    <!-- Scroll to top end -->
+
+</div>
+
+
+<!-- jequery plugins -->
+<script src="../js/jquery.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/owl.js"></script>
+<script src="../js/wow.js"></script>
+<script src="../js/validation.js"></script>
+<script src="../js/jquery.fancybox.js"></script>
+<script src="../js/appear.js"></script>
+<script src="../js/isotope.js"></script>
+<script src="../js/parallax-scroll.js"></script>
+<script src="../js/jquery.nice-select.min.js"></script>
+<script src="../js/jQuery.style.switcher.min.js"></script>
+
+<!-- main-js -->
+<script src="../js/script.js"></script>
+
+
+<script th:inline="javascript">
+
+
+    $(".viewD").on("click", function () {
+        a = $(this).val();
+        top.location.href = "/showBookingsOfCustomer?customerId=" + a;
+        console.log(a)
+    })
+
+    $(".ToDetails").on("click", function () {
+        a = $(this).val();
+        top.location.href = "/DestinationDetails?destinationId=" + a;
+        console.log(a);
+    })
+
+
+</script>

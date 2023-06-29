@@ -1,0 +1,30 @@
+version: "3.7"
+services:
+  love-vue-springboot:
+    build: # 通过Docker 构建镜像和容器
+      context: ./springboot_dockerfile
+      dockerfile: Dockerfile
+    container_name: group5-hardytravelling-springboot
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mysql
+    networks:
+      - group5_hardytravelling
+  mysql:
+    image: mysql:8
+    container_name: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_DATABASE=money
+      - MYSQL_ROOT_PASSWORD=123456 # 设置 MySQL 密码
+    volumes:
+      - mysql_datadir:/var/lib/mysql # 映射 mysql 存储数据的目录
+    networks:
+      - group5_hardytravelling
+volumes:
+  mysql_datadir:
+networks:
+  group5_hardytravelling:

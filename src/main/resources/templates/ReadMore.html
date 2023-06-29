@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <title>Travel Agent</title>
+
+    <!-- Fav Icon -->
+
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,500;1,9..144,600;1,9..144,700;1,9..144,800;1,9..144,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link href="../css/font-awesome-all.css" rel="stylesheet">
+    <link href="../css/flaticon.css" rel="stylesheet">
+    <link href="../css/owl.css" rel="stylesheet">
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../css/jquery.fancybox.min.css" rel="stylesheet">
+    <link href="../css/animate.css" rel="stylesheet">
+    <link href="../css/nice-select.css" rel="stylesheet">
+    <link href="../css/elpath.css" rel="stylesheet">
+    <link href="../css/color/theme-color.css" id="jssDefault" rel="stylesheet">
+    <link href="../css/switcher-style.css" rel="stylesheet">
+    <link href="../css/rtl.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/module-css/page-title.css" rel="stylesheet">
+    <link href="../css/module-css/service-details.css" rel="stylesheet">
+    <link href="../css/module-css/sidebar.css" rel="stylesheet">
+    <link href="../css/module-css/faq.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
+
+</head>
+
+
+<!-- page wrapper -->
+<body>
+
+<div class="boxed_wrapper ltr">
+
+
+    <!-- preloader -->
+    <!-- preloader end -->
+
+
+    <!-- page-direction -->
+    <!-- page-direction end -->
+
+
+    <!-- switcher menu -->
+    <!-- end switcher menu -->
+
+
+    <!--Search Popup-->
+
+
+    <!-- main header -->
+    <div th:insert="~{Navigation :: #mainNoSearch}" th:if="${language ne 1}"></div>
+    <div th:insert="~{Navigation :: #mainChineseNoSearch}" th:if="${language eq 1}"></div>
+    <!-- main-header end -->
+
+    <!-- Mobile Menu  -->
+    <!-- End Mobile Menu -->
+
+
+    <!-- page-title -->
+    <section class="page-title p_relative centred" th:if="${language ne 1}">
+        <div class="bg-layer" style="background-image: url(/images/background/beach.jpg);"></div>
+        <div class="auto-container">
+            <div class="content-box">
+                <h1>Read More</h1>
+                <ul class="bread-crumb clearfix">
+                    <li><a href="/static">Home</a></li>
+                    <li>Service Details</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="page-title p_relative centred" th:if="${language eq 1}">
+        <div class="bg-layer" style="background-image: url(/images/background/beach.jpg);"></div>
+        <div class="auto-container">
+            <div class="content-box">
+                <h1>更多信息</h1>
+                <ul class="bread-crumb clearfix">
+                    <li><a href="/static">主页</a></li>
+                    <li>更多信息</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- page-title end -->
+
+
+    <!-- service-details -->
+    <section class="service-details" th:if="${language ne 1}">
+        <div class="auto-container">
+            <div class="row clearfix">
+                <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
+                    <div class="service-sidebar default-sidebar mr_40">
+                        <div class="contact-widget centred">
+                            <div class="widget-content">
+                                <div class="icon-box"><i class="icon-39"></i></div>
+                                <h3>Do You Need <br />Any Help?</h3>
+                                <div class="lower-box">
+                                    <p><a href="mailto:example@info.com">211007660@info.com</a></p>
+                                    <h2><a>(+86) 211007660</a></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-12 col-sm-12 content-side">
+                    <div class="service-details-content">
+                        <div class="content-one mb_65">
+                            <figure class="image-box"><img src="../images/service/travel.jpg" alt=""></figure>
+                            <div class="text-box">
+                                <h2>Group tourism</h2>
+                                <p>Group tourism is a new type of travel mode in which travel agencies are the main body of group tourism. Travel agencies or intermediary agencies arrange and plan the trip. Team members travel in accordance with the arrangements of travel agencies, pay the travel expenses in advance in a lump sum and enjoy group discounts on some items. Group tourism usually refers to a group of more than 10 people traveling together. </p>
+                                <p>Travel agencies provide routes, tourists choose to buy, and then tourists in the specified time, place, scenic spot, accompanied by a guide, take the means of transportation, stay in the booked hotel, according to the specified routes to complete the food, accommodation, travel, tour, shopping, entertainment and other travel process.</p>
+                            </div>
+                            <div class="inner-box">
+                                <div class="row clearfix">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 single-column">
+                                        <div class="single-item">
+                                            <div class="icon-box"><i class="icon-40"></i></div>
+                                            <h3>Our Team</h3>
+                                            <p>Our team is a travel agency with many years of offline work experience. Regular customers are very happy with the plans our team has helped to complete.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 single-column">
+                                        <div class="single-item">
+                                            <div class="icon-box"><i class="icon-40"></i></div>
+                                            <h3>Customer</h3>
+                                            <p>The site is open to all online customers. You can check out the tutorials or consult online. If you still have questions, please feel free to discuss them in more detail below the line.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-two mb_65">
+                            <div class="text-box mb_65">
+                                <h3>Benefits of Service</h3>
+                                <p> Travel agencies have a wealth of national peers, and as they are the leader in the tourism industry, they involve a wide range of points and can quickly obtain information from different regions, and are relatively accurate and reliable. Based on this, travel agencies can increase the number of remote enterprise agencies, office leasing, market research, project investment, and agricultural and local product development
+                                    Travel agencies have a good cooperative relationship with scenic spots. Based on this, new gameplay can be developed, such as the emerging digital construction of scenic spots and the construction of metaverse ecology; Or the deep integration of traditional scenic spots, such as catering, entertainment equipment, cultural and entertainment projects, and innovative sales models</p>
+                                <ul class="list-style-one clearfix">
+                                    <li>Travel package</li>
+                                    <li>Planning tools</li>
+                                    <li>Staff planning</li>
+                                </ul>
+                            </div>
+                            <div class="image-inner">
+                                <div class="row clearfix">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 image-column">
+                                        <figure class="image-box"><img src="../pictureResouce/money.svg" alt=""></figure>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 image-column">
+                                        <figure class="image-box"><img src="../pictureResouce/chart.svg" alt=""></figure>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-three">
+                            <div class="accordion-inner">
+                                <h3>We help you with the dedication</h3>
+                                <ul class="accordion-box">
+                                    <li class="accordion block active-block">
+                                        <div class="acc-btn active">
+                                            <div class="icon-box"><i class="icon-33"></i></div>
+                                            <h4>How do I inquire about my travel package?</h4>
+                                        </div>
+                                        <div class="acc-content current">
+                                            <div class="text">
+                                                <p>Please first select the accommodation location or attraction you want to visit from the destination details, accommodation overview or attraction overview, and subscribe to it in the accommodation location or attraction details</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="accordion block">
+                                        <div class="acc-btn">
+                                            <div class="icon-box"><i class="icon-33"></i></div>
+                                            <h4>How do I inquire about my travel package?</h4>
+                                        </div>
+                                        <div class="acc-content">
+                                            <div class="text">
+                                                <p>Please check above the travel package list</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="accordion block">
+                                        <div class="acc-btn">
+                                            <div class="icon-box"><i class="icon-33"></i></div>
+                                            <h4>How often will you update your website data?</h4>
+                                        </div>
+                                        <div class="acc-content">
+                                            <div class="text">
+                                                <p>We will update the website data based on changes in attractions, accommodation, destinations, and travel methods. If our business continues to expand, the corresponding update frequency will also increase. In addition, if most users raise concerns about the data or packages that we need to update or add, we will also adjust the website data based on user feedback</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="service-details" th:if="${language eq 1}">
+        <div class="auto-container">
+            <div class="row clearfix">
+                <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
+                    <div class="service-sidebar default-sidebar mr_40">
+                        <div class="contact-widget centred">
+                            <div class="widget-content">
+                                <div class="icon-box"><i class="icon-39"></i></div>
+                                <h3>请问您需要 <br />什么帮助?</h3>
+                                <div class="lower-box">
+                                    <p><a href="mailto:example@info.com">211007660@info.com</a></p>
+                                    <h2><a>(+86) 211007660</a></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-12 col-sm-12 content-side">
+                    <div class="service-details-content">
+                        <div class="content-one mb_65">
+                            <figure class="image-box"><img src="../images/service/travel.jpg" alt=""></figure>
+                            <div class="text-box">
+                                <h2>团队旅游</h2>
+                                <p>团体旅游是以旅行社为主体的一种新型旅游模式。旅行社或中介机构安排和计划行程。团队成员按照旅行社安排旅行，旅游费用一次性预付，部分项目享受团体优惠。团体旅游通常是指10人以上的团体旅游 </p>
+                                <p>旅行社提供路线，游客选择购买，然后游客在规定的时间、地点、景点，在导游的陪同下，乘坐交通工具，入住预定的酒店，按照规定的路线完成吃、住、游、游、购、娱等旅游过程。</p>
+                            </div>
+                            <div class="inner-box">
+                                <div class="row clearfix">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 single-column">
+                                        <div class="single-item">
+                                            <div class="icon-box"><i class="icon-40"></i></div>
+                                            <h3>我们团队</h3>
+                                            <p>我们的团队是一家拥有多年线下工作经验的旅行社。老客户对我们团队帮助完成的计划非常满意。</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 single-column">
+                                        <div class="single-item">
+                                            <div class="icon-box"><i class="icon-40"></i></div>
+                                            <h3>用户</h3>
+                                            <p>该网站对所有在线客户开放。您可以查看教程或在线咨询。如果您还有问题，请在下文详细讨论。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-two mb_65">
+                            <div class="text-box mb_65">
+                                <h3>我们的优势</h3>
+                                <p>旅行社有着丰富的全国同行，由于旅行社是旅游行业的龙头，涉及点多面广，可快速获取异地信息，而且相对精准可信。据此，旅行社可以增加异地企业代办、办公租赁、市场调研、项目招商、农土特产品开发……
+                                    旅行社与景区有着良好的合作关系。据此，可以开发新的玩法，如新兴的景区数字化建设及元宇宙生态搭建；或传统项目的景区深度融合，如餐饮融入、娱乐设备融入、文化娱乐项目融入、创新销售模式融入……</p>
+                                <ul class="list-style-one clearfix">
+                                    <li>旅行套餐</li>
+                                    <li>制定计划</li>
+                                    <li>员工规划</li>
+                                </ul>
+                            </div>
+                            <div class="image-inner">
+                                <div class="row clearfix">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 image-column">
+                                        <figure class="image-box"><img src="../pictureResouce/money.svg" alt=""></figure>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 image-column">
+                                        <figure class="image-box"><img src="../pictureResouce/chart.svg" alt=""></figure>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-three">
+                            <div class="accordion-inner">
+                                <h3>您需要什么帮助</h3>
+                                <ul class="accordion-box">
+                                    <li class="accordion block active-block">
+                                        <div class="acc-btn active">
+                                            <div class="icon-box"><i class="icon-33"></i></div>
+                                            <h4>我要怎样查询我的旅游套餐?</h4>
+                                        </div>
+                                        <div class="acc-content current">
+                                            <div class="text">
+                                                <p>请先从目的地详细信息，住宿总览或者景点总览中选择您想要去的住宿地点或者景点，并在住宿地点或景点的详细信息中进行订阅</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="accordion block">
+                                        <div class="acc-btn">
+                                            <div class="icon-box"><i class="icon-33"></i></div>
+                                            <h4>我该如何查询旅游套餐?</h4>
+                                        </div>
+                                        <div class="acc-content">
+                                            <div class="text">
+                                                <p>请从旅游套餐列表上方进行查询</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="accordion block">
+                                        <div class="acc-btn">
+                                            <div class="icon-box"><i class="icon-33"></i></div>
+                                            <h4>多久更新一次网站数据?</h4>
+                                        </div>
+                                        <div class="acc-content">
+                                            <div class="text">
+                                                <p>我们将根据景点，住宿，目的地以及出行方式的变动来进行网站数据的更新。如果我们的业务不断拓展，那么相应的更新频率也将上升。除此之外，如果多数用户提出了我们需要更新或者添加的数据以及套餐等，我们也将根据用户反馈进行网站数据的调整</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- service-details end -->
+
+
+    <!-- main-footer -->
+    <!-- main-footer -->
+
+
+
+    <!--Scroll to top-->
+    <div class="scroll-to-top">
+        <div>
+            <div class="scroll-top-inner">
+                <div class="scroll-bar">
+                    <div class="bar-inner"></div>
+                </div>
+                <div class="scroll-bar-text">Go To Top</div>
+            </div>
+        </div>
+    </div>
+    <!-- Scroll to top end -->
+
+</div>
+
+
+<!-- jequery plugins -->
+<script src="../js/jquery.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/owl.js"></script>
+<script src="../js/wow.js"></script>
+<script src="../js/validation.js"></script>
+<script src="../js/jquery.fancybox.js"></script>
+<script src="../js/appear.js"></script>
+<script src="../js/isotope.js"></script>
+<script src="../js/parallax-scroll.js"></script>
+<script src="../js/jquery.nice-select.min.js"></script>
+<script src="../js/jQuery.style.switcher.min.js"></script>
+
+<!-- main-js -->
+<script src="../js/script.js"></script>
+
+</body><!-- End of .page_wrapper -->
+</html>

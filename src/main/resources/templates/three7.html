@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.138.0/build/three.module.js",
+                "OrbitControls": "https://unpkg.com/three@0.138.0/examples/jsm/controls/OrbitControls.js"
+            }
+        }
+
+    </script>
+    <meta charset="utf-8">
+    <title>My first three.js app</title>
+    <style>
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="btn-box">
+    <button class="btn btn-success" style="margin: 5px" id="btn1">Living room</button>
+    <button class="btn btn-success" style="margin: 5px" id="btn2">Bed room</button>
+    <button class="btn btn-success" style="margin: 5px" id="btn3">Bath room</button>
+</div>
+<div id="container" style="height: 100%; ">
+
+</div>
+
+
+</body>
+<script type="module">
+    import * as THREE from 'three';
+    import {OrbitControls} from 'OrbitControls';
+    // let img1 = require('./vr1.jpg')
+    // let img2 = require('./vr2.jpg')
+    const scene = new THREE.Scene();
+    const ax = new THREE.AxesHelper(500)
+     // scene.add(ax)
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1100);
+    camera.position.set(0, 0, 1)
+    const textureLoader = new THREE.TextureLoader()
+    // const texture1 = textureLoader.load('../static/images/accommodations/0/bed/15_b.jpg')
+    const geometry = new THREE.BoxGeometry(100, 100, 100)
+    geometry.scale(-1, 1, 1)
+    const pathArr1 = [
+        '../images/accommodations/5/main/2_r.jpg',
+        '../images/accommodations/5/main/2_l.jpg',
+        '../images/accommodations/5/main/2_u.jpg',
+        '../images/accommodations/5/main/2_d.jpg',
+        '../images/accommodations/5/main/2_f.jpg',
+        '../images/accommodations/5/main/2_b.jpg'
+    ]
+    const pathArr2 = [
+        '../images/accommodations/5/bed/17_r_WqcQBP.jpg',
+        '../images/accommodations/5/bed/17_l.jpg',
+        '../images/accommodations/5/bed/17_u.jpg',
+        '../images/accommodations/5/bed/17_d.jpg',
+        '../images/accommodations/5/bed/17_f.jpg',
+        '../images/accommodations/5/bed/17_b.jpg'
+    ]
+    const pathArr3 = [
+        '../images/accommodations/5/bath/14_r.jpg',
+        '../images/accommodations/5/bath/14_l.jpg',
+        '../images/accommodations/5/bath/14_u.jpg',
+        '../images/accommodations/5/bath/14_d.jpg',
+        '../images/accommodations/5/bath/14_f.jpg',
+        '../images/accommodations/5/bath/14_b.jpg'
+    ]
+    const material = pathArr1.map(path => {
+        const map = textureLoader.load(path)
+        return new THREE.MeshBasicMaterial({
+            map
+        })
+    })
+    const material2 = pathArr2.map(path => {
+        const map = textureLoader.load(path)
+        return new THREE.MeshBasicMaterial({
+            map
+        })
+    })
+    const material3 = pathArr3.map(path => {
+        const map = textureLoader.load(path)
+        return new THREE.MeshBasicMaterial({
+            map
+        })
+    })
+    const cube1 = new THREE.Mesh(geometry, material)
+    const cube2 = new THREE.Mesh(geometry, material2)
+    const cube3 = new THREE.Mesh(geometry, material3)
+
+    scene.add(cube1)
+    const renderer = new THREE.WebGLRenderer()
+    renderer.setSize(window.innerWidth, window.innerHeight)
+    document.getElementById('container').replaceChildren(renderer.domElement)
+    const controls = new OrbitControls(camera, renderer.domElement)
+    controls.zoomSpeed = 0
+
+    function animation() {
+        controls.update()
+        renderer.render(scene, camera)
+        requestAnimationFrame(animation)
+    }
+
+    window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight
+        camera.updateProjectionMatrix()
+        renderer.setSize(window.innerWidth, window.innerHeight)
+        renderer.setPixelRatio(window.devicePixelRatio)
+    })
+
+    document.getElementById('btn1').onclick = function (){
+        scene.clear()
+        scene.add(cube1)
+    }
+    document.getElementById('btn2').onclick = function (){
+        scene.clear()
+        scene.add(cube2)
+    }
+    document.getElementById('btn3').onclick = function (){
+        scene.clear()
+        scene.add(cube3)
+    }
+    animation()
+
+</script>
+</html>

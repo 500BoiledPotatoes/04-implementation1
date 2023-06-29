@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../css/flaticon2.css" rel="stylesheet">
+</head>
+<body>
+
+<menu th:fragment="MainStaffNavigation">
+    <header class="main-header header-style-two">
+        <!-- header-lower -->
+        <div class="header-lower">
+            <div class="outer-box">
+                <div class="menu-area">
+                    <!--Mobile Navigation Toggler-->
+                    <div class="mobile-nav-toggler">
+                        <i class="icon-bar"></i>
+                        <i class="icon-bar"></i>
+                        <i class="icon-bar"></i>
+                    </div>
+                    <nav class="main-menu navbar-expand-md navbar-light clearfix">
+                        <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+                            <ul class="navigation clearfix">
+                                <li><a href="/">Home</a></li>
+                                <li class="current dropdown"><a>Staff Services</a>
+                                    <ul>
+                                        <li><a href="/staffDestinations">Destinations</a></li>
+                                        <li><a href="/staffAccommodations">Accommodations</a></li>
+                                        <li><a href="/staffAttractions">Attractions</a></li>
+                                        <li><a href="/staffAddDes">Add Destination</a></li>
+                                        <li><a href="/staffAddAcc">Add Accommodation</a></li>
+                                        <li><a href="/staffAddAtt">Add Attraction</a></li>
+                                        <li><a href="/CustomersList">Customers List</a></li>
+                                        <li><a href="/showAllBookings">Bookings List</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown"><a>Pages</a>
+                                    <ul>
+                                        <li><a href="/toReadMore">Read More</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="/toContact">Contact</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                <ul class="menu-right-content">
+                    <li class="support-box">
+                        <i class="icon-4"></i>
+                        <a>(+86)17801070400</a>
+                    </li>
+                    <li th:insert="~{Navigation :: SearchInStaff}"></li>
+                    <li class="btn-box">
+                        <a href="/staff" class="theme-btn btn-one"><span>Staff Page</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!--sticky Header-->
+        <div class="sticky-header">
+            <div class="outer-container">
+                <div class="outer-box">
+                    <div class="menu-area">
+                        <nav class="main-menu clearfix">
+                            <!--Keep This Empty / Menu will come through Javascript-->
+                        </nav>
+                        <ul class="menu-right-content">
+                            <li class="support-box">
+                                <i class="icon-4"></i>
+                                <a>(+86)17801070400</a>
+                            </li>
+                            <li th:insert="~{Navigation :: SearchInStaff}"></li>
+                            <li class="btn-box">
+                                <a href="/staff" class="theme-btn btn-one"><span>Staff Page</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+</menu>
+
+
+<menu th:fragment="MainStaffNavigationNoSearch">
+    <header class="main-header header-style-two">
+        <!-- header-lower -->
+        <div class="header-lower">
+            <div class="outer-box">
+                <div class="menu-area">
+                    <!--Mobile Navigation Toggler-->
+                    <div class="mobile-nav-toggler">
+                        <i class="icon-bar"></i>
+                        <i class="icon-bar"></i>
+                        <i class="icon-bar"></i>
+                    </div>
+                    <nav class="main-menu navbar-expand-md navbar-light clearfix">
+                        <div class="collapse navbar-collapse show clearfix">
+                            <ul class="navigation clearfix">
+                                <li><a href="/">Home</a></li>
+                                <li class="current dropdown"><a>Staff Services</a>
+                                    <ul>
+                                        <li><a href="/staffDestinations">Destinations</a></li>
+                                        <li><a href="/staffAccommodations">Accommodations</a></li>
+                                        <li><a href="/staffAttractions">Attractions</a></li>
+                                        <li><a href="/staffAddDes">Add Destination</a></li>
+                                        <li><a href="/staffAddAcc">Add Accommodation</a></li>
+                                        <li><a href="/staffAddAtt">Add Attraction</a></li>
+                                        <li><a href="/CustomersList">Customers List</a></li>
+                                        <li><a href="/showAllBookings">Bookings List</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown"><a>Pages</a>
+                                    <ul>
+                                        <li><a href="/toReadMore">Read More</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="/toContact">Contact</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                <ul class="menu-right-content">
+                    <li class="support-box">
+                        <i class="icon-4"></i>
+                        <a>(+86)17801070400</a>
+                    </li>
+                    <li class="btn-box">
+                        <a href="/staff" class="theme-btn btn-one"><span>Staff Page</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!--sticky Header-->
+        <div class="sticky-header">
+            <div class="outer-container">
+                <div class="outer-box">
+                    <div class="menu-area">
+                        <nav class="main-menu clearfix">
+                            <!--Keep This Empty / Menu will come through Javascript-->
+                        </nav>
+                        <ul class="menu-right-content">
+                            <li class="support-box">
+                                <i class="icon-4"></i>
+                                <a>(+86)17801070400</a>
+                            </li>
+                            <li class="btn-box">
+                                <a href="/staff" class="theme-btn btn-one"><span>Staff Page</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+</menu>
+
+
+<menu th:fragment="MainUserNavigation">
+    <header class="main-header header-style-two">
+        <!-- header-lower -->
+        <div class="header-lower">
+            <div class="outer-box">
+                <div class="menu-area">
+                    <!--Mobile Navigation Toggler-->
+                    <div class="mobile-nav-toggler">
+                        <i class="icon-bar"></i>
+                        <i class="icon-bar"></i>
+                        <i class="icon-bar"></i>
+                    </div>
+                    <nav class="main-menu navbar-expand-md navbar-light clearfix">
+                        <div class="collapse navbar-collapse show clearfix">
+                            <ul class="navigation clearfix">
+                                <li><a href="/">Home</a></li>
+                                <li class="current dropdown"><a>Services</a>
+                                    <ul>
+                                        <li><a href="/Destinations">Destinations</a></li>
+                                        <li><a href="/Attractions">Attractions</a></li>
+                                        <li><a href="/Accommodations">Accommodations</a></li>
+                                        <li><a href="/toClient">Planning Tools</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown"><a>Pages</a>
+                                    <ul>
+                                        <li><a href="/toReadMore">Read More</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="/toContact">Contact</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                <ul class="menu-right-content">
+                    <li class="support-box">
+                        <i class="icon-4"></i>
+                        <a>(+86)17801070400</a>
+                    </li>
+                    <li class="search-box-outer search-toggler">
+                        <i class="icon-5"></i>
+                    </li>
+                    <li class="btn-box">
+                        <a href="/Logout" class="theme-btn btn-one"><span>Logout</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!--sticky Header-->
+        <div class="sticky-header">
+            <div class="outer-container">
+                <div class="outer-box">
+                    <div class="menu-area">
+                        <nav class="main-menu clearfix">
+                            <!--Keep This Empty / Menu will come through Javascript-->
+                            <div class="collapse navbar-collapse show clearfix">
+                                <ul class="navigation clearfix">
+                                    <li><a href="/">Home</a></li>
+                                    <li class="current dropdown"><a>Services</a>
+                                        <ul>
+                                            <li><a href="/Destinations">Destinations</a></li>
+                                            <li><a href="/Attractions">Attractions</a></li>
+                                            <li><a href="/Accommodations">Accommodations</a></li>
+                                            <li><a href="/toClient">Planning Tools</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown"><a>Pages</a>
+                                        <ul>
+                                            <li><a href="/toReadMore">Read More</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="/toContact">Contact</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                        <ul class="menu-right-content">
+                            <li class="support-box">
+                                <i class="icon-4"></i>
+                                <a>(+86)17801070400</a>
+                            </li>
+                            <li class="search-box-outer search-toggler">
+                                <i class="icon-5"></i>
+                            </li>
+                            <li class="btn-box">
+                                <a href="/Logout" class="theme-btn btn-one"><span>Logout</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+</menu>
+
+
+<menu th:fragment="MainUserNavigationNoSearch">
+    <header class="main-header header-style-two">
+        <!-- header-lower -->
+        <div class="header-lower">
+            <div class="outer-box">
+                <div class="menu-area">
+                    <!--Mobile Navigation Toggler-->
+                    <div class="mobile-nav-toggler">
+                        <i class="icon-bar"></i>
+                        <i class="icon-bar"></i>
+                        <i class="icon-bar"></i>
+                    </div>
+                    <nav class="main-menu navbar-expand-md navbar-light clearfix">
+                        <div class="collapse navbar-collapse show clearfix">
+                            <ul class="navigation clearfix">
+                                <li><a href="/">Home</a></li>
+                                <li class="current dropdown"><a>Services</a>
+                                    <ul>
+                                        <li><a href="/Destinations">Destinations</a></li>
+                                        <li><a href="/Attractions">Attractions</a></li>
+                                        <li><a href="/Accommodations">Accommodations</a></li>
+                                        <li><a href="/toClient">Planning Tools</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown"><a>Pages</a>
+                                    <ul>
+                                        <li><a href="/toReadMore">Read More</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="/toContact">Contact</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                <ul class="menu-right-content">
+                    <li class="support-box">
+                        <i class="icon-4"></i>
+                        <a>(+86)17801070400</a>
+                    </li>
+                    <li class="btn-box">
+                        <a href="/Logout" class="theme-btn btn-one"><span>Logout</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!--sticky Header-->
+        <div class="sticky-header">
+            <div class="outer-container">
+                <div class="outer-box">
+                    <div class="menu-area">
+                        <nav class="main-menu clearfix">
+                            <!--Keep This Empty / Menu will come through Javascript-->
+                            <div class="collapse navbar-collapse show clearfix">
+                                <ul class="navigation clearfix">
+                                    <li><a href="/">Home</a></li>
+                                    <li class="current dropdown"><a>Services</a>
+                                        <ul>
+                                            <li><a href="/Destinations">Destinations</a></li>
+                                            <li><a href="/Attractions">Attractions</a></li>
+                                            <li><a href="/Accommodations">Accommodations</a></li>
+                                            <li><a href="/toClient">Planning Tools</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown"><a>Pages</a>
+                                        <ul>
+                                            <li><a href="/toReadMore">Read More</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="/toContact">Contact</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                        <ul class="menu-right-content">
+                            <li class="support-box">
+                                <i class="icon-4"></i>
+                                <a>(+86)17801070400</a>
+                            </li>
+                            <li class="btn-box">
+                                <a href="/Logout" class="theme-btn btn-one"><span>Logout</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+</menu>
+
+
+<menu th:fragment="NoLoginNavigation">
+    <header class="main-header header-style-two">
+        <!-- header-lower -->
+        <div class="header-lower">
+            <div class="outer-box">
+                <div class="menu-area">
+                    <!--Mobile Navigation Toggler-->
+                    <div class="mobile-nav-toggler">
+                        <i class="icon-bar"></i>
+                        <i class="icon-bar"></i>
+                        <i class="icon-bar"></i>
+                    </div>
+                    <nav class="main-menu navbar-expand-md navbar-light clearfix">
+                        <div class="collapse navbar-collapse show clearfix">
+                            <ul class="navigation clearfix">
+                                <li><a href="/">Home</a></li>
+                                <li class="current dropdown"><a>Services</a>
+                                    <ul>
+                                        <li><a href="/destinations/FirstPage">Destinations</a></li>
+                                        <li><a href="/Attractions">Attractions</a></li>
+                                        <li><a href="/Accommodations">Accommodations</a></li>
+                                        <li><a href="/toLogin">Planning Tools</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown"><a>Pages</a>
+                                    <ul>
+                                        <li><a href="/toReadMore">Read More</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="/toContact">Contact</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                <ul class="menu-right-content">
+                    <li class="support-box">
+                        <i class="icon-4"></i>
+                        <a>(+86)17801070400</a>
+                    </li>
+                    <li class="search-box-outer search-toggler">
+                        <i class="icon-5"></i>
+                    </li>
+                    <li class="btn-box">
+                        <a href="/toLogin" class="theme-btn btn-one"><span>Login</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!--sticky Header-->
+        <div class="sticky-header">
+            <div class="outer-container">
+                <div class="outer-box">
+                    <div class="menu-area">
+                        <nav class="main-menu clearfix">
+                            <!--Keep This Empty / Menu will come through Javascript-->
+                            <div class="collapse navbar-collapse show clearfix">
+                                <ul class="navigation clearfix">
+                                    <li><a href="/">Home</a></li>
+                                    <li class="current dropdown"><a>Services</a>
+                                        <ul>
+                                            <li><a href="/destinations/FirstPage">Destinations</a></li>
+                                            <li><a href="/Attractions">Attractions</a></li>
+                                            <li><a href="/Accommodations">Accommodations</a></li>
+                                            <li><a href="/toLogin">Planning Tools</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown"><a>Pages</a>
+                                        <ul>
+                                            <li><a href="/toReadMore">Read More</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="/toContact">Contact</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                        <ul class="menu-right-content">
+                            <li class="support-box">
+                                <i class="icon-4"></i>
+                                <a>(+86)17801070400</a>
+                            </li>
+                            <li class="search-box-outer search-toggler">
+                                <i class="icon-5"></i>
+                            </li>
+                            <li class="btn-box">
+                                <a href="/toLogin" class="theme-btn btn-one"><span>Login</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+</menu>
+
+
+<menu th:fragment="NoLoginNavigationNoSearch">
+    <header class="main-header header-style-two">
+        <!-- header-lower -->
+        <div class="header-lower">
+            <div class="outer-box">
+                <div class="menu-area">
+                    <!--Mobile Navigation Toggler-->
+                    <div class="mobile-nav-toggler">
+                        <i class="icon-bar"></i>
+                        <i class="icon-bar"></i>
+                        <i class="icon-bar"></i>
+                    </div>
+                    <nav class="main-menu navbar-expand-md navbar-light clearfix">
+                        <div class="collapse navbar-collapse show clearfix">
+                            <ul class="navigation clearfix">
+                                <li><a href="/">Home</a></li>
+                                <li class="current dropdown"><a>Services</a>
+                                    <ul>
+                                        <li><a href="/destinations/FirstPage">Destinations</a></li>
+                                        <li><a href="/Attractions">Attractions</a></li>
+                                        <li><a href="/Accommodations">Accommodations</a></li>
+                                        <li><a href="/toLogin">Planning Tools</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown"><a>Pages</a>
+                                    <ul>
+                                        <li><a href="/toReadMore">Read More</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="/toContact">Contact</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                <ul class="menu-right-content">
+                    <li class="support-box">
+                        <i class="icon-4"></i>
+                        <a>(+86)17801070400</a>
+                    </li>
+                    <li class="btn-box">
+                        <a href="/toLogin" class="theme-btn btn-one"><span>Login</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!--sticky Header-->
+        <div class="sticky-header">
+            <div class="outer-container">
+                <div class="outer-box">
+                    <div class="menu-area">
+                        <nav class="main-menu clearfix">
+                            <!--Keep This Empty / Menu will come through Javascript-->
+                            <div class="collapse navbar-collapse show clearfix">
+                                <ul class="navigation clearfix">
+                                    <li><a href="/">Home</a></li>
+                                    <li class="current dropdown"><a>Services</a>
+                                        <ul>
+                                            <li><a href="/destinations/FirstPage">Destinations</a></li>
+                                            <li><a href="/Attractions">Attractions</a></li>
+                                            <li><a href="/Accommodations">Accommodations</a></li>
+                                            <li><a href="/toLogin">Planning Tools</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown"><a>Pages</a>
+                                        <ul>
+                                            <li><a href="/toReadMore">Read More</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="/toContact">Contact</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                        <ul class="menu-right-content">
+                            <li class="support-box">
+                                <i class="icon-4"></i>
+                                <a>(+86)17801070400</a>
+                            </li>
+                            <li class="btn-box">
+                                <a href="/toLogin" class="theme-btn btn-one"><span>Login</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+</menu>
+
+
+<menu th:fragment="Search">
+    <li class="search-box-outer search-toggler">
+        <i class="icon-5"></i>
+    </li>
+</menu>
+
+
+<menu id="navCustomer">
+
+    <div class="collapse navbar-collapse show clearfix">
+        <ul class="navigation clearfix">
+            <li><a href="/">Home</a></li>
+            <li class="dropdown"><a>Services</a>
+                <ul>
+                    <li><a href="/getPacks">Travel Package</a></li>
+                    <li><a href="/destinations/FirstPage">Destinations</a></li>
+                    <li><a href="/Attractions">Attractions</a></li>
+                    <li><a href="/Accommodations">Accommodations</a></li>
+                    <li><a href="/trafficList">Traffic</a>
+                    <li><a href="/getCustomerTrafficBooking" th:if="${loginJudge eq 1}">Traffic Booking</a></li>
+                    </li>
+                    <li><a href="/toLogin" th:if="${loginJudge ne 1}">Planning Tools</a></li>
+                    <li><a href="/toClient" th:if="${loginJudge eq 1}">Planning Tools</a></li>
+                </ul>
+            </li>
+            <li class="dropdown"><a>Pages</a>
+                <ul>
+                    <li><a href="/toReadMore">Read More</a></li>
+                </ul>
+            </li>
+            <li><a href="/toContact">Contact</a></li>
+
+        </ul>
+    </div>
+</menu>
+<menu id="navCustomerChinese">
+
+    <div class="collapse navbar-collapse show clearfix">
+        <ul class="navigation clearfix">
+            <li><a href="/">主页</a></li>
+            <li class="dropdown"><a>服务</a>
+                <ul>
+                    <li><a href="/getPacks">旅行包</a></li>
+                    <li><a href="/destinations/FirstPage">目的地</a></li>
+                    <li><a href="/Attractions">景点</a></li>
+                    <li><a href="/Accommodations">住宿</a></li>
+                    <li><a href="/trafficList">交通方式</a></li>
+                    <li><a href="/getCustomerTrafficBooking" th:if="${loginJudge eq 1}">预定的通行</a></li>
+                    <li><a href="/toLogin" th:if="${loginJudge ne 1}">制定计划</a></li>
+                    <li><a href="/toClient" th:if="${loginJudge eq 1}">制定计划</a></li>
+                </ul>
+            </li>
+            <li class="dropdown"><a>其他</a>
+                <ul>
+                    <li><a href="/toReadMore">更多</a></li>
+                </ul>
+            </li>
+            <li><a href="/toContact">联系我们</a></li>
+        </ul>
+    </div>
+</menu>
+
+<menu id="loginCustomer">
+
+    <li class="btn-box">
+        <a href="/toClient" class="theme-btn btn-one" th:if="${loginJudge eq 1}"><span>Customer Page</span></a>
+        <a href="/toLogin" class="theme-btn btn-one" th:if="${loginJudge ne 1}"><span>Login</span></a>
+    </li>
+
+</menu>
+<menu id="loginCustomerChinese">
+
+    <li class="btn-box">
+        <a href="/toClient" class="theme-btn btn-one" th:if="${loginJudge eq 1}"><span>个人主页</span></a>
+        <a href="/toLogin" class="theme-btn btn-one" th:if="${loginJudge ne 1}"><span>登录</span></a>
+    </li>
+
+</menu>
+
+<menu id="navStaff">
+    <div class="collapse navbar-collapse show clearfix">
+        <ul class="navigation clearfix">
+            <li><a href="/">Home</a></li>
+            <li class="dropdown"><a>Staff Services</a>
+                <ul>
+                    <li><a href="/getPacks">Travel Package</a></li>
+                    <li><a href="/staffDestinations">Destinations</a></li>
+                    <li><a href="/staffAccommodations">Accommodations</a></li>
+                    <li><a href="/staffAttractions">Attractions</a></li>
+                    <li ><a href="/staffTrafficList">Traffic</a></li>
+                    <li><a href="/staffAddDes">Add Destination</a></li>
+                    <li><a href="/staffAddAcc">Add Accommodation</a></li>
+                    <li><a href="/staffAddAtt">Add Attraction</a></li>
+                    <li><a href="/staffAddTra">Add Traffic</a></li>
+                    <li><a href="/toAddPackage">Add Packages</a></li>
+                    <li><a href="/CustomersList">Customers List</a></li>
+                    <li><a href="/showAllBookings">Bookings List</a></li>
+                </ul>
+            </li>
+            <li class="dropdown"><a>Pages</a>
+                <ul>
+                    <li><a href="/toReadMore">Read More</a></li>
+                </ul>
+            </li>
+            <li><a href="/toContact">Contact</a></li>
+        </ul>
+    </div>
+</menu>
+<menu id="navStaffChinese">
+    <div class="collapse navbar-collapse show clearfix">
+        <ul class="navigation clearfix">
+            <li><a href="/">主页</a></li>
+            <li class="dropdown"><a>管理员服务</a>
+                <ul>
+                    <li><a href="/getPacks">旅行包</a></li>
+                    <li><a href="/staffDestinations">目的地</a></li>
+                    <li><a href="/staffAccommodations">住宿</a></li>
+                    <li><a href="/staffAttractions">景点</a></li>
+                    <li><a href="/staffTrafficList">通行</a>
+                    </li>
+                    <li><a href="/staffAddTra">添加通行方式</a></li>
+                    <li><a href="/staffAddDes">添加目的地</a></li>
+                    <li><a href="/staffAddAcc">添加住宿</a></li>
+                    <li><a href="/staffAddAtt">添加景点</a></li>
+                    <li><a href="/toAddPackage">添加包</a></li>
+                    <li><a href="/CustomersList">用户列表</a></li>
+                    <li><a href="/showAllBookings">预约列表</a></li>
+                </ul>
+            </li>
+            <li class="dropdown"><a>其他</a>
+                <ul>
+                    <li><a href="/toReadMore">更多</a></li>
+                </ul>
+            </li>
+            <li><a href="/toContact">联系我们</a></li>
+        </ul>
+    </div>
+</menu>
+
+<menu id="loginStaff">
+
+
+    <li class="btn-box">
+        <a href="/Logout" class="theme-btn btn-one"
+           th:if="${sloginJudge eq 1}"><span>Logout</span></a>
+    </li>
+</menu>
+<menu id="loginStaffChinese">
+    <li class="btn-box">
+        <a href="/Logout" class="theme-btn btn-one"
+           th:if="${sloginJudge eq 1}"><span>登出</span></a>
+    </li>
+</menu>
+
+
+<menu id="main">
+    <div class="switcher">
+        <div class="switch_btn" th:if="${sloginJudge eq 1 and loginJudge ne 1}">
+            <button onclick="window.open('/websocket/StaffChat')" ><i class="icon-39"></i></button>
+        </div>
+        <div class="switch_btn" th:if="${sloginJudge ne 1 and loginJudge eq 1}" >
+            <button onclick="window.open('/websocket/CustomerChat')" ><i class="icon-39"></i></button>
+        </div>
+    </div>
+    <link href="../css/flaticon2.css" rel="stylesheet">
+    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+        <div class="modal-dialog" style="width: 100%">
+            <div class="modal-content">
+                <h4 class="modal-title align-items-center text-center" th:if="${language ne 1}">Settings</h4>
+                <h4 class="modal-title align-items-center text-center" th:if="${language eq 1}">设置</h4>
+                <div class="modal-header">
+                    <div class="modal-body">
+                        <div>
+                            <li class="btn-box" >
+                                <a href="/changeLanguage" class="btn btn-primary form-control mt-7 " th:if="${language ne 1}" ><span >Change Language</span></a>
+                                <a href="/changeLanguage" class="btn btn-primary form-control mt-7 " th:if="${language eq 1}" ><span >更换语言</span></a>
+                            </li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header class="main-header header-style-two" th:if="${sloginJudge ne 1}">
+        <!-- header-lower -->
+        <div class="header-lower">
+            <div class="outer-box">
+                <div class="menu-area">
+                    <!--Mobile Navigation Toggler-->
+                    <div class="mobile-nav-toggler">
+                        <i class="icon-bar"></i>
+                        <i class="icon-bar"></i>
+                        <i class="icon-bar"></i>
+                    </div>
+                    <nav class="main-menu navbar-expand-md navbar-light clearfix">
+                        <div th:insert="~{Navigation :: #navCustomer}"></div>
+                    </nav>
+                </div>
+                <ul class="menu-right-content">
+                    <li class="support-box">
+                        <i class="icon-4"></i>
+                        <a>(+86)17801070400</a>
+                    </li>
+                    <li th:insert="~{Navigation :: Search}"></li>
+                    <li class="search-box-outer"  data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                        <i class="icon-settings1"></i>
+                    </li>
+                    <li th:insert="~{Navigation :: #loginCustomer}"></li>
+                </ul>
+            </div>
+        </div>
+        <!--sticky Header-->
+        <div class="sticky-header" >
+            <div class="outer-container">
+                <div class="outer-box">
+                    <div class="menu-area">
+                        <nav class="main-menu clearfix">
+                        </nav>
+                        <ul class="menu-right-content">
+                            <li class="support-box">
+                                <i class="icon-4"></i>
+                                <a>(+86)17801070400</a>
+                            </li>
+                            <li th:insert="~{Navigation :: Search}"></li>
+                            <li class="search-box-outer"  data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                                <i class="icon-settings1"></i>
+                            </li>
+                            <li th:insert="~{Navigation :: #loginCustomer}"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu" th:if="${sloginJudge ne 1}">
+        <div class="menu-backdrop"></div>
+        <div class="close-btn"><i class="fas fa-times"></i></div>
+
+        <nav class="menu-box">
+            <div class="nav-logo"></div>
+            <div class="menu-outer">
+                <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+                <div class="collapse navbar-collapse show clearfix" th:if="${language ne 1}">
+                    <ul class="navigation clearfix">
+                        <li th:if="${sloginJudge eq 1 or loginJudge eq 1}"><a href="/Logout">Logout</a></li>
+                        <li class="dropdown" th:if="${sloginJudge ne 1 and loginJudge ne 1}" ><a>Login</a>
+                            <ul>
+                                <li><a href="/toLogin">As a customer</a></li>
+                                <li><a href="/tosLogin">As a staff</a></li>
+                            </ul>
+                            <div class="dropdown-btn"><span class="fas fa-angle-down"></span></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="collapse navbar-collapse show clearfix" th:if="${language eq 1}">
+                    <ul class="navigation clearfix">
+                        <li th:if="${sloginJudge eq 1 or loginJudge eq 1}"><a href="/Logout">登出</a></li>
+                        <li class="dropdown" th:if="${sloginJudge ne 1 and loginJudge ne 1}" ><a>登录</a>
+                            <ul>
+                                <li><a href="/toLogin">作为用户</a></li>
+                                <li><a href="/tosLogin">作为员工</a></li>
+                            </ul>
+                            <div class="dropdown-btn"><span class="fas fa-angle-down"></span></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="contact-info">
+                <h4>Contact Info</h4>
+                <ul>
+                    <li>Beijing Beijing University Of Technology, Beijing, China</li>
+                    <li><a>+86 17801070400</a></li>
+                    <li><a href="mailto:info@example.com">211007660@qq.com</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <header class="main-header header-style-two" th:if="${sloginJudge eq 1}">
+        <!-- header-lower -->
+        <div class="header-lower">
+            <div class="outer-box">
+                <div class="menu-area">
+                    <!--Mobile Navigation Toggler-->
+                    <div class="mobile-nav-toggler">
+                        <i class="icon-bar"></i>
+                        <i class="icon-bar"></i>
+                        <i class="icon-bar"></i>
+                    </div>
+                    <nav class="main-menu navbar-expand-md navbar-light clearfix">
+                        <div th:insert="~{Navigation :: #navStaff}"></div>
+                    </nav>
+                </div>
+                <ul class="menu-right-content">
+                    <li class="support-box">
+                        <i class="icon-4"></i>
+                        <a>(+86)17801070400</a>
+                    </li>
+                    <li th:insert="~{Navigation :: Search}"></li>
+                    <li class="search-box-outer"  data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                        <i class="icon-settings1"></i>
+                    </li>
+                    <li th:insert="~{Navigation :: #loginStaff}"></li>
+                </ul>
+            </div>
+        </div>
+
+        <!--sticky Header-->
+        <div class="sticky-header" >
+            <div class="outer-container">
+                <div class="outer-box">
+                    <div class="menu-area">
+                        <nav class="main-menu clearfix">
+                            <!--Keep This Empty / Menu will come through Javascript-->
+                        </nav>
+                        <ul class="menu-right-content">
+                            <li class="support-box">
+                                <i class="icon-4"></i>
+                                <a>(+86)17801070400</a>
+                            </li>
+                            <li th:insert="~{Navigation :: Search}"></li>
+                            <li class="search-box-outer"  data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                                <i class="icon-settings1"></i>
+                            </li>
+                            <li th:insert="~{Navigation :: #loginStaff}"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </header>
+
+    <div class="mobile-menu" th:if="${sloginJudge eq 1}">
+        <div class="menu-backdrop"></div>
+        <div class="close-btn"><i class="fas fa-times"></i></div>
+
+        <nav class="menu-box">
+            <div class="nav-logo"></div>
+            <div class="menu-outer">
+                <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+                <div class="collapse navbar-collapse show clearfix" th:if="${language ne 1}">
+                    <ul class="navigation clearfix">
+                        <li th:if="${sloginJudge eq 1 or loginJudge eq 1}"><a href="/Logout">Logout</a></li>
+                        <li class="dropdown" th:if="${sloginJudge ne 1 and loginJudge ne 1}" ><a>Login</a>
+                            <ul>
+                                <li><a href="/toLogin">As a customer</a></li>
+                                <li><a href="/tosLogin">As a staff</a></li>
+                            </ul>
+                            <div class="dropdown-btn"><span class="fas fa-angle-down"></span></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="collapse navbar-collapse show clearfix" th:if="${language eq 1}">
+                    <ul class="navigation clearfix">
+                        <li th:if="${sloginJudge eq 1 or loginJudge eq 1}"><a href="/Logout">登出</a></li>
+                        <li class="dropdown" th:if="${sloginJudge ne 1 and loginJudge ne 1}" ><a>登录</a>
+                            <ul>
+                                <li><a href="/toLogin">作为用户</a></li>
+                                <li><a href="/tosLogin">作为员工</a></li>
+                            </ul>
+                            <div class="dropdown-btn"><span class="fas fa-angle-down"></span></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="contact-info">
+                <h4>Contact Info</h4>
+                <ul>
+                    <li>Beijing Beijing University Of Technology, Beijing, China</li>
+                    <li><a>+86 17801070400</a></li>
+                    <li><a href="mailto:info@example.com">211007660@qq.com</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+</menu>
+
+<menu id="mainChinese">
+    <div class="switcher">
+        <div class="switch_btn" th:if="${sloginJudge eq 1 and loginJudge ne 1}">
+            <button onclick="window.open('/websocket/StaffChat')" ><i class="icon-39"></i></button>
+        </div>
+        <div class="switch_btn" th:if="${sloginJudge ne 1 and loginJudge eq 1}" >
+            <button onclick="window.open('/websocket/CustomerChat')" ><i class="icon-39"></i></button>
+        </div>
+    </div>
+    <link href="../css/flaticon2.css" rel="stylesheet">
+    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+        <div class="modal-dialog" style="width: 100%">
+            <div class="modal-content">
+                <h4 class="modal-title align-items-center text-center" th:if="${language ne 1}">Settings</h4>
+                <h4 class="modal-title align-items-center text-center" th:if="${language eq 1}">设置</h4>
+                <div class="modal-header">
+                    <div class="modal-body">
+                        <div>
+                            <li class="btn-box" >
+                                <a href="/changeLanguage" class="btn btn-primary form-control mt-7 " th:if="${language ne 1}" ><span >Change Language</span></a>
+                                <a href="/changeLanguage" class="btn btn-primary form-control mt-7 " th:if="${language eq 1}" ><span >更换语言</span></a>
+                            </li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header class="main-header header-style-two" th:if="${sloginJudge ne 1}">
+        <!-- header-lower -->
+        <div class="header-lower">
+            <div class="outer-box">
+                <div class="menu-area">
+                    <!--Mobile Navigation Toggler-->
+                    <div class="mobile-nav-toggler">
+                        <i class="icon-bar"></i>
+                        <i class="icon-bar"></i>
+                        <i class="icon-bar"></i>
+                    </div>
+                    <nav class="main-menu navbar-expand-md navbar-light clearfix">
+                        <div th:insert="~{Navigation :: #navCustomerChinese}"></div>
+                    </nav>
+                </div>
+                <ul class="menu-right-content">
+                    <li class="support-box">
+                        <i class="icon-4"></i>
+                        <a>(+86)17801070400</a>
+                    </li>
+                    <li th:insert="~{Navigation :: Search}"></li>
+                    <li class="search-box-outer"  data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                        <i class="icon-settings1"></i>
+                    </li>
+                    <li th:insert="~{Navigation :: #loginCustomerChinese}"></li>
+                </ul>
+            </div>
+        </div>
+        <!--sticky Header-->
+        <div class="sticky-header">
+            <div class="outer-container">
+                <div class="outer-box">
+                    <div class="menu-area">
+                        <nav class="main-menu clearfix">
+                        </nav>
+                        <ul class="menu-right-content">
+                            <li class="support-box">
+                                <i class="icon-4"></i>
+                                <a>(+86)17801070400</a>
+                            </li>
+                            <li th:insert="~{Navigation :: Search}"></li>
+                            <li class="search-box-outer"  data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                                <i class="icon-settings1"></i>
+                            </li>
+                            <li th:insert="~{Navigation :: #loginCustomerChinese}"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="mobile-menu" th:if="${sloginJudge ne 1}">
+        <div class="menu-backdrop"></div>
+        <div class="close-btn"><i class="fas fa-times"></i></div>
+
+        <nav class="menu-box">
+            <div class="nav-logo"></div>
+            <div class="menu-outer">
+                <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+                <div class="collapse navbar-collapse show clearfix" th:if="${language ne 1}">
+                    <ul class="navigation clearfix">
+                        <li th:if="${sloginJudge eq 1 or loginJudge eq 1}"><a href="/Logout">Logout</a></li>
+                        <li class="dropdown" th:if="${sloginJudge ne 1 and loginJudge ne 1}" ><a>Login</a>
+                            <ul>
+                                <li><a href="/toLogin">As a customer</a></li>
+                                <li><a href="/tosLogin">As a staff</a></li>
+                            </ul>
+                            <div class="dropdown-btn"><span class="fas fa-angle-down"></span></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="collapse navbar-collapse show clearfix" th:if="${language eq 1}">
+                    <ul class="navigation clearfix">
+                        <li th:if="${sloginJudge eq 1 or loginJudge eq 1}"><a href="/Logout">登出</a></li>
+                        <li class="dropdown" th:if="${sloginJudge ne 1 and loginJudge ne 1}" ><a>登录</a>
+                            <ul>
+                                <li><a href="/toLogin">作为用户</a></li>
+                                <li><a href="/tosLogin">作为员工</a></li>
+                            </ul>
+                            <div class="dropdown-btn"><span class="fas fa-angle-down"></span></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="contact-info">
+                <h4>联系信息</h4>
+                <ul>
+                    <li>北京市，朝阳区，北京工业大学</li>
+                    <li><a>+86 17801070400</a></li>
+                    <li><a href="mailto:info@example.com">211007660@qq.com</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <header class="main-header header-style-two" th:if="${sloginJudge eq 1}">
+        <!-- header-lower -->
+        <div class="header-lower">
+            <div class="outer-box">
+                <div class="menu-area">
+                    <!--Mobile Navigation Toggler-->
+                    <div class="mobile-nav-toggler">
+                        <i class="icon-bar"></i>
+                        <i class="icon-bar"></i>
+                        <i class="icon-bar"></i>
+                    </div>
+                    <nav class="main-menu navbar-expand-md navbar-light clearfix">
+                        <div th:insert="~{Navigation :: #navStaffChinese}"></div>
+                    </nav>
+                </div>
+                <ul class="menu-right-content">
+                    <li class="support-box">
+                        <i class="icon-4"></i>
+                        <a>(+86)17801070400</a>
+                    </li>
+                    <li th:insert="~{Navigation :: Search}"></li>
+                    <li class="search-box-outer"  data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                        <i class="icon-settings1"></i>
+                    </li>
+                    <li th:insert="~{Navigation :: #loginStaffChinese}"></li>
+                </ul>
+            </div>
+        </div>
+
+        <!--sticky Header-->
+        <div class="sticky-header">
+            <div class="outer-container">
+                <div class="outer-box">
+                    <div class="menu-area">
+                        <nav class="main-menu clearfix">
+                            <!--Keep This Empty / Menu will come through Javascript-->
+                        </nav>
+                        <ul class="menu-right-content">
+                            <li class="support-box">
+                                <i class="icon-4"></i>
+                                <a>(+86)17801070400</a>
+                            </li>
+                            <li th:insert="~{Navigation :: Search}"></li>
+                            <li class="search-box-outer"  data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                                <i class="icon-settings1"></i>
+                            </li>
+                            <li th:insert="~{Navigation :: #loginStaffChinese}"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="mobile-menu" th:if="${sloginJudge eq 1}">
+        <div class="menu-backdrop"></div>
+        <div class="close-btn"><i class="fas fa-times"></i></div>
+
+        <nav class="menu-box">
+            <div class="nav-logo"></div>
+            <div class="menu-outer">
+                <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+                <div class="collapse navbar-collapse show clearfix" th:if="${language ne 1}">
+                    <ul class="navigation clearfix">
+                        <li th:if="${sloginJudge eq 1 or loginJudge eq 1}"><a href="/Logout">Logout</a></li>
+                        <li class="dropdown" th:if="${sloginJudge ne 1 and loginJudge ne 1}" ><a>Login</a>
+                            <ul>
+                                <li><a href="/toLogin">As a customer</a></li>
+                                <li><a href="/tosLogin">As a staff</a></li>
+                            </ul>
+                            <div class="dropdown-btn"><span class="fas fa-angle-down"></span></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="collapse navbar-collapse show clearfix" th:if="${language eq 1}">
+                    <ul class="navigation clearfix">
+                        <li th:if="${sloginJudge eq 1 or loginJudge eq 1}"><a href="/Logout">登出</a></li>
+                        <li class="dropdown" th:if="${sloginJudge ne 1 and loginJudge ne 1}" ><a>登录</a>
+                            <ul>
+                                <li><a href="/toLogin">作为用户</a></li>
+                                <li><a href="/tosLogin">作为员工</a></li>
+                            </ul>
+                            <div class="dropdown-btn"><span class="fas fa-angle-down"></span></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="contact-info">
+                <h4>相关信息</h4>
+                <ul>
+                    <li>北京市，朝阳区，北京工业大学</li>
+                    <li><a>+86 17801070400</a></li>
+                    <li><a href="mailto:info@example.com">211007660@qq.com</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</menu>
+
+
+<menu id="mainNoSearch">
+    <div class="switcher">
+        <div class="switch_btn" th:if="${sloginJudge eq 1 and loginJudge ne 1}">
+            <button onclick="window.open('/websocket/StaffChat')" ><i class="icon-39"></i></button>
+        </div>
+        <div class="switch_btn" th:if="${sloginJudge ne 1 and loginJudge eq 1}" >
+            <button onclick="window.open('/websocket/CustomerChat')" ><i class="icon-39"></i></button>
+        </div>
+    </div>
+    <link href="../css/flaticon2.css" rel="stylesheet">
+    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+        <div class="modal-dialog" style="width: 100%">
+            <div class="modal-content">
+                <h4 class="modal-title align-items-center text-center" th:if="${language ne 1}">Settings</h4>
+                <h4 class="modal-title align-items-center text-center" th:if="${language eq 1}">设置</h4>
+                <div class="modal-header">
+                    <div class="modal-body">
+                        <div>
+                            <li class="btn-box" >
+                                <a href="/changeLanguage" class="btn btn-primary form-control mt-7 " th:if="${language ne 1}" ><span >Change Language</span></a>
+                                <a href="/changeLanguage" class="btn btn-primary form-control mt-7 " th:if="${language eq 1}" ><span >更换语言</span></a>
+                            </li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header class="main-header header-style-two" th:if="${sloginJudge ne 1}">
+        <!-- header-lower -->
+        <div class="header-lower">
+            <div class="outer-box">
+                <div class="menu-area">
+                    <!--Mobile Navigation Toggler-->
+                    <div class="mobile-nav-toggler">
+                        <i class="icon-bar"></i>
+                        <i class="icon-bar"></i>
+                        <i class="icon-bar"></i>
+                    </div>
+                    <nav class="main-menu navbar-expand-md navbar-light clearfix">
+                        <div th:insert="~{Navigation :: #navCustomer}"></div>
+                    </nav>
+                </div>
+                <ul class="menu-right-content">
+                    <li class="support-box">
+                        <i class="icon-4"></i>
+                        <a>(+86)17801070400</a>
+                    </li>
+                    <li class="search-box-outer"  data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                        <i class="icon-settings1"></i>
+                    </li>
+                    <li th:insert="~{Navigation :: #loginCustomer}"></li>
+                </ul>
+            </div>
+        </div>
+
+        <!--sticky Header-->
+        <div class="sticky-header">
+            <div class="outer-container">
+                <div class="outer-box">
+                    <div class="menu-area">
+                        <nav class="main-menu clearfix">
+                            <!--Keep This Empty / Menu will come through Javascript-->
+
+                        </nav>
+                        <ul class="menu-right-content">
+                            <li class="support-box">
+                                <i class="icon-4"></i>
+                                <a>(+86)17801070400</a>
+                            </li>
+                            <li class="search-box-outer"  data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                                <i class="icon-settings1"></i>
+                            </li>
+                            <li th:insert="~{Navigation :: #loginCustomer}"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="mobile-menu" th:if="${sloginJudge ne 1}">
+        <div class="menu-backdrop"></div>
+        <div class="close-btn"><i class="fas fa-times"></i></div>
+
+        <nav class="menu-box">
+            <div class="nav-logo"></div>
+            <div class="menu-outer">
+                <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+                <div class="collapse navbar-collapse show clearfix" th:if="${language ne 1}">
+                    <ul class="navigation clearfix">
+                        <li th:if="${sloginJudge eq 1 or loginJudge eq 1}"><a href="/Logout">Logout</a></li>
+                        <li class="dropdown" th:if="${sloginJudge ne 1 and loginJudge ne 1}" ><a>Login</a>
+                            <ul>
+                                <li><a href="/toLogin">As a customer</a></li>
+                                <li><a href="/tosLogin">As a staff</a></li>
+                            </ul>
+                            <div class="dropdown-btn"><span class="fas fa-angle-down"></span></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="collapse navbar-collapse show clearfix" th:if="${language eq 1}">
+                    <ul class="navigation clearfix">
+                        <li th:if="${sloginJudge eq 1 or loginJudge eq 1}"><a href="/Logout">登出</a></li>
+                        <li class="dropdown" th:if="${sloginJudge ne 1 and loginJudge ne 1}" ><a>登录</a>
+                            <ul>
+                                <li><a href="/toLogin">作为用户</a></li>
+                                <li><a href="/tosLogin">作为员工</a></li>
+                            </ul>
+                            <div class="dropdown-btn"><span class="fas fa-angle-down"></span></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="contact-info">
+                <h4>Contact Info</h4>
+                <ul>
+                    <li>Beijing Beijing University Of Technology, Beijing, China</li>
+                    <li><a>+86 17801070400</a></li>
+                    <li><a href="mailto:info@example.com">211007660@qq.com</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <header class="main-header header-style-two" th:if="${sloginJudge eq 1}">
+        <!-- header-lower -->
+        <div class="header-lower">
+            <div class="outer-box">
+                <div class="menu-area">
+                    <!--Mobile Navigation Toggler-->
+                    <div class="mobile-nav-toggler">
+                        <i class="icon-bar"></i>
+                        <i class="icon-bar"></i>
+                        <i class="icon-bar"></i>
+                    </div>
+                    <nav class="main-menu navbar-expand-md navbar-light clearfix">
+                        <div th:insert="~{Navigation :: #navStaff}">
+                        </div>
+                    </nav>
+                </div>
+                <ul class="menu-right-content">
+                    <li class="support-box">
+                        <i class="icon-4"></i>
+                        <a>(+86)17801070400</a>
+                    </li>
+                    <li class="search-box-outer"  data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                        <i class="icon-settings1"></i>
+                    </li>
+                    <li th:insert="~{Navigation :: #loginStaff}">
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!--sticky Header-->
+        <div class="sticky-header">
+            <div class="outer-container">
+                <div class="outer-box">
+                    <div class="menu-area">
+                        <nav class="main-menu clearfix">
+                            <!--Keep This Empty / Menu will come through Javascript-->
+
+                        </nav>
+                        <ul class="menu-right-content">
+                            <li class="support-box">
+                                <i class="icon-4"></i>
+                                <a>(+86)17801070400</a>
+                            </li>
+                            <li class="search-box-outer"  data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                                <i class="icon-settings1"></i>
+                            </li>
+                            <li th:insert="~{Navigation :: #loginStaff}">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="mobile-menu" th:if="${sloginJudge eq 1}">
+        <div class="menu-backdrop"></div>
+        <div class="close-btn"><i class="fas fa-times"></i></div>
+
+        <nav class="menu-box">
+            <div class="nav-logo"></div>
+            <div class="menu-outer">
+                <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+                <div class="collapse navbar-collapse show clearfix" th:if="${language ne 1}">
+                    <ul class="navigation clearfix">
+                        <li th:if="${sloginJudge eq 1 or loginJudge eq 1}"><a href="/Logout">Logout</a></li>
+                        <li class="dropdown" th:if="${sloginJudge ne 1 and loginJudge ne 1}" ><a>Login</a>
+                            <ul>
+                                <li><a href="/toLogin">As a customer</a></li>
+                                <li><a href="/tosLogin">As a staff</a></li>
+                            </ul>
+                            <div class="dropdown-btn"><span class="fas fa-angle-down"></span></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="collapse navbar-collapse show clearfix" th:if="${language eq 1}">
+                    <ul class="navigation clearfix">
+                        <li th:if="${sloginJudge eq 1 or loginJudge eq 1}"><a href="/Logout">登出</a></li>
+                        <li class="dropdown" th:if="${sloginJudge ne 1 and loginJudge ne 1}" ><a>登录</a>
+                            <ul>
+                                <li><a href="/toLogin">作为用户</a></li>
+                                <li><a href="/tosLogin">作为员工</a></li>
+                            </ul>
+                            <div class="dropdown-btn"><span class="fas fa-angle-down"></span></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="contact-info">
+                <h4>Contact Info</h4>
+                <ul>
+                    <li>Beijing Beijing University Of Technology, Beijing, China</li>
+                    <li><a>+86 17801070400</a></li>
+                    <li><a href="mailto:info@example.com">211007660@qq.com</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</menu>
+
+<menu id="mainChineseNoSearch">
+    <div class="switcher">
+        <div class="switch_btn" th:if="${sloginJudge eq 1 and loginJudge ne 1}">
+            <button onclick="window.open('/websocket/StaffChat')" ><i class="icon-39"></i></button>
+        </div>
+        <div class="switch_btn" th:if="${sloginJudge ne 1 and loginJudge eq 1}" >
+            <button onclick="window.open('/websocket/CustomerChat')" ><i class="icon-39"></i></button>
+        </div>
+    </div>
+    <link href="../css/flaticon2.css" rel="stylesheet">
+    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+        <div class="modal-dialog" style="width: 100%">
+            <div class="modal-content">
+                <h4 class="modal-title align-items-center text-center" th:if="${language ne 1}">Settings</h4>
+                <h4 class="modal-title align-items-center text-center" th:if="${language eq 1}">设置</h4>
+                <div class="modal-header">
+                    <div class="modal-body">
+                        <div>
+                            <li class="btn-box" >
+                                <a href="/changeLanguage" class="btn btn-primary form-control mt-7 " th:if="${language ne 1}" ><span >Change Language</span></a>
+                                <a href="/changeLanguage" class="btn btn-primary form-control mt-7 " th:if="${language eq 1}" ><span >更换语言</span></a>
+                            </li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header class="main-header header-style-two" th:if="${sloginJudge ne 1}">
+        <!-- header-lower -->
+        <div class="header-lower">
+            <div class="outer-box">
+                <div class="menu-area">
+                    <!--Mobile Navigation Toggler-->
+                    <div class="mobile-nav-toggler">
+                        <i class="icon-bar"></i>
+                        <i class="icon-bar"></i>
+                        <i class="icon-bar"></i>
+                    </div>
+                    <nav class="main-menu navbar-expand-md navbar-light clearfix">
+                        <div th:insert="~{Navigation :: #navCustomerChinese}"></div>
+                    </nav>
+                </div>
+                <ul class="menu-right-content">
+                    <li class="support-box">
+                        <i class="icon-4"></i>
+                        <a>(+86)17801070400</a>
+                    </li>
+                    <li class="search-box-outer"  data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                        <i class="icon-settings1"></i>
+                    </li>
+                    <li th:insert="~{Navigation :: #loginCustomerChinese}"></li>
+                </ul>
+            </div>
+        </div>
+
+        <!--sticky Header-->
+        <div class="sticky-header">
+            <div class="outer-container">
+                <div class="outer-box">
+                    <div class="menu-area">
+                        <nav class="main-menu clearfix">
+                            <!--Keep This Empty / Menu will come through Javascript-->
+
+                        </nav>
+                        <ul class="menu-right-content">
+                            <li class="support-box">
+                                <i class="icon-4"></i>
+                                <a>(+86)17801070400</a>
+                            </li>
+                            <li class="search-box-outer"  data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                                <i class="icon-settings1"></i>
+                            </li>
+                            <li th:insert="~{Navigation :: #loginCustomerChinese}"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="mobile-menu" th:if="${sloginJudge ne 1}">
+        <div class="menu-backdrop"></div>
+        <div class="close-btn"><i class="fas fa-times"></i></div>
+
+        <nav class="menu-box">
+            <div class="nav-logo"></div>
+            <div class="menu-outer">
+                <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+                <div class="collapse navbar-collapse show clearfix" th:if="${language ne 1}">
+                    <ul class="navigation clearfix">
+                        <li th:if="${sloginJudge eq 1 or loginJudge eq 1}"><a href="/Logout">Logout</a></li>
+                        <li class="dropdown" th:if="${sloginJudge ne 1 and loginJudge ne 1}" ><a>Login</a>
+                            <ul>
+                                <li><a href="/toLogin">As a customer</a></li>
+                                <li><a href="/tosLogin">As a staff</a></li>
+                            </ul>
+                            <div class="dropdown-btn"><span class="fas fa-angle-down"></span></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="collapse navbar-collapse show clearfix" th:if="${language eq 1}">
+                    <ul class="navigation clearfix">
+                        <li th:if="${sloginJudge eq 1 or loginJudge eq 1}"><a href="/Logout">登出</a></li>
+                        <li class="dropdown" th:if="${sloginJudge ne 1 and loginJudge ne 1}" ><a>登录</a>
+                            <ul>
+                                <li><a href="/toLogin">作为用户</a></li>
+                                <li><a href="/tosLogin">作为员工</a></li>
+                            </ul>
+                            <div class="dropdown-btn"><span class="fas fa-angle-down"></span></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="contact-info">
+                <h4>联系信息</h4>
+                <ul>
+                    <li>北京市，朝阳区，北京工业大学</li>
+                    <li><a>+86 17801070400</a></li>
+                    <li><a href="mailto:info@example.com">211007660@qq.com</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <header class="main-header header-style-two" th:if="${sloginJudge eq 1}">
+        <!-- header-lower -->
+        <div class="header-lower">
+            <div class="outer-box">
+                <div class="menu-area">
+                    <!--Mobile Navigation Toggler-->
+                    <div class="mobile-nav-toggler">
+                        <i class="icon-bar"></i>
+                        <i class="icon-bar"></i>
+                        <i class="icon-bar"></i>
+                    </div>
+                    <nav class="main-menu navbar-expand-md navbar-light clearfix">
+                        <div th:insert="~{Navigation :: #navStaffChinese}">
+                        </div>
+                    </nav>
+                </div>
+                <ul class="menu-right-content">
+                    <li class="support-box">
+                        <i class="icon-4"></i>
+                        <a>(+86)17801070400</a>
+                    </li>
+                    <li th:insert="~{Navigation :: #loginStaffChinese}">
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!--sticky Header-->
+        <div class="sticky-header">
+            <div class="outer-container">
+                <div class="outer-box">
+                    <div class="menu-area">
+                        <nav class="main-menu clearfix">
+                            <!--Keep This Empty / Menu will come through Javascript-->
+                        </nav>
+                        <ul class="menu-right-content">
+                            <li class="support-box">
+                                <i class="icon-4"></i>
+                                <a>(+86)17801070400</a>
+                            </li>
+                            <li th:insert="~{Navigation :: #loginStaffChinese}">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="mobile-menu" th:if="${sloginJudge eq 1}">
+        <div class="menu-backdrop"></div>
+        <div class="close-btn"><i class="fas fa-times"></i></div>
+
+        <nav class="menu-box">
+            <div class="nav-logo"></div>
+            <div class="menu-outer">
+                <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+                <div class="collapse navbar-collapse show clearfix" th:if="${language ne 1}">
+                    <ul class="navigation clearfix">
+                        <li th:if="${sloginJudge eq 1 or loginJudge eq 1}"><a href="/Logout">Logout</a></li>
+                        <li class="dropdown" th:if="${sloginJudge ne 1 and loginJudge ne 1}" ><a>Login</a>
+                            <ul>
+                                <li><a href="/toLogin">As a customer</a></li>
+                                <li><a href="/tosLogin">As a staff</a></li>
+                            </ul>
+                            <div class="dropdown-btn"><span class="fas fa-angle-down"></span></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="collapse navbar-collapse show clearfix" th:if="${language eq 1}">
+                    <ul class="navigation clearfix">
+                        <li th:if="${sloginJudge eq 1 or loginJudge eq 1}"><a href="/Logout">登出</a></li>
+                        <li class="dropdown" th:if="${sloginJudge ne 1 and loginJudge ne 1}" ><a>登录</a>
+                            <ul>
+                                <li><a href="/toLogin">作为用户</a></li>
+                                <li><a href="/tosLogin">作为员工</a></li>
+                            </ul>
+                            <div class="dropdown-btn"><span class="fas fa-angle-down"></span></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="contact-info">
+                <h4>相关信息</h4>
+                <ul>
+                    <li>北京市，朝阳区，北京工业大学</li>
+                    <li><a>+86 17801070400</a></li>
+                    <li><a href="mailto:info@example.com">211007660@qq.com</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</menu>
+
+<menu>
+
+</menu>
+
+
+
+
+
+</body>
+</html>

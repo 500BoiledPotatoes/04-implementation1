@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <input type="hidden" id="destinationNameCn" th:value="${destinationNameCn}">
+  <title th:value="${destinationNameCn}"></title>
+  <script src="../js/jquery.js"></script>
+  <script src="../js/md5.js"></script>
+  <script type="text/javascript" src="//api.map.baidu.com/api?type=subway&v=1.0&ak=a43dbdafQgybShCjvDFfMbdKV2lSi1yR"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,500;1,9..144,600;1,9..144,700;1,9..144,800;1,9..144,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <link href="../css/font-awesome-all.css" rel="stylesheet">
+  <link href="../css/flaticon.css" rel="stylesheet">
+  <link href="../css/owl.css" rel="stylesheet">
+  <link href="../css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+  <link href="../css/jquery.fancybox.min.css" rel="stylesheet">
+  <link href="../css/animate.css" rel="stylesheet">
+  <link href="../css/nice-select.css" rel="stylesheet">
+  <link href="../css/elpath.css" rel="stylesheet">
+  <link href="../css/color/theme-color.css" id="jssDefault" rel="stylesheet">
+  <link href="../css/switcher-style.css" rel="stylesheet">
+  <!--<link href="assets/css/rtl.css" rel="stylesheet">-->
+  <link href="../css/style.css" rel="stylesheet">
+  <link href="../css/module-css/banner.css" rel="stylesheet">
+  <link href="../css/module-css/feature.css" rel="stylesheet">
+  <link href="../css/module-css/about.css" rel="stylesheet">
+  <link href="../css/module-css/service.css" rel="stylesheet">
+  <link href="../css/module-css/funfact.css" rel="stylesheet">
+  <link href="../css/module-css/chooseus.css" rel="stylesheet">
+  <link href="../css/module-css/cta.css" rel="stylesheet">
+  <link href="../css/module-css/materials.css" rel="stylesheet">
+  <link href="../css/module-css/testimonial.css" rel="stylesheet">
+  <link href="../css/module-css/project.css" rel="stylesheet">
+  <link href="../css/module-css/news.css" rel="stylesheet">
+  <link href="../css/module-css/subscribe.css" rel="stylesheet">
+  <link href="../css/responsive.css" rel="stylesheet">
+
+
+
+
+</head>
+<body>
+
+<!--<div class="header-lower" th:if="${language ne 1}">-->
+<!--  <div class="outer-box">-->
+<!--    <div class="menu-area">-->
+<!--      &lt;!&ndash;Mobile Navigation Toggler&ndash;&gt;-->
+<!--      <div class="mobile-nav-toggler">-->
+<!--        <i class="icon-bar"></i>-->
+<!--        <i class="icon-bar"></i>-->
+<!--        <i class="icon-bar"></i>-->
+<!--      </div>-->
+<!--      <nav class="main-menu navbar-expand-md navbar-light clearfix">-->
+<!--        <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">-->
+<!--          <ul class="navigation clearfix">-->
+<!--            <li><a href="/">Home</a></li>-->
+<!--            <li class="dropdown" th:if="${sloginJudge ne 1}"><a>Services</a>-->
+<!--              <ul>-->
+<!--                <li><a href="/destinations/FirstPage">Destinations</a></li>-->
+<!--                <li><a href="/Accommodations">Accommodations</a></li>-->
+<!--                <li><a href="/Attractions">Attractions</a></li>-->
+<!--                <li><a href="/toLogin" th:if="${loginJudge ne 1}">Planning Tools</a></li>-->
+<!--                <li><a href="/toClient" th:if="${loginJudge eq 1}">Planning Tools</a></li>-->
+<!--              </ul>-->
+<!--            </li>-->
+<!--            <li class="dropdown" th:if="${sloginJudge eq 1}"><a>StaffServices</a>-->
+<!--              <ul>-->
+<!--                <li><a href="/staffDestinations">Destinations</a></li>-->
+<!--                <li><a href="/staffAccommodations">Accommodations</a></li>-->
+<!--                <li><a href="/staffAttractions">Attractions</a></li>-->
+<!--                <li><a href="/staffAddDes">Add Destination</a></li>-->
+<!--                <li><a href="/staffAddAcc">Add Accommodation</a></li>-->
+<!--                <li><a href="/staffAddAtt">Add Attraction</a></li>-->
+<!--                <li><a href="/CustomersList">Customers List</a></li>-->
+<!--                <li><a href="/showAllBookings">Bookings List</a></li>-->
+<!--              </ul>-->
+<!--            </li>-->
+<!--            <li class="dropdown"><a>Pages</a>-->
+<!--              <ul>-->
+<!--                <li><a href="/toReadMore">Read More</a></li>-->
+<!--              </ul>-->
+<!--            </li>-->
+<!--            <li><a href="/toContact">Contact</a></li>-->
+<!--          </ul>-->
+<!--        </div>-->
+<!--      </nav>-->
+<!--      <ul class="menu-right-content">-->
+<!--        <li class="support-box">-->
+<!--          <i class="icon-2"></i>-->
+<!--          <a>(+86)17801070400</a>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--          <a href="/tosLogin" class="theme-btn btn-one" style="margin-left: 375px"-->
+<!--             th:if="${sloginJudge ne 1 and loginJudge ne 1}"><span>I am a staff</span></a>-->
+
+<!--          <a href="/staff" class="theme-btn btn-one" style="margin-left: 625px"-->
+<!--             th:if="${sloginJudge eq 1}"><span>Staff Page</span></a>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--          <a href="/toLogin" class="theme-btn btn-one" style="margin-left: 50px"-->
+<!--             th:if="${loginJudge ne 1 and sloginJudge ne 1}"><span>I am a customer</span></a>-->
+<!--          <a href="/toClient" class="theme-btn btn-one" style="margin-left: 675px"-->
+<!--             th:if="${loginJudge eq 1}"><span>My Page</span></a>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<!--<div class="header-lower" th:if="${language eq 1}">-->
+<!--  <div class="outer-box">-->
+<!--    <div class="menu-area">-->
+<!--      &lt;!&ndash;Mobile Navigation Toggler&ndash;&gt;-->
+<!--      <div class="mobile-nav-toggler">-->
+<!--        <i class="icon-bar"></i>-->
+<!--        <i class="icon-bar"></i>-->
+<!--        <i class="icon-bar"></i>-->
+<!--      </div>-->
+<!--      <nav class="main-menu navbar-expand-md navbar-light clearfix">-->
+<!--        <div class="collapse navbar-collapse show clearfix">-->
+<!--          <ul class="navigation clearfix">-->
+<!--            <li><a href="/static">主页</a></li>-->
+<!--            <li class="dropdown" th:if="${sloginJudge ne 1}"><a>服务</a>-->
+<!--              <ul>-->
+<!--                <li><a href="/destinations/FirstPage">目的地</a></li>-->
+<!--                <li><a href="/Accommodations">住宿</a></li>-->
+<!--                <li><a href="/Attractions">景点</a></li>-->
+<!--                <li><a href="/toLogin" th:if="${loginJudge ne 1}">制定计划</a></li>-->
+<!--                <li><a href="/toClient" th:if="${loginJudge eq 1}">制定计划</a></li>-->
+<!--              </ul>-->
+<!--            </li>-->
+<!--            <li class="dropdown" th:if="${sloginJudge eq 1}"><a>管理员服务</a>-->
+<!--              <ul>-->
+<!--                <li><a href="/staffDestinations">目的地</a></li>-->
+<!--                <li><a href="/staffAccommodations">住宿</a></li>-->
+<!--                <li><a href="/staffAttractions">景点</a></li>-->
+<!--                <li><a href="/staffAddDes">添加目的地</a></li>-->
+<!--                <li><a href="/staffAddAcc">添加住宿</a></li>-->
+<!--                <li><a href="/staffAddAtt">添加景点</a></li>-->
+<!--                <li><a href="/CustomersList">用户列表</a></li>-->
+<!--                <li><a href="/showAllBookings">预约列表</a></li>-->
+<!--              </ul>-->
+<!--            </li>-->
+<!--            <li class="dropdown"><a>其他</a>-->
+<!--              <ul>-->
+<!--                <li><a href="/toReadMore">更多</a></li>-->
+<!--              </ul>-->
+<!--            </li>-->
+<!--            <li><a href="/toContact">联系我们</a></li>-->
+<!--          </ul>-->
+<!--        </div>-->
+<!--      </nav>-->
+<!--      <ul class="menu-right-content">-->
+<!--        <li class="support-box">-->
+<!--          <i class="icon-4"></i>-->
+<!--          <a>(+86)17801070400</a>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--          <a href="/tosLogin" class="theme-btn btn-one" style="margin-left: 425px"-->
+<!--             th:if="${sloginJudge ne 1 and loginJudge ne 1}"><span>管理员登录</span></a>-->
+<!--          <a href="/staff" class="theme-btn btn-one" style="margin-left: 625px"-->
+<!--             th:if="${sloginJudge eq 1}"><span>管理员主页</span></a>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--          <a href="/toLogin" class="theme-btn btn-one" style="margin-left: 50px"-->
+<!--             th:if="${loginJudge ne 1 and sloginJudge ne 1}"><span>用户登录</span></a>-->
+<!--          <a href="/toClient" class="theme-btn btn-one" style="margin-left: 675px"-->
+<!--             th:if="${loginJudge eq 1}"><span>我的</span></a>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--<section class="page-title p_relative centred" th:if="${language ne 1}">-->
+<!--  <div class="bg-layer" style="background-image: url(/images/background/city.jpg);"></div>-->
+<!--  <div class="auto-container">-->
+<!--    <div class="content-box">-->
+<!--      <h1>Contact Us</h1>-->
+<!--      <ul class="bread-crumb clearfix">-->
+<!--        <li><a href="/static">Home</a></li>-->
+<!--        <li>Contact Us</li>-->
+<!--      </ul>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+
+
+<div id="container" style="width: 100%; height: 100%"></div>
+
+
+
+
+
+
+<!--<script src="../js/jquery.js"></script>-->
+
+
+<script type="text/javascript">
+  /**
+   * 从所有城市列表中获取北京信息
+   * 结果格式
+   * {
+   *     keyword: 'beijing',
+   *     name: '北京',
+   *     citycode: '131'
+   * }
+   */
+  /* globals BMapSub */
+  //前端传入参数
+  var subwayCityName = document.getElementById('destinationNameCn').value;
+  var list = BMapSub.SubwayCitiesList;
+  var subwaycity = null;
+  for (var i = 0; i < list.length; i++) {
+    if (list[i].name === subwayCityName) {
+      subwaycity = list[i];
+      break;
+    }
+  }
+  if(subwaycity===null){
+    alert("no subway resources available. Sorry")
+    window.close();
+  }
+  // 获取北京地铁数据-初始化地铁图
+  var subway = new BMapSub.Subway('container', subwaycity.citycode);
+  var zoomControl  = new BMapSub.ZoomControl({
+    anchor: BMAPSUB_ANCHOR_BOTTOM_RIGHT,
+    offset: new BMapSub.Size(10,100)
+  });
+  subway.setZoom(1)
+  subway.addControl(zoomControl);
+  subway.addEventListener('subwayloaded', function() {
+    alert('The subway Map have been generate Completely');
+  });
+  subway.addEventListener('tap', function(e) {
+    subway.setZoom(1.5);
+    var contents = e.station.name
+    var appid = '20220406001160362';  //放自己在百度上申请的APP ID
+    var key = 'dyP1zzuDSiyYwZPeTmF0';  //放自己在百度上申请的密钥
+    var salt = (new Date).getTime();
+    var from = 'zh';
+    var to = 'en';
+    var str1 = appid + contents + salt +key;
+    var sign = MD5(str1);
+    var EnglishName=""
+    $.ajax({
+      type:"get",  //使用get方法请求
+      async:false,													//must be synchronized
+      url:"http://api.fanyi.baidu.com/api/trans/vip/translate",
+      dataType:"jsonp",
+      data: {
+        q: e.station.name.toString(),  //被翻译的内容，实现英译汉
+        from: from,   //源语言，英文
+        to: to,       //翻译的语言，中文
+        appid: appid,
+        salt: salt,
+        sign: sign  //MD5加密后的内容
+      },
+      success:function(msg){
+        console.log(msg)
+        EnglishName=(msg.trans_result[0].dst) ;
+        console.log(EnglishName)
+        var infowindow = new BMapSub.InfoWindow(
+                '<div id="bd-subwayInfo">'
+                + '<div id="bd-subwayTitle">'
+                + e.station.name+EnglishName
+                + '</div>'
+                + '</div>'
+        );
+        subway.openInfoWindow(infowindow, e.station.name);
+        subway.setCenter(e.station.name);
+      },
+      error:function(){
+        alert('Fail to translate with baidu API!');
+      }
+    });
+
+    ;})
+</script>
+
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/owl.js"></script>
+<script src="../js/wow.js"></script>
+<script src="../js/validation.js"></script>
+<script src="../js/jquery.fancybox.js"></script>
+<script src="../js/appear.js"></script>
+<script src="../js/isotope.js"></script>
+<script src="../js/parallax-scroll.js"></script>
+<script src="../js/jquery.nice-select.min.js"></script>
+<script src="../js/jQuery.style.switcher.min.js"></script>
+
+<!-- main-js -->
+<script src="../js/script.js"></script>
+
+</body>
+</html>

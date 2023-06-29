@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calendar Scheduler</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-calendar.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="text-center">Calendar Scheduler</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div id="calendar"></div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="eventModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form id="eventForm" method="post">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="eventModalLabel">Add Event</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="eventTitle">Title</label>
+                        <input type="text" class="form-control" id="eventTitle" name="title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventStartDate">Start Date</label>
+                        <input type="datetime-local" class="form-control" id="eventStartDate" name="startDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventEndDate">End Date</label>
+                        <input type="datetime-local" class="form-control" id="eventEndDate" name="endDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventDescription">Description</label>
+                        <textarea class="form-control" id="eventDescription" name="description" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" id="eventSaveButton">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#eventModal">
+    Add Event
+</button>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+<script src="/js/bootstrap-calendar.js"></script>
+<script>
+    $(document).ready(function () {
+        var calendar = $('#calendar').calendar({
+            modal: '#eventModal',
+            modalType: 'ajax',
+            url: '/events',
+            deleteUrl: '/events/{id}',
+            updateUrl: '/events/{id}',
+            addUrl: '/events',
+            getUpdateModalContent: function (event) {
+                return $.ajax({
+                    method: 'GET',
+                    url: '/events/' + event.id,
+                    dataType: 'json'
+                }).then(function (data) {
+                    var form = $('#eventForm');
+                    form.find('[name="id"]').val(data.id);
+                    form.find('[name="title"]').val(data.title);
+                    form.find('[name="startDate"]').val(data.startDate.replace(' ', 'T'));
+                    form.find('[name="endDate"]').val(data.endDate.replace(' ', 'T'));
+                    form.find('[name="description"]').val(data.description);
+                    return form;
+                });
+            },
+            getAddModalContent: function () {
+                return $('#eventForm');
+            },
+            classes: {
+                months: {
+                    general: 'text-center'
+                },
+                week: {
+                    general: 'text-center'
+                },
+                day: {
+                    general: 'text-center',
+                    today: 'active',
+                    selected: 'bg-primary'
+                }
+            },
+            ready: function () {
+                $('#eventForm').submit(function (event) {
+                    event.preventDefault();
+                    var form = $(this);
+                    var id = form.find('[name="id"]').val();
+                    var url = id ? '/events/' + id : '/events';
+                    $.ajax({
+                        method: id ? 'PUT' : 'POST',
+                        url: url,
+                        data: form.serialize(),
+                        success: function () {
+                            calendar.fullCalendar('refetchEvents');
+                            $('#eventModal').modal('hide');
+                        },
+                        error: function () {
+                            alert('Error saving event');
+                        }
+                    });
+                });
+                $('#eventModal').on('shown.bs.modal', function () {
+                    $('#eventTitle').focus();
+                });
+                $('#eventStartDate, #eventEndDate').datepicker({
+                    autoclose: true,
+                    format: 'yyyy-mm-dd',
+                    todayHighlight: true
+                });
+            }
+        });
+    });
+</script>
+</body>
+</html>
+

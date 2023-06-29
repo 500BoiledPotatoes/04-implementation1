@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <title>Travel Agent</title>
+
+    <!-- Fav Icon -->
+
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,500;1,9..144,600;1,9..144,700;1,9..144,800;1,9..144,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/font-awesome-all.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/flaticon.css"  type="text/css" media="all">
+    <link rel="stylesheet" href="../css/flaticon2.css"  type="text/css" media="all">
+    <link rel="stylesheet" href="../css/owl.css"  type="text/css" media="all">
+    <link rel="stylesheet" href="../css/bootstrap.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/jquery.fancybox.min.css"  type="text/css" media="all">
+    <link rel="stylesheet" href="../css/animate.css"  type="text/css" media="all">
+    <link rel="stylesheet" href="../css/nice-select.css"  type="text/css" media="all">
+    <link rel="stylesheet" href="../css/elpath.css"  type="text/css" media="all">
+    <link rel="stylesheet" href="../css/color/theme-color.css" id="jssDefault"  type="text/css" media="all">
+    <link rel="stylesheet" href="../css/switcher-style.css"  type="text/css" media="all">
+    <link rel="stylesheet" href="../css/rtl.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/style.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/module-css/page-title.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/module-css/news.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/module-css/sidebar.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/responsive.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/styleCalender.css">
+    <script th:inline="javascript" src="../js/scriptCalender.js" defer></script>
+
+
+
+    <style>
+        .content::-webkit-scrollbar{
+            width:8px;
+            height:8px;
+            background-color: #61B6EB;
+        }
+        .content::-webkit-scrollbar-track{
+            background: #eee;
+        }
+        .content::-webkit-scrollbar-thumb{
+            background: #61B6EB;
+            border-radius:100px;
+        }
+        .content::-webkit-scrollbar-thumb:hover{
+            background: #61B6EB;
+        }
+        .content::-webkit-scrollbar-corner{
+            background: #61B6EB;
+        }
+    </style>
+
+
+</head>
+
+
+<!-- page wrapper -->
+<body>
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+    <div class="modal-dialog" style="width: 100%">
+        <div class="modal-content">
+            <h4 class="modal-title align-items-center text-center" th:if="${language ne 1}">Settings</h4>
+            <h4 class="modal-title align-items-center text-center" th:if="${language eq 1}">设置</h4>
+            <div class="modal-header">
+                <div class="modal-body">
+                    <div>
+                        <li class="btn-box" >
+                            <a href="/changeLanguage" class="btn btn-primary form-control mt-7 " th:if="${language ne 1}" ><span >Change Language</span></a>
+                            <a href="/changeLanguage" class="btn btn-primary form-control mt-7 " th:if="${language eq 1}" ><span >更换语言</span></a>
+                        </li>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<header class="main-header header-style-two" th:if="${language ne 1}">
+    <!-- header-lower -->
+    <div class="header-lower">
+        <div class="outer-box">
+            <div class="menu-area">
+                <!--Mobile Navigation Toggler-->
+                <div class="mobile-nav-toggler">
+                    <i class="icon-bar"></i>
+                    <i class="icon-bar"></i>
+                    <i class="icon-bar"></i>
+                </div>
+                <nav class="main-menu navbar-expand-md navbar-light clearfix">
+                    <div class="collapse navbar-collapse show clearfix">
+                        <ul class="navigation clearfix">
+                            <li><a href="/">Home</a></li>
+                            <li class="current dropdown"><a>Services</a>
+                                <ul>
+                                    <li><a href="/getPacks">Travel Package</a></li>
+                                    <li><a href="/destinations/FirstPage">Destinations</a></li>
+                                    <li><a href="/Attractions">Attractions</a></li>
+                                    <li><a href="/Accommodations">Accommodations</a></li>
+                                    <li><a href="/trafficList">Traffic</a></li>
+                                    <li><a href="/getCustomerTrafficBooking">Traffic Booking</a></li>
+                                    <li><a href="/toClient">Planning Tools</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a>Pages</a>
+                                <ul>
+                                    <li><a href="/toReadMore">Read More</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="/toContact">Contact</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <ul class="menu-right-content">
+                <li class="support-box">
+                    <i class="icon-4"></i>
+                    <a >(+86)17801070400</a>
+                </li>
+
+                <li class="search-box-outer"  data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                    <i class="icon-settings1"></i>
+                </li>
+                <li class="btn-box">
+                    <a href="/Logout" class="theme-btn btn-one"><span>Logout</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!--sticky Header-->
+    <div class="sticky-header">
+        <div class="outer-container">
+            <div class="outer-box">
+                <div class="menu-area">
+                    <nav class="main-menu clearfix">
+                        <!--Keep This Empty / Menu will come through Javascript-->
+                    </nav>
+                    <ul class="menu-right-content">
+                        <li class="support-box">
+                            <i class="icon-4"></i>
+                            <a >(+86)17801070400</a>
+                        </li>
+
+                        <li class="search-box-outer"  data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                            <i class="icon-settings1"></i>
+                        </li>
+                        <li class="btn-box">
+                            <a href="/Logout" class="theme-btn btn-one"><span>Logout</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="mobile-menu" th:if="${language ne 1}">
+    <div class="menu-backdrop"></div>
+    <div class="close-btn"><i class="fas fa-times"></i></div>
+
+    <nav class="menu-box">
+        <div class="nav-logo"></div>
+        <div class="menu-outermain">
+            <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+
+        </div>
+        <div class="menu-outer" th:if="${language eq 1}">
+            <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+            <div class="collapse navbar-collapse show clearfix" >
+                <li><a th:if="${sloginJudge eq 1 or loginJudge eq 1}" href="/Logout">登出</a></li>
+                <li class="dropdown" th:if="${sloginJudge ne 1 and loginJudge ne 1}"><a>登录</a>
+                    <ul>
+                        <li><a href="/toLogin">作为客户</a></li>
+                        <li><a href="/tosLogin">作为管理员</a></li>
+                    </ul>
+                </li>
+            </div>
+        </div>
+        <div class="menu-outer" th:if="${language ne 1}">
+            <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+            <div class="collapse navbar-collapse show clearfix" >
+                <li><a th:if="${sloginJudge eq 1 or loginJudge eq 1}" href="/Logout">Logout</a></li>
+                <li class="dropdown" th:if="${sloginJudge ne 1 and loginJudge ne 1}"><a>Login</a>
+                    <ul>
+                        <li><a href="/toLogin">As a customer</a></li>
+                        <li><a href="/tosLogin">As a staff</a></li>
+                    </ul>
+                </li>
+            </div>
+        </div>
+        <div class="contact-info">
+            <h4>Contact Info</h4>
+            <ul>
+                <li>Beijing Beijing University Of Technology, Beijing, China</li>
+                <li><a>+86 17801070400</a></li>
+                <li><a href="mailto:info@example.com">211007660@qq.com</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<header class="main-header header-style-two" th:if="${language eq 1}">
+    <!-- header-lower -->
+    <div class="header-lower">
+        <div class="outer-box">
+            <div class="menu-area">
+                <!--Mobile Navigation Toggler-->
+                <div class="mobile-nav-toggler">
+                    <i class="icon-bar"></i>
+                    <i class="icon-bar"></i>
+                    <i class="icon-bar"></i>
+                </div>
+                <nav class="main-menu navbar-expand-md navbar-light clearfix">
+                    <div class="collapse navbar-collapse show clearfix" >
+                        <ul class="navigation clearfix">
+                            <li><a href="/">主页</a></li>
+                            <li class="current dropdown"><a>服务</a>
+                                <ul>
+                                    <li><a href="/getPacks">旅行包</a></li>
+                                    <li><a href="/destinations/FirstPage">目的地</a></li>
+                                    <li><a href="/Attractions">景点</a></li>
+                                    <li><a href="/Accommodations">住宿</a></li>
+                                    <li><a href="/trafficList">交通方式</a></li>
+                                    <li><a href="/getCustomerTrafficBooking">预定的通行</a></li>
+                                    <li><a href="/toClient">制定计划</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a>其他</a>
+                                <ul>
+                                    <li><a href="/toReadMore">更多</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="/toContact">联系我们</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <ul class="menu-right-content">
+                <li class="support-box">
+                    <i class="icon-4"></i>
+                    <a >(+86)17801070400</a>
+                </li>
+
+                <li class="search-box-outer"  data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                    <i class="icon-settings1"></i>
+                </li>
+                <li class="btn-box">
+                    <a href="/Logout" class="theme-btn btn-one"><span>登出</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!--sticky Header-->
+    <div class="sticky-header">
+        <div class="outer-container">
+            <div class="outer-box">
+                <div class="menu-area">
+                    <nav class="main-menu clearfix">
+                        <!--Keep This Empty / Menu will come through Javascript-->
+
+                    </nav>
+                    <ul class="menu-right-content">
+                        <li class="support-box">
+                            <i class="icon-4"></i>
+                            <a >(+86)17801070400</a>
+                        </li>
+
+                        <li class="btn-box">
+                            <a href="/Logout" class="theme-btn btn-one"><span>登出</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="mobile-menu" th:if="${language eq 1}">
+    <div class="menu-backdrop"></div>
+    <div class="close-btn"><i class="fas fa-times"></i></div>
+
+    <nav class="menu-box">
+        <div class="nav-logo"></div>
+        <div class="menu-outer">
+            <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+            <div class="collapse navbar-collapse show clearfix" th:if="${language ne 1}">
+                <ul class="navigation clearfix">
+                    <li th:if="${sloginJudge eq 1 or loginJudge eq 1}"><a href="/Logout">Logout</a></li>
+                    <li class="dropdown" th:if="${sloginJudge ne 1 and loginJudge ne 1}" ><a>Login</a>
+                        <ul>
+                            <li><a href="/toLogin">As a customer</a></li>
+                            <li><a href="/tosLogin">As a staff</a></li>
+                        </ul>
+                        <div class="dropdown-btn"><span class="fas fa-angle-down"></span></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="collapse navbar-collapse show clearfix" th:if="${language eq 1}">
+                <ul class="navigation clearfix">
+                    <li th:if="${sloginJudge eq 1 or loginJudge eq 1}"><a href="/Logout">登出</a></li>
+                    <li class="dropdown" th:if="${sloginJudge ne 1 and loginJudge ne 1}" ><a>登录</a>
+                        <ul>
+                            <li><a href="/toLogin">作为用户</a></li>
+                            <li><a href="/tosLogin">作为员工</a></li>
+                        </ul>
+                        <div class="dropdown-btn"><span class="fas fa-angle-down"></span></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="contact-info">
+            <h4>联系信息</h4>
+            <ul>
+                <li>北京市，朝阳区，北京工业大学</li>
+                <li><a>+86 17801070400</a></li>
+                <li><a href="mailto:info@example.com">211007660@qq.com</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+
+
+
+
+<div class="boxed_wrapper ltr">
+
+
+
+
+    <!-- switcher menu -->
+
+    <!-- end switcher menu -->
+
+
+
+
+    <!-- main header -->
+
+
+
+    <!-- page-title -->
+    <section class="page-title p_relative centred" th:if="${language ne 1}">
+        <div class="bg-layer" style="background-image: url(/images/background/maldives.jpg);"></div>
+        <div class="pattern-layer">
+        </div>
+        <div class="auto-container">
+            <div class="content-box">
+                <h1 th:text="${customer.getName()}"></h1>
+                <ul class="bread-crumb clearfix">
+                    <li><a href="/">Home</a></li>
+                    <li>Customer Page</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="page-title p_relative centred" th:if="${language eq 1}">
+        <div class="bg-layer" style="background-image: url(/images/background/maldives.jpg);"></div>
+        <div class="pattern-layer">
+        </div>
+        <div class="auto-container">
+            <div class="content-box">
+                <h1 th:text="${customer.getName()}"></h1>
+                <ul class="bread-crumb clearfix">
+                    <li><a href="/">主页</a></li>
+                    <li>个人</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- page-title end -->
+
+
+
+    <div class="contianer">
+        <div class="calendar">
+            <div class="calendar-header">
+                <span class="month-picker" id="month-picker"> May </span>
+                <div class="year-picker" id="year-picker">
+            <span class="year-change" id="pre-year">
+              <pre><</pre>
+            </span>
+                    <span id="year">2020 </span>
+                    <span class="year-change" id="next-year">
+              <pre>></pre>
+            </span>
+                </div>
+            </div>
+
+            <div class="calendar-body">
+                <div class="calendar-week-days">
+                    <div>Sun</div>
+                    <div>Mon</div>
+                    <div>Tue</div>
+                    <div>Wed</div>
+                    <div>Thu</div>
+                    <div>Fri</div>
+                    <div>Sat</div>
+                </div>
+
+                <div id="calendar-days" class="calendar-days">
+
+                </div>
+            </div>
+            <div class="calendar-footer">
+            </div>
+            <div class="date-time-formate">
+                <div class="day-text-formate">TODAY</div>
+                <div class="date-time-value">
+                    <div class="time-formate">02:51:20</div>
+                    <div class="date-formate">23 - july - 2022</div>
+                </div>
+            </div>
+            <div class="month-list"></div>
+        </div>
+    </div>
+
+
+    <div class="pd_100 pt_100" >
+        <section class="bg-light p-5">
+            <div class="container ">
+                <div class="heading-line"></div>
+                <table class="table mt-6 table-striped table-hover text-center justify-content-center" id="list" th:fragment="list">
+                    <thead>
+                    <tr>
+                        <!--title of the table-->
+                        <th th:if="${language ne 1}" scope="col">Booking ID</th>
+                        <th th:if="${language ne 1}" scope="col">Destination</th>
+                        <th th:if="${language ne 1}" scope="col">Accommodation</th>
+                        <th th:if="${language ne 1}" scope="col">Attraction</th>
+                        <th th:if="${language ne 1}" scope="col">StartTime</th>
+                        <th th:if="${language ne 1}" scope="col">EndTime</th>
+                        <th th:if="${language ne 1}" scope="col">State</th>
+                        <th th:if="${language ne 1}" scope="col">State</th>
+
+                        <th th:if="${language eq 1}" scope="col">预约编号</th>
+                        <th th:if="${language eq 1}" scope="col">目的地</th>
+                        <th th:if="${language eq 1}" scope="col">住宿</th>
+                        <th th:if="${language eq 1}" scope="col">景点</th>
+                        <th th:if="${language eq 1}" scope="col">开始时间</th>
+                        <th th:if="${language eq 1}" scope="col">结束时间</th>
+                        <th th:if="${language eq 1}" scope="col">是否完成</th>
+                        <th th:if="${language eq 1}" scope="col">是否确认</th>
+                    </tr>
+                    </thead>
+                    <tbody th:each="i:${session.bookings}">
+                    <tr>
+                        <!--iterate the details and use jinja placing the info to the table-->
+                        <td><h5  th:text="${i.getBookingId()}"></h5></td>
+                        <td th:if="${language ne 1}"><h5  th:text="${i.getDestination().getDestinationName()}"></h5></td>
+                        <td th:if="${language eq 1}"><h5  th:text="${i.getDestination().getDestinationNameCn()}"></h5></td>
+                        <td th:if="${language ne 1}"><h5  th:text="${i.getAccommodation() != null ? i.getAccommodation().getAccommodationName():' '}"></h5></td>
+                        <td th:if="${language eq 1}"><h5  th:text="${i.getAccommodation() != null ? i.getAccommodation().getAccommodationNameCn():' '}"></h5></td>
+                        <td th:if="${language ne 1}"><h5  th:text="${i.getAttraction()!= null ? i.getAttraction().getAttractionName():' '}" ></h5></td>
+                        <td th:if="${language eq 1}"><h5  th:text="${i.getAttraction()!= null ? i.getAttraction().getAttractionNameCn():' '}" ></h5></td>
+                        <td><h5  th:text="${i.Start()}"></h5></td>
+                        <td><h5  th:text="${i.End()}"></h5></td>
+                        <td th:if="${language ne 1}"><h5  th:text="${i.isFinished() != true ? 'Unfinished':'Finished'}"></h5></td>
+                        <td th:if="${language ne 1}"><h5  th:text="${i.isConfirmed() != true ? 'Unconfirmed':'Confirmed'}"></h5></td>
+                        <td th:if="${language eq 1}"><h5  th:text="${i.isFinished() != true ? '未完成':'完成'}"></h5></td>
+                        <td th:if="${language eq 1}"><h5  th:text="${i.isConfirmed() != true ? '未确认':'确认'}"></h5></td>
+
+                        <td><div th:if="${language ne 1}" class="btn-box">
+                            <button  th:value="${i.getBookingId()}" th:data-Start="${i.Start()}" th:data-End="${i.End()}"  class="theme-btn btn-one"  data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" style="width: 150px;height: 40px" type="button" th:onclick="model([[${i.Start()}]],[[${i.End()}]],[[${i.getBookingId()}]])">Edit</button>
+                        </div>
+                        </td>
+
+                        <td><div th:if="${language ne 1}" class="btn-box">
+                            <button  th:value="${i.getBookingId()}" class="theme-btn btn-one"  data-bs-toggle="modal" style="width: 150px;height: 40px;line-height: 40px;" type="button" th:onclick="Confirm([[${i.getBookingId()}]])">Finish</button>
+                        </div>
+                        </td>
+
+                        <td th:if="${language eq 1}"><div  class="btn-box">
+                            <button th:value="${i.getBookingId()}" th:data-Start="${i.Start()}" th:data-End="${i.End()}"  class="theme-btn btn-one"  data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" style="width: 150px;height: 40px" type="button" th:onclick="model([[${i.Start()}]],[[${i.End()}]],[[${i.getBookingId()}]])">编辑</button>
+                        </div>
+                        </td>
+
+                        <td th:if="${language eq 1}"><div  class="btn-box">
+                            <button th:value="${i.getBookingId()}" class="theme-btn btn-one"  data-bs-toggle="modal" style="width: 150px;height: 40px;line-height: 40px;" type="button" th:onclick="Confirm([[${i.getBookingId()}]])">完成</button>
+                        </div>
+                        </td>
+
+
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+
+
+    <div class="pd_100 pt_100" th:if="${language ne 1}">
+        <section class="bg-light p-5">
+            <div class="container ">
+                <div class="heading-line"></div>
+                <table class="table mt-6 table-striped table-hover text-center justify-content-center">
+                    <thead>
+                    <tr>
+                        <!--title of the table-->
+                        <th scope="col">Booking ID</th>
+                        <th scope="col">Destination</th>
+                        <th scope="col">Accommodation</th>
+                        <th scope="col">Attraction</th>
+                        <th scope="col">StartTime</th>
+                        <th scope="col">EndTime</th>
+                        <th scope="col">State</th>
+                        <th scope="col">State</th>
+                    </tr>
+                    </thead>
+                    <tbody th:each="i:${customerBookings}">
+                    <tr>
+                        <!--iterate the details and use jinja placing the info to the table-->
+                        <td><h5 th:text="${i.getBookingId()}"></h5></td>
+                        <td><h5 id="bookingDesEn" th:text="${i.getDestination().getDestinationName()}"></h5></td>
+                        <td><h5 id="bookingAccEn" th:text="${i.getAccommodation() != null ? i.getAccommodation().getAccommodationName():' '}"></h5></td>
+                        <td><h5 id="bookingAttEn" th:text="${i.getAttraction()!= null ? i.getAttraction().getAttractionName():' '}" ></h5></td>
+                        <td><h5 id="bookingStaEn" th:text="${i.Start()}"></h5></td>
+                        <td><h5 id="bookingEndEn" th:text="${i.End()}"></h5></td>
+                        <td><h5 id="bookingFinishState" th:text="${i.isFinished() != true ? 'Unfinished':'Finished'}"></h5></td>
+                        <td><h5 id="bookingConfirmState"  th:text="${i.isConfirmed() != true ? 'Unconfirmed':'Confirmed'}"></h5></td>
+
+                        <td><div class="btn-box">
+                            <button th:value="${i.getBookingId()}" th:data-Start="${i.Start()}" th:data-End="${i.End()}" id="bookingIdEn" class="theme-btn btn-one"  data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" style="width: 150px;height: 40px" type="button" th:onclick="model([[${i.Start()}]],[[${i.End()}]],[[${i.getBookingId()}]])">Edit</button>
+                        </div>
+                        </td>
+                        <td><div class="btn-box">
+                            <button th:value="${i.getBookingId()}" class="theme-btn btn-one"  data-bs-toggle="modal" style="width: 150px;height: 40px;line-height: 40px;" type="button" th:onclick="Confirm([[${i.getBookingId()}]])">Finish</button>
+                        </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <div class="pd_100 pt_100" th:if="${language eq 1}">
+        <section class="bg-light p-5">
+            <div class="container ">
+                <div class="heading-line"></div>
+                <table class="table mt-6 table-striped table-hover text-center justify-content-center">
+                    <thead>
+                    <tr>
+                        <!--title of the table-->
+                        <th scope="col">预约编号</th>
+                        <th scope="col">目的地</th>
+                        <th scope="col">住宿</th>
+                        <th scope="col">景点</th>
+                        <th scope="col">开始时间</th>
+                        <th scope="col">结束时间</th>
+                        <th scope="col">是否完成</th>
+                        <th scope="col">是否确认</th>
+                    </tr>
+                    </thead>
+                    <tbody th:each="i:${customerBookings}">
+                    <tr>
+                        <!--iterate the details and use jinja placing the info to the table-->
+                        <td><h5 id="bookingIdCh" th:text="${i.getBookingId()}"></h5></td>
+                        <td><h5 id="bookingDesCh" th:text="${i.getDestination().getDestinationNameCn()}"></h5></td>
+                        <td><h5 id="bookingAccCh" th:text="${i.getAccommodation() != null ? i.getAccommodation().getAccommodationNameCn():' '}"></h5></td>
+                        <td><h5 id="bookingAttCh" th:text="${i.getAttraction()!= null ? i.getAttraction().getAttractionNameCn():' '}" ></h5></td>
+                        <td><h5 id="bookingStaCh" th:text="${i.Start()}"></h5></td>
+                        <td><h5 id="bookingEnCh" th:text="${i.End()}"></h5></td>
+                        <td><h5 id="bookingFinishStateCh"  th:text="${i.isFinished() != true ? '未完成':'完成'}"></h5></td>
+                        <td><h5 id="bookingConfirmStateCh" th:text="${i.isConfirmed() != true ? '未确认':'确认'}"></h5></td>
+
+                        <td><div class="btn-box">
+                            <button th:value="${i.getBookingId()}" th:data-Start="${i.Start()}" th:data-End="${i.End()}"  class="theme-btn btn-one"  data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" style="width: 150px;height: 40px" type="button" th:onclick="model2([[${i.Start()}]],[[${i.End()}]],[[${i.getBookingId()}]])">编辑</button>
+                        </div>
+                        </td>
+                        <td><div class="btn-box">
+                            <button th:value="${i.getBookingId()}" class="theme-btn btn-one"  data-bs-toggle="modal" style="width: 150px;height: 40px;line-height: 40px;" type="button" th:onclick="Confirm([[${i.getBookingId()}]])">完成</button>
+                        </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <!-- sidebar-page-container -->
+
+
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+        <div class="modal-dialog" style="width: 100%">
+            <div class="modal-content">
+                <h4 class="modal-title align-items-center text-center">Booking Details</h4>
+                <div class="modal-header">
+                    <div class="modal-body">
+                        <div>
+                            <div >
+                                <div class="form-group">
+                                    <input type="text" name="bid" id="bid"  style="display: none" class="form-control" >
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" th:if="${language ne 1}">Start Date</label>
+                                    <label class="control-label" th:if="${language eq 1}">开始日期</label>
+                                    <input type="datetime-local" id="start" class="form-control" name="start" value="">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" th:if="${language ne 1}">End Date</label>
+                                    <label class="control-label" th:if="${language eq 1}">结束日期</label>
+                                    <input type="datetime-local" id="end" class="form-control" name="end" value="">
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary form-control mt-7" onclick="f()" th:if="${language ne 1}">Edit</button>
+                                    <button type="submit" class="btn btn-primary form-control mt-7" onclick="f()" th:if="${language eq 1}">编辑</button>
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary form-control mt-7" onclick="f2()" th:if="${language ne 1}">Delete</button>
+                                    <button type="submit" class="btn btn-primary form-control mt-7" onclick="f2()" th:if="${language eq 1}">删除</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <script th:inline="javascript">
+
+        function Confirm(bid) {
+            $.ajax({
+                url: "/finishBooking",
+                method: "POST",
+                data: {
+                    "bid": bid
+                },
+                // pass it to order.py
+                success: function (result) {
+                    console.log(result);
+                    if (result.state === 0) {
+                        // if successfully submitted
+                        console.log(result.message);
+                        alert("You have finished this booking.")
+                        // top.location.href = "/";
+                    } else {
+                        alert(result.message);
+                    }
+                    location.href="/toClient"
+                },
+                error: function (result) {
+                    console.log(result);
+                    alert("No such User Found");
+                }
+            });}
+
+
+        function model(Start,End,bid){
+            console.log(Start)
+            console.log(End)
+            let Sta1 = Start.split(" ")[0]
+            let Start1 = Sta1.split("-")[0]
+            let Start2 = Sta1.split("-")[1]
+            let Start3 = Sta1.split("-")[2]
+            let Sta2 = Start.split(" ")[1]
+            let Start21 = Sta2.split(":")[0]
+            let Start22 = Sta2.split(":")[1]
+
+            let End1 = End.split(" ")[0]
+            let End11 = End1.split("-")[0]
+            let End12 = End1.split("-")[1]
+            let End13 = End1.split("-")[2]
+            let End2 = End.split(" ")[1]
+            let End21 = End2.split(":")[0]
+            let End22 = End2.split(":")[1]
+
+
+            //全局变量
+
+            var format = "";
+            var format2 = "";
+
+            function getFormat(){
+                format = "";
+                format += Start1+"-";
+                format += Start2;
+                format += "-";
+                format += Start3;
+                format += "T";
+                format += Start21;
+                format += ":";
+                format += Start22;
+                format += ":00";
+            }
+
+            function getFormat2(){
+                format2 = "";
+                format2 += End11+"-";
+                format2 += End12;
+                format2 += "-";
+                format2 += End13;
+                format2 += "T";
+                format2 += End21;
+                format2 += ":";
+                format2 += End22;
+                format2 += ":00";
+            }
+            $(function(){
+                console.log(format)
+                console.log(format2)
+                getFormat();
+                getFormat2();
+                document.getElementById("start").value = format;
+                document.getElementById("end").value = format2;
+                $("#bid").val(bid);
+            })
+            //datetime-local必须格式化成"yyyy-MM-ddTHH:mm:ss"的格式
+        }
+        function model2(Start,End,bid){
+            let Sta1 = Start.split(" ")[0]
+            let Start1 = Sta1.split("-")[0]
+            let Start2 = Sta1.split("-")[1]
+            let Start3 = Sta1.split("-")[2]
+            let Sta2 = Start.split(" ")[1]
+            let Start21 = Sta2.split(":")[0]
+            let Start22 = Sta2.split(":")[1]
+
+
+
+            let End1 = End.split(" ")[0]
+            let End11 = End1.split("-")[0]
+            let End12 = End1.split("-")[1]
+            let End13 = End1.split("-")[2]
+            let End2 = End.split(" ")[1]
+            let End21 = End2.split(":")[0]
+            let End22 = End2.split(":")[1]
+
+
+            //全局变量
+
+            var format = "";
+            var format2 = "";
+
+            function getFormat(){
+                format = "";
+                format += Start1+"-";
+                format += Start2;
+                format += "-";
+                format += Start3;
+                format += "T";
+                format += Start21;
+                format += ":";
+                format += Start22;
+                format += ":00";
+            }
+
+            function getFormat2(){
+                format2 = "";
+                format2 += End11+"-";
+                format2 += End12;
+                format2 += "-";
+                format2 += End13;
+                format2 += "T";
+                format2 += End21;
+                format2 += ":";
+                format2 += End22;
+                format2 += ":00";
+            }
+
+
+
+            $(function(){
+                console.log(format)
+                console.log(format2)
+                getFormat();
+                getFormat2();
+                document.getElementById("start").value = format;
+                document.getElementById("end").value = format2;
+                $("#bid").val(bid);
+            })
+            //datetime-local必须格式化成"yyyy-MM-ddTHH:mm:ss"的格式
+
+        }
+
+
+
+
+        function f() {
+            var bid = $("#bid").val();
+            // var phone = $("#examplePhone").val();
+            var start = $("#start").val();
+            var end = $("#end").val();
+            // var pwdV = $("#exampleInputPassword2").val();
+            console.log(2);
+            // get the order id
+            $.ajax({
+                url: "/editBooking",
+                method: "POST",
+                data: {
+                    "bid": bid,
+                    "start": start,
+                    "end": end
+                },
+                // pass it to order.py
+                success: function (result) {
+                    console.log(22);
+                    console.log(result);
+                    if (result.state === 0) {
+                        // if successfully submitted
+                        console.log(result.message);
+                        alert(result.message);
+                        // top.location.href = "/";
+                    } else {
+                        alert(result.message);
+                        $(".warning").text(result.message)
+                    }
+                    location.href="/toClient"
+                },
+                error: function (result) {
+                    console.log(result);
+                    alert("No such User Found");
+                }
+            });
+        }
+        function f2() {
+            var bid = $("#bid").val();
+            // var phone = $("#examplePhone").val();
+            var start = $("#start").val();
+            var end = $("#end").val();
+            // var pwdV = $("#exampleInputPassword2").val();
+            console.log(2);
+            // get the order id
+            $.ajax({
+                url: "/deleteBooking",
+                method: "POST",
+                data: {
+                    "bid": bid,
+                },
+                // pass it to order.py
+                success: function (result) {
+                    console.log(22);
+                    console.log(result);
+                    if (result.state === 0) {
+                        // if successfully submitted
+                        console.log(result.message);
+                        alert(result.message);
+                        // top.location.href = "/";
+                    } else {
+                        alert(result.message);
+                        $(".warning").text(result.message)
+                    }
+                    location.href="/toClient"
+                },
+                error: function (result) {
+                    console.log(result);
+                    alert("No such User Found");
+                }
+            });
+        }
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+    <!-- sidebar-page-container end -->
+
+
+    <!-- main-footer -->
+
+    <!-- main-footer -->
+
+
+
+    <!--Scroll to top-->
+    <div class="scroll-to-top" th:if="${language ne 1}">
+        <div>
+            <div class="scroll-top-inner">
+                <div class="scroll-bar">
+                    <div class="bar-inner"></div>
+                </div>
+                <div class="scroll-bar-text">Go To Top</div>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-to-top" th:if="${language eq 1}">
+        <div>
+            <div class="scroll-top-inner">
+                <div class="scroll-bar">
+                    <div class="bar-inner"></div>
+                </div>
+                <div class="scroll-bar-text">返回顶部</div>
+            </div>
+        </div>
+    </div>
+    <!-- Scroll to top end -->
+
+</div>
+
+
+<!-- jequery plugins -->
+<script src="../js/jquery.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/owl.js"></script>
+<script src="../js/wow.js"></script>
+<script src="../js/validation.js"></script>
+<script src="../js/jquery.fancybox.js"></script>
+<script src="../js/appear.js"></script>
+<script src="../js/isotope.js"></script>
+<script src="../js/parallax-scroll.js"></script>
+<script src="../js/jquery.nice-select.min.js"></script>
+<script src="../js/jQuery.style.switcher.min.js"></script>
+<script src="../js/scriptCalender.js" defer></script>
+<script src="../js/click.js"></script>
+
+<!-- main-js -->
+<script src="../js/script.js"></script>
+
+<script>
+    $(".viewD").on("click",function () {
+        a = $(this).val();
+        top.location.href = "/showBookingsOfCustomer?customerId="+a;
+        console.log(a)
+    })
+</script>
+<!--</script>-->
+</body><!-- End of .page_wrapper -->
+</html>

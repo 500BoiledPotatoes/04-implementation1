@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<menu id="AccComment">
+    <div class="blog-details-content">
+        <div style="margin-top: 200px" class="comment-box mb_65">
+            <div class="group-title">
+                <div style="display: flex">
+                    <h3 th:if="${language ne 1}">Comments</h3>
+                    <h3 th:if="${language eq 1}" >评论</h3>
+                    <div style="margin-left: 50px;width: 220px;margin-bottom: 30px"  class="container" >
+                        <div class="radio-input">
+                            <input type="radio" id="value-1" onclick="CommonAcc()" name="value-radio" value="value-1">
+                            <label th:if="${language ne 1}" for="value-1">Common</label>
+                            <label th:if="${language eq 1}" style="white-space:nowrap;" for="value-1">全部</label>
+                            <input type="radio" id="value-2" onclick="GoodAcc()" name="value-radio" value="value-2">
+                            <label th:if="${language ne 1}" for="value-2">Good</label>
+                            <label th:if="${language eq 1}" style="white-space:nowrap;" for="value-2">好评</label>
+                            <input type="radio" id="value-3" onclick="BedAcc()" name="value-radio" value="value-3">
+                            <label th:if="${language ne 1}" for="value-3">Bad</label>
+                            <label th:if="${language eq 1}" style="white-space:nowrap;" for="value-3">差评</label>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            <div class="comment-inner" id="list2" th:fragment="list2">
+
+                <div class="comment" th:each="i:${session.accommodationReviews != null ? session.accommodationReviews:accommodationReviews}">
+                    <figure class="comment-thumb"><img src="../images/news/comment-1.jpg" alt=""></figure>
+                    <h4 th:text="${i.getCustomer().getName()}">Bessie Cooper</h4>
+                    <span class="post-date" th:text="${#strings.replace(i.getTime(),'T',' ')}"></span>
+                    <p th:text="${i.getReviewContent()}"></p>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div style="margin-top: 50px" class="comment-form-area" th:if="${sloginJudge ne 1}">
+        <div class="group-title">
+            <h3 th:if="${language ne 1}">Leave A Comments</h3>
+            <h3 th:if="${language eq 1}">欢迎留下您的评论</h3>
+        </div>
+        <div class="comment-form">
+            <div>
+                <div class="row clearfix">
+                    <div class="default-form">
+                        <div class="col-lg-6 col-md-6 col-sm-12 form-group" th:if="${customer ne null}">
+                            <input type="text" name="customerId" class="customerId" style="display: none" th:value="${customer.getCustomerId()}" placeholder="" >
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 form-group" style="display: none">
+                            <input type="text" name="accommodationId" class = "accommodationId" th:value="${accommodationDetail.getAccommodationId()}" placeholder="" >
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                            <textarea th:if="${language ne 1}" name="content" class="accommodationContent" id="accommodationContent" placeholder="Type comment"></textarea>
+                            <textarea th:if="${language eq 1}" name="content" class="accommodationContent" id="accommodationContent" placeholder="输入您的评论"></textarea>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                            <button th:if="${loginJudge eq 1 and sloginJudge ne 1 and language ne 1}" type="submit" class="theme-btn btn-one redirect" onclick="checkingAccommodationComment()"><span>Post Comment</span></button>
+                            <button th:if="${loginJudge eq 1 and sloginJudge ne 1 and language eq 1}" type="submit" class="theme-btn btn-one redirect" onclick="checkingAccommodationComment()"><span>评论</span></button>
+                            <button th:if="${loginJudge ne 1 and sloginJudge ne 1 and language ne 1}" class="ToLogin theme-btn btn-one" type="button" onclick="toLogin()"><span>Login to Post</span></button>
+                            <button th:if="${loginJudge ne 1 and sloginJudge ne 1 and language eq 1}" class="ToLogin theme-btn btn-one" type="button" onclick="toLogin()"><span>登录以评论</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</menu>
+<menu id="AttComment">
+    <div class="blog-details-content" >
+        <div style="margin-top: 200px" class="comment-box mb_65">
+            <div class="group-title">
+                <div style="display: flex">
+                    <h3 th:if="${language ne 1}">Comments</h3>
+                    <h3 th:if="${language eq 1}" >评论</h3>
+                    <div style="margin-left: 50px;width: 220px;margin-bottom: 30px"  class="container" >
+                        <div class="radio-input">
+                            <input type="radio" id="value-1" onclick="Common()" name="value-radio" value="value-1">
+                            <label th:if="${language ne 1}" for="value-1">Common</label>
+                            <label th:if="${language eq 1}" style="white-space:nowrap;" for="value-1">全部</label>
+                            <input type="radio" id="value-2" onclick="Good()" name="value-radio" value="value-2">
+                            <label th:if="${language ne 1}" for="value-2">Good</label>
+                            <label th:if="${language eq 1}" style="white-space:nowrap;" for="value-2">好评</label>
+                            <input type="radio" id="value-3" onclick="Bed()" name="value-radio" value="value-3">
+                            <label th:if="${language ne 1}" for="value-3">Bad</label>
+                            <label th:if="${language eq 1}" style="white-space:nowrap;" for="value-3">差评</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="comment-inner" id="list" th:fragment="list">
+                <div class="comment" th:each="i:${session.attractionReviews != null ? session.attractionReviews:attractionReviews}">
+                    <figure class="comment-thumb"><img src="../images/news/comment-1.jpg" alt=""></figure>
+                    <h4 th:text="${i.getCustomer().getName()}">Bessie Cooper</h4>
+                    <span class="post-date" th:text="${#strings.replace(i.getTime(),'T',' ')}"></span>
+                    <p th:text="${i.getReviewContent()}"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="margin-top: 50px" class="comment-form-area" th:if="${sloginJudge ne 1}">
+        <div class="group-title">
+            <h3 th:if="${language ne 1}">Leave A Comments</h3>
+            <h3 th:if="${language eq 1}">欢迎留下您的评论</h3>
+        </div>
+        <div class="comment-form">
+            <div>
+                <div class="row clearfix">
+                    <div class="default-form">
+                        <div class="col-lg-6 col-md-6 col-sm-12 form-group" th:if="${customer ne null}">
+                            <input type="text" name="customerId" class="customerId" style="display: none" th:value="${customer.getCustomerId()}" placeholder="" >
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 form-group" style="display: none">
+                            <input type="text" name="attractionId" class="attractionId" th:value="${attractionDetail.getAttractionID()}" placeholder="" >
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                            <textarea th:if="${language ne 1}" name="content" class="attractionContent" id="attractionContent" placeholder="Type comment"></textarea>
+                            <textarea th:if="${language eq 1}" name="content" class="attractionContent" id="attractionContent" placeholder="输入您的评论"></textarea>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                            <button th:if="${loginJudge eq 1 and sloginJudge ne 1 and language ne 1}" type="submit" class="theme-btn btn-one redirect" onclick="checkingAttractionComment()"><span>Post Comment</span></button>
+                            <button th:if="${loginJudge eq 1 and sloginJudge ne 1 and language eq 1}" type="submit" class="theme-btn btn-one redirect" onclick="checkingAttractionComment()"><span>评论</span></button>
+                            <button th:if="${loginJudge ne 1 and sloginJudge ne 1 and language ne 1}" class="ToLogin theme-btn btn-one" type="button" onclick="toLogin()"><span>Login to Post</span></button>
+                            <button th:if="${loginJudge ne 1 and sloginJudge ne 1 and language eq 1}" class="ToLogin theme-btn btn-one" type="button" onclick="toLogin()"><span>登录以评论</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</menu>
+</body>
+<script type="text/javascript">
+
+    function Common (){
+        let AttractionId = document.getElementById("AttractionId").value;
+        $.ajax({
+            url: "/AttReviewCommon",
+            method: "GET",
+            data: {
+                "attractionId": AttractionId
+            },
+            // pass it to order.py
+            success: function (result) {
+                $("#list").html(result);
+                console.log(220);
+            },
+
+        });
+    }
+    function Good (){
+        let AttractionId = document.getElementById("AttractionId").value;
+        $.ajax({
+            url: "/AttReviewGood",
+            method: "GET",
+            data: {
+                "attractionId": AttractionId
+            },
+            // pass it to order.py
+            success: function (result) {
+                $("#list").html(result);
+                console.log(220);
+            },
+
+        });
+    }
+    function Bed (){
+        let AttractionId = document.getElementById("AttractionId").value;
+        $.ajax({
+            url: "/AttReviewBad",
+            method: "GET",
+            data: {
+                "attractionId": AttractionId
+            },
+            // pass it to order.py
+            success: function (result) {
+                $("#list").html(result);
+                console.log(220);
+            },
+
+        });
+    }
+
+    function BedAcc (){
+        let AccommodationId = document.getElementById("AccommodationId").value;
+        $.ajax({
+            url: "/AccReviewBad",
+            method: "GET",
+            data: {
+                "accommodationId": AccommodationId
+            },
+            // pass it to order.py
+            success: function (result) {
+                $("#list2").html(result);
+                console.log(220);
+            },
+
+        });
+    }
+    function CommonAcc (){
+        let AccommodationId = document.getElementById("AccommodationId").value;
+        $.ajax({
+            url: "/AccReviewCommon",
+            method: "GET",
+            data: {
+                "accommodationId": AccommodationId
+            },
+            // pass it to order.py
+            success: function (result) {
+                $("#list2").html(result);
+                console.log(220);
+            },
+        });
+    }
+    function GoodAcc (){
+        let AccommodationId = document.getElementById("AccommodationId").value;
+        $.ajax({
+            url: "/AccReviewGood",
+            method: "GET",
+            data: {
+                "accommodationId": AccommodationId
+            },
+            // pass it to order.py
+            success: function (result) {
+                $("#list2").html(result);
+                console.log(220);
+            },
+
+        });
+    }
+
+
+    function toLogin(){
+        top.location.href="/toLogin";
+        console.log(1);
+    }
+
+    function checkingAccommodationComment(){
+        var customerId = $(".customerId").val();
+        var accommodationId = $(".accommodationId").val();
+        var accommodationContent = $(".accommodationContent").val();
+        var formData = new FormData();
+
+        formData.append("customerId",customerId);
+        formData.append("content", accommodationContent);
+        formData.append("accommodationId", accommodationId);
+
+        $.ajax({
+            url: "/addAccommodationReview",
+            method: "POST",
+            data: formData,
+            processData : false,
+            contentType : false,
+            async:false,
+            // pass it to sb.py
+            success: function (result) {
+
+                console.log(result);
+                if (result.state === 0) {
+                    // if successfully submitted
+                    console.log(result.message);
+
+                    top.location.href = "/accommodationDetail?accommodationId=" + accommodationId;
+                } else {
+                    alert(result.message);
+                    $(".warning").text(result.message)
+                }
+            },
+            error: function (result) {
+                console.log(result);
+                alert("Fuck");
+            }
+        });
+
+
+    }
+    function checkingAttractionComment(){
+        var customerId = $(".customerId").val();
+        var attractionId = $(".attractionId").val();
+        var attractionContent = $(".attractionContent").val();
+        var formData = new FormData();
+
+        formData.append("customerId",customerId);
+        formData.append("content", attractionContent);
+        formData.append("attractionId", attractionId);
+
+        $.ajax({
+            url: "/addAttractionReview",
+            method: "POST",
+            data: formData,
+            processData : false,
+            contentType : false,
+            async:false,
+            // pass it to sb.py
+            success: function (result) {
+
+                console.log(result);
+                if (result.state === 0) {
+                    // if successfully submitted
+                    console.log(result.message);
+
+                    // top.location.href = "/attractionDetail?attractionId=" + attractionId;
+                } else {
+                    alert(result.message);
+                    $(".warning").text(result.message)
+                }
+            },
+            error: function (result) {
+                console.log(result);
+                alert("Fuck");
+            }
+        });
+
+
+    }
+
+</script>
+
+</html>

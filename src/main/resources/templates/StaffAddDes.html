@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Travel Agent</title>
+
+    <!-- Fav Icon -->
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,500;1,9..144,600;1,9..144,700;1,9..144,800;1,9..144,900&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+          rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/font-awesome-all.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/flaticon.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/owl.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/bootstrap.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/jquery.fancybox.min.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/animate.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/nice-select.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/elpath.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/color/theme-color.css" id="jssDefault" type="text/css" media="all">
+
+    <link rel="stylesheet" href="../css/switcher-style.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/rtl.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/style.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/module-css/page-title.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/module-css/news.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/module-css/sidebar.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/responsive.css" type="text/css" media="all">
+
+
+</head>
+
+
+<!-- page wrapper -->
+<body>
+
+<!--<header class="main-header">-->
+<!--    &lt;!&ndash; header-top &ndash;&gt;-->
+<!--    <div class="header-top">-->
+<!--        <div class="top-inner">-->
+<!--            <div class="top-left">-->
+<!--                <ul class="info-list clearfix">-->
+<!--                    <li style="right: 23px">-->
+<!--                        &lt;!&ndash;                                <i class="icon-2"></i>&ndash;&gt;-->
+<!--                        OurEmail: <a href="mailto:info@example.com">211007660@qq.com</a>-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--            <div class="top-right">-->
+<!--                <div class="login-box"><a href="/toLogin" th:if="${loginJudge eq 0}">Login</a></div>-->
+<!--                <div class="login-box"><a href="/toClient" th:if="${loginJudge eq 1}" th:text="${customer.getName()}"></a></div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    &lt;!&ndash; header-lower &ndash;&gt;-->
+<!--    <div class="header-lower">-->
+<!--        <div class="outer-box">-->
+<!--            <div class="menu-area">-->
+<!--                &lt;!&ndash;Mobile Navigation Toggler&ndash;&gt;-->
+<!--                <div class="mobile-nav-toggler">-->
+<!--                    <i class="icon-bar"></i>-->
+<!--                    <i class="icon-bar"></i>-->
+<!--                    <i class="icon-bar"></i>-->
+<!--                </div>-->
+<!--                <nav class="main-menu navbar-expand-md navbar-light clearfix">-->
+<!--                    <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">-->
+<!--                        <ul class="navigation clearfix">-->
+<!--                            <li><a href="/">Home</a></li>-->
+<!--                            <li class="dropdown"><a href="/">Services</a>-->
+<!--                                <ul>-->
+<!--                                    <li><a href="/toLogin" th:if="${loginJudge eq 0}">Planning Tools</a></li>-->
+<!--                                    <li><a href="/toClient" th:if="${loginJudge eq 1}">Planning Tools</a></li>-->
+<!--                                    <li><a href="service-details-2.html">Tour package choices</a></li>-->
+<!--                                </ul>-->
+<!--                            </li>-->
+<!--                            &lt;!&ndash;                                    <li class="dropdown"><a href="index.html">Pages</a>&ndash;&gt;-->
+<!--                            &lt;!&ndash;                                        <ul>&ndash;&gt;-->
+<!--                            &lt;!&ndash;                                            <li class="dropdown"><a href="index.html">Team</a>&ndash;&gt;-->
+<!--                            &lt;!&ndash;                                                <ul>&ndash;&gt;-->
+<!--                            &lt;!&ndash;                                                    <li><a href="Accommodation.html">Team Page</a></li>&ndash;&gt;-->
+<!--                            &lt;!&ndash;                                                    <li><a href="team-details.html">Team Details</a></li>&ndash;&gt;-->
+<!--                            &lt;!&ndash;                                                </ul>&ndash;&gt;-->
+<!--                            &lt;!&ndash;                                            </li>&ndash;&gt;-->
+<!--                            &lt;!&ndash;                                            <li><a href="about.html">About Us</a></li>&ndash;&gt;-->
+<!--                            &lt;!&ndash;                                            <li><a href="testimonial.html">Testimonials</a></li>&ndash;&gt;-->
+<!--                            &lt;!&ndash;                                            <li><a href="pricing.html">Pricing Table</a></li>&ndash;&gt;-->
+<!--                            &lt;!&ndash;                                            <li><a href="faq.html">Faq's</a></li>&ndash;&gt;-->
+<!--                            &lt;!&ndash;                                            <li><a href="error.html">Error Page</a></li>&ndash;&gt;-->
+<!--                            &lt;!&ndash;                                        </ul>&ndash;&gt;-->
+<!--                            &lt;!&ndash;                                    </li> &ndash;&gt;-->
+<!--                            &lt;!&ndash;                                    <li class="dropdown"><a href="index.html">Projects</a>&ndash;&gt;-->
+<!--                            &lt;!&ndash;                                        <ul>&ndash;&gt;-->
+<!--                            &lt;!&ndash;                                            <li><a href="project.html">Project 1</a></li>&ndash;&gt;-->
+<!--                            &lt;!&ndash;                                            <li><a href="project-2.html">Project 2</a></li>&ndash;&gt;-->
+<!--                            &lt;!&ndash;                                            <li><a href="project-details.html">Project Details</a></li>&ndash;&gt;-->
+<!--                            &lt;!&ndash;                                        </ul>&ndash;&gt;-->
+<!--                            &lt;!&ndash;                                    </li>&ndash;&gt;-->
+<!--                            &lt;!&ndash;                                    <li class="dropdown"><a href="index.html">Blog</a>&ndash;&gt;-->
+<!--                            &lt;!&ndash;                                        <ul>&ndash;&gt;-->
+<!--                            &lt;!&ndash;                                            <li><a href="blog.html">Blog Grid</a></li>&ndash;&gt;-->
+<!--                            &lt;!&ndash;                                            <li><a href="blog-2.html">Blog Classic</a></li>&ndash;&gt;-->
+<!--                            &lt;!&ndash;                                            <li><a href="blog-details.html">Blog Details</a></li>&ndash;&gt;-->
+<!--                            &lt;!&ndash;                                        </ul>&ndash;&gt;-->
+<!--                            &lt;!&ndash;                                    </li>  &ndash;&gt;-->
+<!--                            <li><a href="/toContact">Contact</a></li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                </nav>-->
+<!--                <ul class="menu-right-content">-->
+<!--                    <li class="support-box">-->
+<!--                        <i class="icon-4"></i>-->
+<!--                        <a>17801070400</a>-->
+<!--                    </li>-->
+<!--                    &lt;!&ndash;                            class="search-box-outer search-toggler"&ndash;&gt;-->
+<!--                    <li class="search-box-outer search-toggler">-->
+<!--                        <i class="icon-5"></i>-->
+<!--                    </li>-->
+<!--                    <li class="btn-box">-->
+<!--                        <a href="/staff" class="theme-btn btn-one"><span>I'm staff</span></a>-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</header>-->
+<div th:insert="~{Navigation :: #mainNoSearch}" th:if="${language ne 1}"></div>
+<div th:insert="~{Navigation :: #mainChineseNoSearch}" th:if="${language eq 1}"></div>
+
+
+<div class="boxed_wrapper ltr">
+
+
+    <!--    &lt;!&ndash; preloader &ndash;&gt;-->
+    <!--    <div class="loader-wrap">-->
+    <!--        <div class="preloader">-->
+    <!--            <div class="preloader-close">close</div>-->
+    <!--            <div id="handle-preloader" class="handle-preloader">-->
+    <!--                <div class="animation-preloader">-->
+    <!--                    <div class="spinner"></div>-->
+    <!--                    <div class="txt-loading">-->
+    <!--                            <span data-text-preloader="w" class="letters-loading">-->
+    <!--                                w-->
+    <!--                            </span>-->
+    <!--                        <span data-text-preloader="a" class="letters-loading">-->
+    <!--                                a-->
+    <!--                            </span>-->
+    <!--                        <span data-text-preloader="s" class="letters-loading">-->
+    <!--                                s-->
+    <!--                            </span>-->
+    <!--                        <span data-text-preloader="t" class="letters-loading">-->
+    <!--                                t-->
+    <!--                            </span>-->
+    <!--                        <span data-text-preloader="i" class="letters-loading">-->
+    <!--                                i-->
+    <!--                            </span>-->
+    <!--                        <span data-text-preloader="x" class="letters-loading">-->
+    <!--                                x-->
+    <!--                            </span>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <!-- preloader end -->
+
+
+    <!-- page-direction -->
+    <!--    <div class="page_direction">-->
+    <!--        <div class="demo-rtl direction_switch"><button class="rtl">RTL</button></div>-->
+    <!--        <div class="demo-ltr direction_switch"><button class="ltr">LTR</button></div>-->
+    <!--    </div>-->
+    <!-- page-direction end -->
+
+
+    <!-- switcher menu -->
+    <!-- end switcher menu -->
+
+
+    <!--Search Popup-->
+    <!--    <div id="search-popup" class="search-popup">-->
+    <!--        <div class="popup-inner">-->
+    <!--            <div class="upper-box clearfix">-->
+    <!--                <figure class="logo-box pull-left"><a href="index.html"><img src="assets/images/logo.png" alt=""></a></figure>-->
+    <!--                <div class="close-search pull-right"><span class="far fa-times"></span></div>-->
+    <!--            </div>-->
+    <!--            <div class="overlay-layer"></div>-->
+    <!--            <div class="auto-container">-->
+    <!--                <div class="search-form">-->
+    <!--                    <form method="post" action="index.html">-->
+    <!--                        <div class="form-group">-->
+    <!--                            <fieldset>-->
+    <!--                                <input type="search" class="form-control" name="search-input" value="" placeholder="Type your keyword and hit" required >-->
+    <!--                                <button type="submit"><i class="far fa-search"></i></button>-->
+    <!--                            </fieldset>-->
+    <!--                        </div>-->
+    <!--                    </form>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
+
+
+    <!-- main header -->
+    <header class="main-header header-style-two">
+        <!-- header-lower -->
+        <!--        <div class="header-lower">-->
+        <!--            <div class="outer-box">-->
+        <!--                <div class="logo-box">-->
+        <!--                    <figure class="logo"><a href="index.html"><img src="assets/images/logo-2.png" alt=""></a></figure>-->
+        <!--                </div>-->
+        <!--                <div class="menu-area">-->
+        <!--                    &lt;!&ndash;Mobile Navigation Toggler&ndash;&gt;-->
+        <!--                    <div class="mobile-nav-toggler">-->
+        <!--                        <i class="icon-bar"></i>-->
+        <!--                        <i class="icon-bar"></i>-->
+        <!--                        <i class="icon-bar"></i>-->
+        <!--                    </div>-->
+        <!--                    <nav class="main-menu navbar-expand-md navbar-light clearfix">-->
+        <!--                        <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">-->
+        <!--                            <ul class="navigation clearfix">-->
+        <!--                                <li class="dropdown"><a href="index.html">Home</a>-->
+        <!--                                    <ul>-->
+        <!--                                        <li><a href="index.html">Home Page One</a></li>-->
+        <!--                                        <li><a href="index-2.html">Home Page Two</a></li>-->
+        <!--                                        <li><a href="index-3.html">Home Page Three</a></li>-->
+        <!--                                        <li><a href="index-onepage.html">OnePage Home</a></li>-->
+        <!--                                        <li class="dropdown"><a href="index.html">Header Style</a>-->
+        <!--                                            <ul>-->
+        <!--                                                <li><a href="index.html">Header Style 01</a></li>-->
+        <!--                                                <li><a href="index-3.html">Header Style 02</a></li>-->
+        <!--                                            </ul>-->
+        <!--                                        </li>-->
+        <!--                                    </ul>-->
+        <!--                                </li>-->
+        <!--                                <li class="dropdown"><a href="index.html">Services</a>-->
+        <!--                                    <ul>-->
+        <!--                                        <li><a href="service.html">Our Services</a></li>-->
+        <!--                                        <li><a href="service-details.html">Garbage pickup</a></li>-->
+        <!--                                        <li><a href="service-details-2.html">Dumpster rental</a></li>-->
+        <!--                                        <li><a href="service-details-3.html">Waste collection</a></li>-->
+        <!--                                        <li><a href="service-details-4.html">Recycling service</a></li>-->
+        <!--                                        <li><a href="service-details-5.html">Residential service</a></li>-->
+        <!--                                        <li><a href="service-details-6.html">Roll-Off dumpster</a></li>-->
+        <!--                                    </ul>-->
+        <!--                                </li>-->
+        <!--                                <li class="dropdown"><a href="index.html">Pages</a>-->
+        <!--                                    <ul>-->
+        <!--                                        <li class="dropdown"><a href="index.html">Team</a>-->
+        <!--                                            <ul>-->
+        <!--                                                <li><a href="Accommodation.html">Team Page</a></li>-->
+        <!--                                                <li><a href="team-details.html">Team Details</a></li>-->
+        <!--                                            </ul>-->
+        <!--                                        </li>-->
+        <!--                                        <li><a href="about.html">About Us</a></li>-->
+        <!--                                        <li><a href="testimonial.html">Testimonials</a></li>-->
+        <!--                                        <li><a href="pricing.html">Pricing Table</a></li>-->
+        <!--                                        <li><a href="faq.html">Faq's</a></li>-->
+        <!--                                        <li><a href="error.html">Error Page</a></li>-->
+        <!--                                    </ul>-->
+        <!--                                </li>-->
+        <!--                                <li class="dropdown"><a href="index.html">Projects</a>-->
+        <!--                                    <ul>-->
+        <!--                                        <li><a href="project.html">Project 1</a></li>-->
+        <!--                                        <li><a href="project-2.html">Project 2</a></li>-->
+        <!--                                        <li><a href="project-details.html">Project Details</a></li>-->
+        <!--                                    </ul>-->
+        <!--                                </li>-->
+        <!--                                <li class="current dropdown"><a href="index.html">Blog</a>-->
+        <!--                                    <ul>-->
+        <!--                                        <li><a href="blog.html">Blog Grid</a></li>-->
+        <!--                                        <li><a href="blog-2.html">Blog Classic</a></li>-->
+        <!--                                        <li><a href="blog-details.html">Blog Details</a></li>-->
+        <!--                                    </ul>-->
+        <!--                                </li>-->
+        <!--                                <li><a href="contact.html">Contact</a></li>-->
+        <!--                            </ul>-->
+        <!--                        </div>-->
+        <!--                    </nav>-->
+        <!--                </div>-->
+        <!--                <ul class="menu-right-content">-->
+        <!--                    <li class="support-box">-->
+        <!--                        <i class="icon-4"></i>-->
+        <!--                        <a href="">(239)-543-217-0108</a>-->
+        <!--                    </li>-->
+        <!--                    <li class="search-box-outer search-toggler">-->
+        <!--                        <i class="icon-5"></i>-->
+        <!--                    </li>-->
+        <!--                    <li class="btn-box">-->
+        <!--                        <a href="index.html" class="theme-btn btn-one"><span>Request A Pickup</span></a>-->
+        <!--                    </li>-->
+        <!--                </ul>-->
+        <!--            </div>-->
+        <!--        </div>-->
+
+        <!--sticky Header-->
+        <!--        <div class="sticky-header">-->
+        <!--            <div class="outer-container">-->
+        <!--                <div class="outer-box">-->
+        <!--                    <div class="logo-box">-->
+        <!--                        <figure class="logo"><a href="index.html"><img src="assets/images/logo.png" alt=""></a></figure>-->
+        <!--                    </div>-->
+        <!--                    <div class="menu-area">-->
+        <!--                        <nav class="main-menu clearfix">-->
+        <!--                            &lt;!&ndash;Keep This Empty / Menu will come through Javascript&ndash;&gt;-->
+        <!--                        </nav>-->
+        <!--                        <ul class="menu-right-content">-->
+        <!--                            <li class="support-box">-->
+        <!--                                <i class="icon-4"></i>-->
+        <!--                                <a href="">(239)-543-217-0108</a>-->
+        <!--                            </li>-->
+        <!--                            <li class="search-box-outer search-toggler">-->
+        <!--                                <i class="icon-5"></i>-->
+        <!--                            </li>-->
+        <!--                            <li class="btn-box">-->
+        <!--                                <a href="index.html" class="theme-btn btn-one"><span>Request A Pickup</span></a>-->
+        <!--                            </li>-->
+        <!--                        </ul>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--        </div>-->
+    </header>
+    <!-- main-header end -->
+
+    <!-- Mobile Menu  -->
+    <!--    <div class="mobile-menu">-->
+    <!--        <div class="menu-backdrop"></div>-->
+    <!--        <div class="close-btn"><i class="fas fa-times"></i></div>-->
+
+    <!--        <nav class="menu-box">-->
+    <!--            <div class="nav-logo"><a href="index.html"><img src="assets/images/logo-2.png" alt="" title=""></a></div>-->
+    <!--            <div class="menu-outer">&lt;!&ndash;Here Menu Will Come Automatically Via Javascript / Same Menu as in Header&ndash;&gt;</div>-->
+    <!--            <div class="contact-info">-->
+    <!--                <h4>Contact Info</h4>-->
+    <!--                <ul>-->
+    <!--                    <li>Chicago 12, Melborne City, USA</li>-->
+    <!--                    <li><a href="">+88 01682648101</a></li>-->
+    <!--                    <li><a href="mailto:info@example.com">info@example.com</a></li>-->
+    <!--                </ul>-->
+    <!--            </div>-->
+    <!--            <div class="social-links">-->
+    <!--                <ul class="clearfix">-->
+    <!--                    <li><a href="index.html"><span class="fab fa-twitter"></span></a></li>-->
+    <!--                    <li><a href="index.html"><span class="fab fa-facebook-square"></span></a></li>-->
+    <!--                    <li><a href="index.html"><span class="fab fa-pinterest-p"></span></a></li>-->
+    <!--                    <li><a href="index.html"><span class="fab fa-instagram"></span></a></li>-->
+    <!--                    <li><a href="index.html"><span class="fab fa-youtube"></span></a></li>-->
+    <!--                </ul>-->
+    <!--            </div>-->
+    <!--        </nav>-->
+    <!--    </div>&lt;!&ndash; End Mobile Menu &ndash;&gt;-->
+
+
+    <!-- page-title -->
+    <section class="page-title p_relative centred" th:if="${language ne 1}">
+        <div class="bg-layer" style="background-image: url(/images/background/house.jpg);"></div>
+        <div class="pattern-layer">
+            <!--            <div class="pattern-1" style="background-image: url(../static/images/shape/shape-14.png);"></div>-->
+            <!--            <div class="pattern-2" style="background-image: url(../static/images/shape/shape-14.png);"></div>-->
+            <!--            <div class="pattern-3 rotate-me" style="background-image: url(../static/images/shape/shape-15.png);"></div>-->
+            <!--            <div class="pattern-4 float-bob-y" style="background-image: url(../static/images/shape/shape-16.png);"></div>-->
+        </div>
+        <div class="auto-container">
+            <div class="content-box">
+                <h1>Staff Page</h1>
+                <ul class="bread-crumb clearfix">
+                    <li><a href="Trueindex.html">Home</a></li>
+                    <li>Staff Page</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="page-title p_relative centred" th:if="${language eq 1}">
+        <div class="bg-layer" style="background-image: url(/images/background/house.jpg);"></div>
+        <div class="pattern-layer">
+            <!--            <div class="pattern-1" style="background-image: url(../static/images/shape/shape-14.png);"></div>-->
+            <!--            <div class="pattern-2" style="background-image: url(../static/images/shape/shape-14.png);"></div>-->
+            <!--            <div class="pattern-3 rotate-me" style="background-image: url(../static/images/shape/shape-15.png);"></div>-->
+            <!--            <div class="pattern-4 float-bob-y" style="background-image: url(../static/images/shape/shape-16.png);"></div>-->
+        </div>
+        <div class="auto-container">
+            <div class="content-box">
+                <h1>管理员主页</h1>
+                <ul class="bread-crumb clearfix">
+                    <li><a href="Trueindex.html">主页</a></li>
+                    <li>管理员主页</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- page-title end -->
+
+
+    <!-- sidebar-page-container -->
+    <section class="sidebar-page-container pt_150 pb_150" th:if="${language ne 1}">
+        <div class="auto-container">
+            <div class="row clearfix">
+                <div class="col-lg-8 col-md-12 col-sm-12" style="margin-left: 250px">
+                    <div class="popup-inner">
+                        <div class="upper-box clearfix">
+                        </div>
+                        <div class="overlay-layer"></div>
+                        <div class="auto-container">
+                            <div class="group-title">
+                                <h3>Add destination</h3>
+                            </div>
+                            <br>
+                            <div class="search-form">
+                                <div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control destinationName" name="destinationName"
+                                               placeholder="Type the name of the destination">
+                                        <br>
+                                        <input type="text" class="form-control destinationNameCn" name="destinationNameCn"
+                                               placeholder="Type the chinese name of the destination">
+                                        <fieldset>
+                                            <label for="content"></label><textarea onkeydown="checkCharacterLength(event,'destinationIntro')" name="destinationIntro" rows="6"
+                                                                                   placeholder="Type the intro of the destination"
+                                                                                   required
+                                                                                   class="form-control destinationIntro"></textarea>
+                                        </fieldset>
+                                        <br>
+                                        <fieldset>
+                                            <label for="content"></label><textarea onkeydown="checkCharacterLength(event,'destinationIntroCn')" name="destinationIntroCn" rows="6"
+                                                                                   id="content"
+                                                                                   placeholder="Type the chinese intro of the destination"
+                                                                                   required
+                                                                                   class="form-control destinationIntroCn"></textarea>
+                                        </fieldset>
+                                        <!--                                            <button class="fa" type="submit"></button>-->
+                                        <br>
+                                        <input type="file" id="file"  name="file" class="form-control-file file" style='display:none;' onchange="$('#fileShowName').val($(this).val());">
+                                        <div class="btn-box">
+                                            <button id="upload"  type="button" onclick="file.click()" class="theme-btn btn-one" style="width: 300px;height: 50px">Upload destination picture</button>
+                                        </div>
+                                        <br>
+                                        <input type="text" class="form-control"  id="fileShowName" readonly="readonly" >
+                                        <br>
+                                        <div class="btn-box">
+                                            <button class="theme-btn btn-one" type="submit" onclick="checkingAccommodation()"
+                                                    style="width: 80px;height: 50px">Add
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="sidebar-page-container pt_150 pb_150" th:if="${language eq 1}">
+        <div class="auto-container">
+            <div class="row clearfix">
+                <div class="col-lg-8 col-md-12 col-sm-12" style="margin-left: 250px">
+                    <div class="popup-inner">
+                        <div class="upper-box clearfix">
+                        </div>
+                        <div class="overlay-layer"></div>
+                        <div class="auto-container">
+                            <div class="group-title">
+                                <h3>添加目的地</h3>
+                            </div>
+                            <br>
+                            <div class="search-form">
+                                <div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control destinationName" name="destinationName"
+                                               placeholder="输入英文目的地名称">
+                                        <br>
+                                        <input type="text" class="form-control destinationNameCn" name="destinationNameCn"
+                                               placeholder="输入中文目的地名称">
+                                        <fieldset>
+                                            <label for="content"></label><textarea onkeydown="checkCharacterLength(event,'destinationIntro')" name="destinationIntro" rows="6"
+                                                                                   placeholder="输入英文目的地简介"
+                                                                                   required
+                                                                                   class="form-control destinationIntro"></textarea>
+                                        </fieldset>
+                                        <br>
+                                        <fieldset>
+                                            <label for="content"></label><textarea onkeydown="checkCharacterLength(event,'destinationIntroCn')" name="destinationIntroCn" rows="6"
+                                                                                   placeholder="输入中文目的地简介"
+                                                                                   required
+                                                                                   class="form-control destinationIntroCn"></textarea>
+                                        </fieldset>
+                                        <!--                                            <button class="fa" type="submit"></button>-->
+                                        <br>
+
+                                        <input type="file" name="file" id="file2" class="form-control-file file" style='display:none;' onchange="$('#fileShowName2').val($(this).val());">
+                                        <div class="btn-box">
+                                            <button  type="button" class="theme-btn btn-one fileCn" style="width: 300px;height: 50px">上传图片</button>
+                                        </div>
+                                        <br>
+                                        <input type="text" id="fileShowName2" class="form-control"  readonly="readonly" >
+                                        <br>
+                                        <div class="btn-box">
+                                            <button class="theme-btn btn-one" type="submit" onclick="checkingAccommodationCn()"
+                                                    style="width: 80px;height: 50px">添加
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- sidebar-page-container end -->
+
+
+    <!--Scroll to top-->
+    <div class="scroll-to-top" th:if="${language ne 1}">
+        <div>
+            <div class="scroll-top-inner">
+                <div class="scroll-bar">
+                    <div class="bar-inner"></div>
+                </div>
+                <div class="scroll-bar-text">Go To Top</div>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-to-top" th:if="${language eq 1}">
+        <div>
+            <div class="scroll-top-inner">
+                <div class="scroll-bar">
+                    <div class="bar-inner"></div>
+                </div>
+                <div class="scroll-bar-text">返回顶部</div>
+            </div>
+        </div>
+    </div>
+    <!-- Scroll to top end -->
+
+</div>
+
+
+<!-- jequery plugins -->
+<script src="../js/jquery.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/owl.js"></script>
+<script src="../js/wow.js"></script>
+<script src="../js/validation.js"></script>
+<script src="../js/jquery.fancybox.js"></script>
+<script src="../js/appear.js"></script>
+<script src="../js/isotope.js"></script>
+<script src="../js/parallax-scroll.js"></script>
+<script src="../js/jquery.nice-select.min.js"></script>
+<script src="../js/jQuery.style.switcher.min.js"></script>
+<script src="../js/click.js"></script>
+
+<!-- main-js -->
+<script src="../js/script.js"></script>
+
+
+<!--</script>-->
+<script th:inline="javascript">
+
+    function checkCharacterLength(event, className) {
+
+        var characterLength = $("."+ className).val();
+
+
+        var key = event.key;
+
+
+        var maxLength = 0;
+        if (className == 'destinationIntro') {
+            maxLength = 1600
+        }
+        if (className == 'destinationIntroCn') {
+            maxLength = 400
+        }
+
+
+        if (characterLength.length >= maxLength && key !== 'Backspace') {
+
+            event.preventDefault();
+        }
+    }
+
+    $(".fileCn").click(function(e){
+        document.getElementById('file2').click();
+    });
+
+    function checkingAccommodation(){
+        var destinationName = $(".destinationName").val();
+        var destinationNameCn = $(".destinationNameCn").val();
+        var destinationIntro = $(".destinationIntro").val();
+        var destinationIntroCn = $(".destinationIntroCn").val();
+
+        var formData = new FormData();
+        var img_file = document.getElementById("file");
+        var fileObj = img_file.files[0];
+        formData.append("destinationName",destinationName);
+        formData.append("destinationIntro", destinationIntro);
+        formData.append("destinationNameCn", destinationNameCn);
+        formData.append("destinationIntroCn", destinationIntroCn);
+        formData.append("file" , fileObj);
+        $.ajax({
+            url: "/addDestination",
+            method: "POST",
+            data: formData,
+            processData : false,
+            contentType : false,
+            async:false,
+            // pass it to sb.py
+            success: function (result) {
+
+                console.log(result);
+                if (result.state === 0) {
+                    // if successfully submitted
+                    console.log(result.message);
+
+                    top.location.href = "/staffDestinations";
+                } else {
+                    alert(result.message);
+                    $(".warning").text(result.message)
+                }
+            },
+            error: function (result) {
+                console.log(result);
+                alert("picture too large");
+            }
+        });
+
+
+    }
+
+    function checkingAccommodationCn(){
+        var destinationName = $(".destinationName").val();
+        var destinationNameCn = $(".destinationNameCn").val();
+        var destinationIntro = $(".destinationIntro").val();
+        var destinationIntroCn = $(".destinationIntroCn").val();
+
+        var formData = new FormData();
+        var img_file = document.getElementById("file2");
+        var fileObj = img_file.files[0];
+        formData.append("destinationName",destinationName);
+        formData.append("destinationIntro", destinationIntro);
+        formData.append("destinationNameCn", destinationNameCn);
+        formData.append("destinationIntroCn", destinationIntroCn);
+        formData.append("file" , fileObj);
+        $.ajax({
+            url: "/addDestination",
+            method: "POST",
+            data: formData,
+            processData : false,
+            contentType : false,
+            async:false,
+            // pass it to sb.py
+            success: function (result) {
+
+                console.log(result);
+                if (result.state === 0) {
+                    // if successfully submitted
+                    console.log(result.message);
+                    top.location.href = "/staffDestinations";
+                } else {
+                    alert(result.message);
+                    $(".warning").text(result.message)
+                }
+            },
+            error: function (result) {
+                console.log(result);
+                alert("图片过大");
+            }
+        });
+
+
+    }
+
+</script>
+
+</script>
+</body><!-- End of .page_wrapper -->
+</html>

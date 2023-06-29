@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+<title>Travel Agent</title>
+
+<!-- Fav Icon -->
+
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,500;1,9..144,600;1,9..144,700;1,9..144,800;1,9..144,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+<!-- Stylesheets -->
+<link href="../css/font-awesome-all.css" rel="stylesheet">
+<link rel="stylesheet" href="../css/CustomizedBootStrap.css">
+<link href="../css/flaticon.css" rel="stylesheet">
+<link href="../css/owl2.css" rel="stylesheet">
+<link href="../css/bootstrap.css" rel="stylesheet">
+<link href="../css/jquery.fancybox.min.css" rel="stylesheet">
+<link href="../css/animate.css" rel="stylesheet">
+<link href="../css/nice-select.css" rel="stylesheet">
+<link href="../css/elpath.css" rel="stylesheet">
+<link href="../css/color/theme-color.css" id="jssDefault" rel="stylesheet">
+<link href="../css/switcher-style.css" rel="stylesheet">
+<link href="../css/rtl.css" rel="stylesheet">
+<link href="../css/style.css" rel="stylesheet">
+<link href="../css/module-css/page-title.css" rel="stylesheet">
+<link href="../css/module-css/team-details.css" rel="stylesheet">
+<link href="../css/module-css/blog-details.css" rel="stylesheet">
+<link href="../css/module-css/skills.css" rel="stylesheet">
+<link href="../css/responsive.css" rel="stylesheet">
+<link href="../css/banner2.css" rel="stylesheet">
+<link href="../css/RadioButton.css" rel="stylesheet">
+<link href="../css/RadioButton2.css" rel="stylesheet">
+<link href="../css/module-css/news.css" rel="stylesheet">
+
+
+
+</head>
+
+
+<!-- page wrapper -->
+<body>
+<input th:value="${accommodationDetail.getAccommodationId()}" id="AccommodationId" style="display: none">
+
+
+
+        <!-- preloader -->
+        <!-- preloader end -->
+
+
+
+        <!--Search Popup-->
+        <div id="search-popup" class="search-popup">
+            <div class="popup-inner">
+                <div class="upper-box clearfix">
+                    <figure class="logo-box pull-left"><a href="index.html"><img src="assets/images/logo.png" alt=""></a></figure>
+                    <div class="close-search pull-right"><span class="far fa-times"></span></div>
+                </div>
+                <div class="overlay-layer"></div>
+                <div class="auto-container">
+                    <div class="search-form">
+                        <form method="post" th:action="@{/findAccommodation}">
+                            <div class="form-group">
+                                <fieldset>
+                                    <input th:if="${language ne 0}" type="search" class="form-control" name="accommodation" value="" placeholder="Type your accommodation keyword and hit" required>
+                                    <input th:if="${language eq 1}" type="search" class="form-control" name="accommodation" value="" placeholder="请输入您想要查询的住宿名称" required>
+                                    <button type="submit" ><i class="far fa-search"></i></button>
+                                </fieldset>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- main header -->
+        <div th:insert="~{Navigation :: #main}" th:if="${language ne 1}"></div>
+        <div th:insert="~{Navigation :: #mainChinese}" th:if="${language eq 1}"></div>
+        <!-- main-header end -->
+
+        <!-- Mobile Menu  -->
+        <!-- End Mobile Menu -->
+
+
+        <!-- page-title -->
+        <section class="page-title p_relative centred" th:if="${language ne 1}">
+            <div class="bg-layer" style="background-image: url(/images/bora-bora-g19ecb3d37_1920.jpg);"></div>
+            <div class="auto-container">
+                <div class="content-box">
+                    <h1>Accommodation Details</h1>
+                    <ul class="bread-crumb clearfix">
+                        <li><a href="/">Home</a></li>
+                        <li>Accommodation Details</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-title p_relative centred" th:if="${language eq 1}">
+            <div class="bg-layer" style="background-image: url(/images/bora-bora-g19ecb3d37_1920.jpg);"></div>
+            <div class="auto-container">
+                <div class="content-box">
+                    <h1>住宿明细</h1>
+                    <ul class="bread-crumb clearfix">
+                        <li><a href="/">主页</a></li>
+                        <li>住宿明细</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- page-title end -->
+
+
+        <!-- team-details -->
+        <section class="team-details pt_150 pb_140" th:if="${language ne 1}">
+            <div class="auto-container">
+                <div class="team-details-content mb_90">
+                    <div class="row clearfix">
+                        <div class="col-lg-6 col-md-12 col-sm-12 image-column" >
+<!--                            <figure class="image-box mr_40"><img src="assets/images/team/team-14.jpg" alt=""></figure>-->
+                            <section class="banner-section p_relative">
+                                <div class="banner-carousel owl-theme owl-carousel owl-dots-none">
+<!--                                    <div class="slide-item p_relative">-->
+<!--                                        <div class="auto-container">-->
+<!--                                            <div class="row align-items-center">-->
+<!--                                                <div class="image-box p_relative">-->
+<!--                                                    <figure class="image clearfix"><img src="../pictureResouce/book3.png" alt=""></figure>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+                                    <div class="slide-item p_relative">
+                                        <div class="auto-container">
+                                            <div class="row align-items-center">
+                                                <div class="image-box p_relative">
+                                                    <figure class="image clearfix"><img th:src="${accommodationDetail.getFilepath()}" alt="" onclick="window.open('/threeElite2')"></figure>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slide-item p_relative">
+                                        <div class="auto-container">
+                                            <div class="row align-items-center">
+                                                <div class="image-box p_relative">
+                                                    <figure class="image clearfix"><img th:src="${accommodationDetail.getFilepath()}" alt="" onclick="window.open('/threeElite2')"></figure>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+<!--                                    <div class="slide-item p_relative">-->
+<!--                                        <div class="auto-container">-->
+<!--                                            <div class="row align-items-center">-->
+<!--                                                <div class="image-box p_relative">-->
+<!--                                                    <figure class="image clearfix"><img src="../images/team/team-14.jpg" alt=""></figure>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+                                </div>
+                            </section>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 content-column">
+                            <div class="content-box ml_40">
+                                <h2 th:text="${accommodationDetail.getAccommodationName()}">
+                                </h2>
+                                <button type="button" class="theme-btn btn-one" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"  style="width: 150px;height: 40px;line-height: 0px;font-size: 14px;margin-bottom: 50px" th:if="${sloginJudge ne 1 and loginJudge eq 1}"><span>Subscribe</span></button>
+                                <button class="toLogin theme-btn btn-one" style="width: 165px;height: 40px;line-height: 0px;font-size: 14px;margin-bottom: 50px" type="button" th:if="${sloginJudge ne 1 and loginJudge ne 1}" onclick="toLogin()">Please Login</button>
+                                <button type="button" class="theme-btn btn-one" data-bs-toggle="modal" data-bs-target="#EditexampleModal" data-bs-whatever="@mdo"  style="width: 200px;height: 40px;line-height: 0px;font-size: 14px;margin-bottom: 50px" th:if="${sloginJudge eq 1}"><span>Edit</span></button>
+                                <div class="text-box mb_25">
+                                    <div class="skills-column">
+                                        <div class="skills-inner mr_20">
+                                            <div class="text-box mb_13">
+                                                <h3>Favorability</h3>
+                                            </div>
+                                            <div class="progress-inner">
+                                                <div class="progress-box">
+                                                    <p>Favorability rate</p>
+                                                    <div class="bar">
+                                                        <div class="bar-inner count-bar" th:data-percent="${score}+'%'"></div>
+                                                        <div class="count-text" th:text="${score}"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="biography mb_90"  th:each="i:${accommodationDetail}">
+                    <h3 th:text="${i.getAccommodationName()}"></h3>
+                    <p th:text="${accommodationDetail.getAccommodationIntro()}"></p>
+                    <div th:insert="~{Comment :: #AccComment}"></div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="team-details pt_150 pb_140" th:if="${language eq 1}">
+            <div class="auto-container">
+                <div class="team-details-content mb_90">
+                    <div class="row clearfix">
+                        <div class="col-lg-6 col-md-12 col-sm-12 image-column" >
+<!--                            <figure class="image-box mr_40"><img src="assets/images/team/team-14.jpg" alt=""></figure>-->
+                            <section class="banner-section p_relative">
+                                <div class="banner-carousel owl-theme owl-carousel owl-dots-none">
+<!--                                    <div class="slide-item p_relative">-->
+<!--                                        <div class="auto-container">-->
+<!--                                            <div class="row align-items-center">-->
+<!--                                                <div class="image-box p_relative">-->
+<!--                                                    <figure class="image clearfix"><img src="../pictureResouce/book3.png" alt=""></figure>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+                                    <div class="slide-item p_relative">
+                                        <div class="auto-container">
+                                            <div class="row align-items-center">
+
+                                                <div class="image-box p_relative">
+                                                    <figure class="image clearfix"><img th:src="${accommodationDetail.getFilepath()}" alt="" onclick="window.open('/threeElite2')"></figure>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slide-item p_relative">
+                                        <div class="auto-container">
+                                            <div class="row align-items-center">
+                                                <div class="image-box p_relative">
+                                                    <figure class="image clearfix"><img th:src="${accommodationDetail.getFilepath()}" alt="" onclick="window.open('/threeElite2')"></figure>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+<!--                                    <div class="slide-item p_relative">-->
+<!--                                        <div class="auto-container">-->
+<!--                                            <div class="row align-items-center">-->
+<!--                                                <div class="image-box p_relative">-->
+<!--                                                    <figure class="image clearfix"><img src="../images/team/team-14.jpg" alt=""></figure>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+                                </div>
+                            </section>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 content-column">
+                            <div class="content-box ml_40">
+                                <h2 th:text="${accommodationDetail.getAccommodationNameCn()}">
+                                </h2>
+                                <button type="button" class="theme-btn btn-one" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"  style="width: 150px;height: 40px;line-height: 0px;font-size: 14px;margin-bottom: 50px" th:if="${sloginJudge ne 1 and loginJudge eq 1}"><span>预定</span></button>
+                                <button type="button" class="ToLogin theme-btn btn-one" style="width: 165px;height: 40px;line-height: 0px;font-size: 14px;margin-bottom: 50px" th:if="${sloginJudge ne 1 and loginJudge ne 1}" onclick="toLogin()"><span>登录</span></button>
+                                <button type="button" class="theme-btn btn-one" data-bs-toggle="modal" data-bs-target="#EditexampleModal" data-bs-whatever="@mdo"  style="width: 200px;height: 40px;line-height: 0px;font-size: 14px;margin-bottom: 50px" th:if="${sloginJudge eq 1}"><span>编辑</span></button>
+                                <div class="text-box mb_25">
+                                    <div class="skills-column">
+                                        <div class="skills-inner mr_20">
+                                            <div class="text-box mb_13">
+                                                <h3>评价</h3>
+                                            </div>
+                                            <div class="progress-inner">
+                                                <div class="progress-box">
+                                                    <p>好评度</p>
+                                                    <div class="bar">
+                                                        <div class="bar-inner count-bar" th:data-percent="${score}+'%'"></div>
+                                                        <div class="count-text" th:text="${score}"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="biography mb_90" style="margin-top: 0px" th:each="i:${accommodationDetail}">
+                    <h3 th:text="${i.getAccommodationNameCn()}"></h3>
+                    <p th:text="${accommodationDetail.getAccommodationIntroCn()}"></p>
+                    <div th:insert="~{Comment :: #AccComment}"></div>
+                </div>
+            </div>
+        </section>
+        <!-- team-details end -->
+
+
+        <!-- main-footer -->
+
+
+
+        <!--Scroll to top-->
+        <div class="scroll-to-top">
+            <div>
+                <div class="scroll-top-inner">
+                    <div class="scroll-bar">
+                        <div class="bar-inner"></div>
+                    </div>
+                    <div class="scroll-bar-text">Go To Top</div>
+                </div>
+            </div>
+        </div>
+        <!-- Scroll to top end -->
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" th:if="${sloginJudge ne 1 and loginJudge eq 1}">
+            <div class="modal-dialog" style="width: 100%">
+                <div class="modal-content">
+                    <h4 class="modal-title align-items-center text-center">Add Booking Form</h4>
+                    <div class="modal-header">
+                        <div class="modal-body">
+                            <div>
+                                <form id="addToWaitingList" th:action="@{/addBooking}" method="post">
+                                    <div class="form-group">
+                                        <input type="text"  class="form-control" style="display: none" name="destinationId" th:value="${accommodationDetail.getDestination().getDestinationId()}">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" style="display: none" name="accommodationId" th:value="${accommodationDetail.getAccommodationId()}">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="attractionId" style="display: none" value="-1">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="customerId" style="display: none" th:value="${customer.getCustomerId()}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" th:if="${language ne 1}">Start Date</label>
+                                        <label class="control-label" th:if="${language eq 1}">开始日期</label>
+                                        <label class="control-label">Start Date</label>
+                                        <input type="datetime-local" class="form-control" name="startTime" value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" th:if="${language ne 1}">End Date</label>
+                                        <label class="control-label" th:if="${language eq 1}">结束日期</label>
+                                        <input type="datetime-local" class="form-control" name="endTime" value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary form-control mt-7" th:if="${language ne 1}">Confirm</button>
+                                        <button type="submit" class="btn btn-primary form-control mt-7" th:if="${language eq 1}">确定</button>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<div class="modal fade" id="EditexampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" th:if="${sloginJudge eq 1 and loginJudge ne 1}">
+    <div class="modal-dialog" style="width: 100%">
+        <div class="modal-content">
+            <h4 class="modal-title align-items-center text-center">Edit Accommodation Form</h4>
+            <div class="modal-header">
+                <div class="modal-body">
+                    <div>
+                        <div id="EditBooking" >
+
+                            <div class="form-group">
+                                <input type="text" class="form-control accommodationName" name="accommodationName"  th:value="${accommodationDetail.getAccommodationName()}">
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <input type="text" class="form-control accommodationNameCn" name="accommodationNameCn"  th:value="${accommodationDetail.getAccommodationNameCn()}">
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <input type="text" class="form-control address" name="address"  th:value="${accommodationDetail.getAccommodationAddress()}">
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <input type="text" class="form-control addressCn" name="addressCn"  th:value="${accommodationDetail.getAccommodationAddressCn()}">
+                            </div>
+                            <fieldset>
+                                <label ></label><textarea name="accommodationIntro" rows="6"
+                                                          th:text="${accommodationDetail.getAccommodationIntro()}"
+                                                          class="form-control accommodationIntro"></textarea>
+                            </fieldset>
+                            <fieldset>
+                                <label ></label><textarea name="accommodationIntroCn" rows="6"
+                                                          th:text="${accommodationDetail.getAccommodationIntroCn()}"
+                                                          class="form-control accommodationIntroCn"></textarea>
+                            </fieldset>
+                            <div class="form-group">
+                                <button id="edit1" type="submit" th:value="${accommodationDetail.getAccommodationId()}" class="btn btn-primary form-control mt-7" th:if="${language ne 1}">Confirm</button>
+                                <button id="edit2" type="submit" th:value="${accommodationDetail.getAccommodationId()}" class="btn btn-primary form-control mt-7" th:if="${language eq 1}">确定</button>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <button id="delete1" type="button" th:value="${accommodationDetail.getAccommodationId()}" class="btn btn-primary form-control mt-7" onclick="Del()" th:if="${language ne 1}">Delete</button>
+                                <button id="delete2" type="button" th:value="${accommodationDetail.getAccommodationId()}" class="btn btn-primary form-control mt-7" onclick="Del2()" th:if="${language eq 1}">删除</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+    <!-- jequery plugins -->
+    <script src="../js/jquery.js"></script>
+
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/owl2.js"></script>
+    <script src="../js/wow.js"></script>
+    <script src="../js/validation.js"></script>
+    <script src="../js/jquery.fancybox.js"></script>
+    <script src="../js/appear.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/parallax-scroll.js"></script>
+    <script src="../js/jquery.nice-select.min.js"></script>
+    <script src="../js/jQuery.style.switcher.min.js"></script>
+    <!-- main-js -->
+    <script src="../js/script.js"></script>
+
+        <script type="text/javascript">
+
+            function BedAcc (){
+                let AccommodationId = document.getElementById("AccommodationId").value;
+                $.ajax({
+                    url: "/AccReviewBad",
+                    method: "GET",
+                    data: {
+                        "accommodationId": AccommodationId
+                    },
+                    // pass it to order.py
+                    success: function (result) {
+                        $("#list2").html(result);
+                        console.log(220);
+                    },
+
+                });
+            }
+            function CommonAcc (){
+                let AccommodationId = document.getElementById("AccommodationId").value;
+                $.ajax({
+                    url: "/AccReviewCommon",
+                    method: "GET",
+                    data: {
+                        "accommodationId": AccommodationId
+                    },
+                    // pass it to order.py
+                    success: function (result) {
+                        $("#list2").html(result);
+                        console.log(220);
+                    },
+                });
+            }
+            function GoodAcc (){
+                let AccommodationId = document.getElementById("AccommodationId").value;
+                $.ajax({
+                    url: "/AccReviewGood",
+                    method: "GET",
+                    data: {
+                        "accommodationId": AccommodationId
+                    },
+                    // pass it to order.py
+                    success: function (result) {
+                        $("#list2").html(result);
+                        console.log(220);
+                    },
+
+                });
+            }
+
+            function Del() {
+                var bid = $("#delete1").val();
+
+                // get the order id
+                $.ajax({
+                    url: "/deleteAccommodation",
+                    method: "POST",
+                    data: {
+                        "bid": bid,
+                    },
+                    // pass it to order.py
+                    success: function (result) {
+                        console.log(result);
+                        if (result.state === 0) {
+                            console.log(result.message);
+                            alert("Delete successfully");
+                            // top.location.href = "/";
+                        } else {
+                            alert(result.message);
+                            $(".warning").text(result.message)
+                        }
+                        location.href="/staffDestinations"
+                    },
+                    error: function (result) {
+                        console.log(result);
+                        alert("No such User Found");
+                    }
+                });
+            }
+            function Del2() {
+                var bid = $("#delete2").val();
+
+                // get the order id
+                $.ajax({
+                    url: "/deleteAccommodation",
+                    method: "POST",
+                    data: {
+                        "bid": bid,
+                    },
+                    // pass it to order.py
+                    success: function (result) {
+                        console.log(result);
+                        if (result.state === 0) {
+                            console.log(result.message);
+                            alert("Delete successfully");
+                            // top.location.href = "/";
+                        } else {
+                            alert(result.message);
+                            $(".warning").text(result.message)
+                        }
+                        location.href="/staffDestinations"
+                    },
+                    error: function (result) {
+                        console.log(result);
+                        alert("No such User Found");
+                    }
+                });
+            }
+
+            // var exampleModal = document.getElementById('exampleModal')
+            // exampleModal.addEventListener('show.bs.modal', function (event) {
+            // })
+            // $(function() {
+            //     $('#submitAccommodationInfo').one('click', function() {
+            //     });
+            // });
+
+            function toLogin(){
+                top.location.href="/toLogin";
+                console.log(1);
+            }
+
+            $("#edit1").on("click", function (){
+                var aid = $(this).val()
+                var accommodationName = $(".accommodationName").val()
+                var accommodationNameCn = $(".accommodationNameCn").val()
+                var accommodationIntro = $(".accommodationIntro").val()
+                var accommodationIntroCn = $(".accommodationIntroCn").val()
+                var address = $(".address").val()
+                var addressCn = $(".addressCn").val()
+                console.log(accommodationName)
+                console.log(accommodationNameCn)
+                console.log(accommodationIntro)
+                console.log(accommodationIntroCn)
+                console.log(address)
+                $.ajax({
+                    url: "/editAccommodation",
+                    method: "POST",
+                    data: {
+                        "aid": aid,
+                        "accommodationName": accommodationName,
+                        "accommodationNameCn": accommodationNameCn,
+                        "accommodationIntro": accommodationIntro,
+                        "accommodationIntroCn": accommodationIntroCn,
+                        "accommodationAddress": address,
+                        "accommodationAddressCn": addressCn
+                    },
+                    // pass it to sb.py
+                    success: function (result) {
+                        console.log(result);
+                        if (result.state === 0) {
+                            // if successfully submitted
+                            alert(result.message);
+
+                            top.location.href = "/accommodationDetail?accommodationId=" + aid;
+                        } else {
+                            alert(result.message);
+
+                        }
+                    },
+                    error: function (result) {
+                        console.log(result);
+                        alert("error");
+                    }
+                });
+
+            })
+
+
+
+        </script>
+        <script>
+
+            function Common (){
+                $.ajax({
+                    url: "/editAccommodation",
+                    method: "POST",
+                    data: {
+                        "day": day.innerHTML,
+                        "month": month + 1,
+                        "year": year
+                    },
+                    // pass it to order.py
+                    success: function (result) {
+                        if (result.state === 0) {
+                            day.classList.add('current-date');
+                            day.addEventListener("click", function () {
+                                $.ajax({
+                                    url: "/findBookingOfCustomerByDate2",
+                                    method: "GET",
+                                    data: {
+                                        "day": day.innerHTML,
+                                        "month": month + 1,
+                                        "year": year,
+                                    },
+                                    // pass it to order.py
+                                    success: function (result) {
+                                        $("#list").html(result);
+                                        console.log(220);
+                                        console.log(result);
+
+                                    },
+
+                                });
+                            });
+                        } else {
+
+                        }
+                    },
+
+                });
+            }
+
+            function Good (){
+                $.ajax({
+                    url: "/findBookingOfCustomerByDate",
+                    method: "POST",
+                    data: {
+                        "day": day.innerHTML,
+                        "month": month + 1,
+                        "year": year
+                    },
+                    // pass it to order.py
+                    success: function (result) {
+                        if (result.state === 0) {
+                            day.classList.add('current-date');
+                            day.addEventListener("click", function () {
+                                $.ajax({
+                                    url: "/findBookingOfCustomerByDate2",
+                                    method: "GET",
+                                    data: {
+                                        "day": day.innerHTML,
+                                        "month": month + 1,
+                                        "year": year,
+                                    },
+                                    // pass it to order.py
+                                    success: function (result) {
+                                        $("#list").html(result);
+                                        console.log(220);
+                                        console.log(result);
+
+                                    },
+
+                                });
+                            });
+                        } else {
+
+                        }
+                    },
+
+                });
+            }
+
+            function Bed (){
+                $.ajax({
+                    url: "/findBookingOfCustomerByDate",
+                    method: "POST",
+                    data: {
+                        "day": day.innerHTML,
+                        "month": month + 1,
+                        "year": year
+                    },
+                    // pass it to order.py
+                    success: function (result) {
+                        if (result.state === 0) {
+                            day.classList.add('current-date');
+                            day.addEventListener("click", function () {
+                                $.ajax({
+                                    url: "/findBookingOfCustomerByDate2",
+                                    method: "GET",
+                                    data: {
+                                        "day": day.innerHTML,
+                                        "month": month + 1,
+                                        "year": year,
+                                    },
+                                    // pass it to order.py
+                                    success: function (result) {
+                                        $("#list").html(result);
+                                        console.log(220);
+                                        console.log(result);
+
+                                    },
+
+                                });
+                            });
+                        } else {
+
+                        }
+                    },
+
+                });
+            }
+
+
+            function checkingAccommodationComment(){
+                var customerId = $(".customerId").val();
+                var accommodationId = $(".accommodationId").val();
+                var accommodationContent = $(".accommodationContent").val();
+                var formData = new FormData();
+
+                formData.append("customerId",customerId);
+                formData.append("content", accommodationContent);
+                formData.append("accommodationId", accommodationId);
+
+                $.ajax({
+                    url: "/addAccommodationReview",
+                    method: "POST",
+                    data: formData,
+                    processData : false,
+                    contentType : false,
+                    async:false,
+                    // pass it to sb.py
+                    success: function (result) {
+
+                        console.log(result);
+                        if (result.state === 0) {
+                            // if successfully submitted
+                            console.log(result.message);
+
+                            top.location.href = "/accommodationDetail?accommodationId=" + accommodationId;
+                        } else {
+                            alert(result.message);
+                            $(".warning").text(result.message)
+                        }
+                    },
+                    error: function (result) {
+                        alert(result.message);
+                    }
+                });
+
+
+            }
+        </script>
+
+
+
+
+</body><!-- End of .page_wrapper -->
+</html>

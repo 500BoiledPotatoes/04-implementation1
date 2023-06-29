@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Destination List</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+  <h1 class="text-center mt-5">Destination List</h1>
+  <form action="/search" method="get">
+    <div class="input-group mb-3 mt-3">
+      <input type="text" class="form-control" placeholder="Search by name"
+             th:value="${keyword}" name="name">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="submit">Search</button>
+      </div>
+    </div>
+  </form>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Photo</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="destination : ${destinations}">
+      <td th:text="${destination.destinationId}"></td>
+      <td th:text="${destination.destinationIntro}"></td>
+    </tr>
+    </tbody>
+  </table>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li class="page-item" th:classappend="${currentPage == 1} ? disabled : ''">
+        <a class="page-link" th:href="@{/destinations11/page/{page}(page=${currentPage - 1}, keyword=${keyword})}">Previous</a>
+      </li>
+      <li th:each="pageNumber : ${pageNumbers}" class="page-item" th:classappend="${pageNumber == currentPage} ? active : ''">
+        <a class="page-link" th:href="@{/destinations11/page/{page}(page=${pageNumber}, keyword=${keyword})}" th:text="${pageNumber}">1</a>
+      </li>
+      <li class="page-item" th:classappend="${currentPage == totalPages} ? disabled : ''">
+        <a class="page-link" th:href="@{/destinations11/page/{page}(page=${currentPage + 1}, keyword=${keyword})}">Next</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+</body>
+</html>

@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <title>Wastix - HTML 5 Template Preview</title>
+
+    <!-- Fav Icon -->
+
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,500;1,9..144,600;1,9..144,700;1,9..144,800;1,9..144,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link href="../css/font-awesome-all.css" rel="stylesheet">
+    <link href="../css/flaticon.css" rel="stylesheet">
+    <link href="../css/owl.css" rel="stylesheet">
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../css/jquery.fancybox.min.css" rel="stylesheet">
+    <link href="../css/animate.css" rel="stylesheet">
+    <link href="../css/nice-select.css" rel="stylesheet">
+    <link href="../css/elpath.css" rel="stylesheet">
+    <link href="../css/color/theme-color.css" id="jssDefault" rel="stylesheet">
+    <link href="../css/switcher-style.css" rel="stylesheet">
+    <link href="../css/rtl.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/module-css/page-title.css" rel="stylesheet">
+    <link href="../css/module-css/news.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
+
+
+</head>
+
+
+<!-- page wrapper -->
+<body>
+
+<div class="boxed_wrapper ltr">
+
+
+    <!-- preloader -->
+
+    <!-- preloader end -->
+
+
+    <!-- page-direction -->
+
+    <!-- page-direction end -->
+
+
+    <!-- switcher menu -->
+    <!-- end switcher menu -->
+
+
+
+
+
+    <!-- main header -->
+    <div th:insert="~{Navigation :: #main}" th:if="${language ne 1}"></div>
+    <div th:insert="~{Navigation :: #mainChinese}" th:if="${language eq 1}"></div>
+    <!-- main-header end -->
+
+    <!-- Mobile Menu  -->
+    <!-- End Mobile Menu -->
+
+
+    <!-- page-title -->
+    <section class="page-title p_relative centred" th:if="${language ne 1}">
+        <div class="bg-layer" style="background-image: url(/images/background/page-title.jpg);"></div>
+        <div class="auto-container">
+            <div class="content-box">
+                <h1>Booking List</h1>
+                <ul class="bread-crumb clearfix">
+                    <li><a href="/">Home</a></li>
+                    <li>Booking List</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="page-title p_relative centred" th:if="${language eq 1}">
+        <div class="bg-layer" style="background-image: url(/images/background/page-title.jpg);"></div>
+        <div class="auto-container">
+            <div class="content-box">
+                <h1>预约列表</h1>
+                <ul class="bread-crumb clearfix">
+                    <li><a href="/">主页</a></li>
+                    <li>预约列表</li>
+                    <li th:text="${customerId}"></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- page-title end -->
+
+    <!--  <form id="selectBook1" th:action="@{/findDestination}" method="post">-->
+    <!--    <input name="destination" placeholder="destination">-->
+    <!--    <button type="submit" class = "findDestination">findDestination</button>-->
+    <!--  </form>-->
+    <!-- blog-grid -->
+    <section class="bg-light p-5" th:if="${language ne 1}">
+        <div class="container ">
+            <div class="heading-line"></div>
+            <table class="table mt-6 table-striped table-hover text-center justify-content-center">
+                <thead class="thead-dark">
+                <tr>
+                    <!--title of the table-->
+                    <th scope="col">Booking ID</th>
+                    <th scope="col">Customer name</th>
+                    <th scope="col">Destination</th>
+                    <th scope="col">Accommodation</th>
+                    <th scope="col">Attraction</th>
+                    <th scope="col">StartTime</th>
+                    <th scope="col">EndTime</th>
+                </tr>
+                </thead>
+                <tbody th:each="i:${bookings}">
+                <tr>
+                    <!--iterate the details and use jinja placing the info to the table-->
+                    <td><h5  th:text="${i.getBookingId()}"></h5></td>
+                    <td><h5 id="bookingCusEn" th:text="${i.getCustomer().getName()}"></h5></td>
+                    <td><h5 id="bookingDesEn" th:text="${i.getDestination().getDestinationName()}"></h5></td>
+                    <td><h5 id="bookingAccEn" th:text="${i.getAccommodation() != null ? i.getAccommodation().getAccommodationName():' '}"></h5></td>
+                    <td><h5 id="bookingAttEn" th:text="${i.getAttraction()!= null ? i.getAttraction().getAttractionName():' '}" ></h5></td>
+                    <td><h5 id="bookingStaEn" th:text="${i.Start()}"></h5></td>
+                    <td><h5 id="bookingEndEn" th:text="${i.End()}"></h5></td>
+                    <td><div class="btn-box">
+                        <button th:value="${i.getBookingId()}" id="bookingIdEn" class="theme-btn btn-one"  data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" style="width: 150px;height: 40px" type="button" onclick="model()">View Details</button>
+                    </div>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <section class="bg-light p-5" th:if="${language eq 1}">
+        <div class="container ">
+            <div class="heading-line"></div>
+            <table class="table mt-6 table-striped table-hover text-center justify-content-center">
+                <thead class="thead-dark">
+                <tr>
+                    <!--title of the table-->
+                    <th scope="col">预约编号</th>
+                    <th scope="col">用户名称</th>
+                    <th scope="col">目的地</th>
+                    <th scope="col">住宿</th>
+                    <th scope="col">景点</th>
+                    <th scope="col">开始时间</th>
+                    <th scope="col">结束时间</th>
+                </tr>
+                </thead>
+                <tbody th:each="i:${bookings}">
+                <tr>
+                    <!--iterate the details and use jinja placing the info to the table-->
+                    <td><h5 th:text="${i.getBookingId()}"></h5></td>
+                    <td><h5 id="bookingCusCh" th:text="${i.getCustomer().getName()}"></h5></td>
+                    <td><h5 id="bookingDesCh" th:text="${i.getDestination().getDestinationName()}"></h5></td>
+                    <td><h5 id="bookingAccCh" th:text="${i.getAccommodation() != null ? i.getAccommodation().getAccommodationName():' '}"></h5></td>
+                    <td><h5 id="bookingAttCh" th:text="${i.getAttraction()!= null ? i.getAttraction().getAttractionName():' '}" ></h5></td>
+                    <td><h5 id="bookingStaCh" th:text="${i.Start()}"></h5></td>
+                    <td><h5 id="bookingEndCh" th:text="${i.End()}"></h5></td>
+                    <td><div class="btn-box">
+                        <button th:value="${i.getBookingId()}" id="bookingIdCh" class="theme-btn btn-one"  data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" style="width: 150px;height: 40px" type="button" onclick="model2()">详细信息</button>
+                    </div>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- blog-grid end -->
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+        <div class="modal-dialog" style="width: 100%">
+            <div class="modal-content">
+                <h4 class="modal-title align-items-center text-center">Booking Details</h4>
+                <div class="modal-header">
+                    <div class="modal-body">
+                        <div>
+                            <div >
+                                <div class="form-group" >
+                                    <label class="control-label" th:if="${language ne 1}">Destination</label>
+                                    <label class="control-label" th:if="${language eq 1}">目的地</label>
+                                    <input type="text" id="Destination"  class="form-control" name="destinationId" >
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" th:if="${language ne 1}">Accommodation</label>
+                                    <label class="control-label" th:if="${language eq 1}">住宿</label>
+                                    <input type="text" id="Accommodation" class="form-control"  name="accommodationId" >
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" th:if="${language ne 1}">Attraction</label>
+                                    <label class="control-label" th:if="${language eq 1}">景点</label>
+                                    <input type="text" id="Attraction" class="form-control" name="attractionId" >
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" th:if="${language ne 1}">Start Date</label>
+                                    <label class="control-label" th:if="${language eq 1}">开始日期</label>
+                                    <input type="datetime-local" id="start" class="form-control" name="start" value="">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" th:if="${language ne 1}">End Date</label>
+                                    <label class="control-label" th:if="${language eq 1}">结束日期</label>
+                                    <input type="datetime-local" id="end" class="form-control" name="end" value="">
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary form-control mt-7" onclick="f()" th:if="${language ne 1}">Edit</button>
+                                    <button type="submit" class="btn btn-primary form-control mt-7" onclick="f()" th:if="${language eq 1}">编辑</button>
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary form-control mt-7" onclick="f2()" th:if="${language ne 1}">Delete</button>
+                                    <button type="submit" class="btn btn-primary form-control mt-7" onclick="f2()" th:if="${language eq 1}">删除</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- main-footer -->
+    <!-- main-footer -->
+
+
+
+    <!--Scroll to top-->
+    <div class="scroll-to-top">
+        <div>
+            <div class="scroll-top-inner">
+                <div class="scroll-bar">
+                    <div class="bar-inner"></div>
+                </div>
+                <div class="scroll-bar-text">Go To Top</div>
+            </div>
+        </div>
+    </div>
+    <!-- Scroll to top end -->
+
+</div>
+
+
+<!-- jequery plugins -->
+<script src="../js/jquery.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/owl.js"></script>
+<script src="../js/wow.js"></script>
+<script src="../js/validation.js"></script>
+<script src="../js/jquery.fancybox.js"></script>
+<script src="../js/appear.js"></script>
+<script src="../js/isotope.js"></script>
+<script src="../js/parallax-scroll.js"></script>
+<script src="../js/jquery.nice-select.min.js"></script>
+<script src="../js/jQuery.style.switcher.min.js"></script>
+
+<!-- main-js -->
+<script src="../js/script.js"></script>
+
+
+
+
+<script th:inline="javascript">
+
+
+    function model(){
+        document.getElementById('Destination').value = document.getElementById('bookingDesEn').innerText
+        document.getElementById('Accommodation').value = document.getElementById('bookingAccEn').innerText
+        document.getElementById('Attraction').value = document.getElementById('bookingAttEn').innerText
+
+
+        let Sta1 = document.getElementById('bookingStaEn').innerText.split(" ")[0]
+        let Start1 = Sta1.split("-")[0]
+        let Start2 = Sta1.split("-")[1]
+        let Start3 = Sta1.split("-")[2]
+        let Sta2 = document.getElementById('bookingStaEn').innerText.split(" ")[1]
+        let Start21 = Sta2.split(":")[0]
+        let Start22 = Sta2.split(":")[1]
+
+
+
+        let End1 = document.getElementById('bookingEndEn').innerText.split(" ")[0]
+        let End11 = End1.split("-")[0]
+        let End12 = End1.split("-")[1]
+        let End13 = End1.split("-")[2]
+        let End2 = document.getElementById('bookingEndEn').innerText.split(" ")[1]
+        let End21 = End2.split(":")[0]
+        let End22 = End2.split(":")[1]
+
+
+        //全局变量
+
+        var format = "";
+        var format2 = "";
+
+        function getFormat(){
+            format = "";
+            format += Start1+"-";
+            format += Start2;
+            format += "-";
+            format += Start3;
+            format += "T";
+            format += Start21;
+            format += ":";
+            format += Start22;
+            format += ":00";
+        }
+
+        function getFormat2(){
+            format2 = "";
+            format2 += End11+"-";
+            format2 += End12;
+            format2 += "-";
+            format2 += End13;
+            format2 += "T";
+            format2 += End21;
+            format2 += ":";
+            format2 += End22;
+            format2 += ":00";
+        }
+
+
+
+        $(function(){
+            console.log(format)
+            console.log(format2)
+            getFormat();
+            getFormat2();
+            document.getElementById("start").value = format;
+            document.getElementById("end").value = format2;
+
+        })
+        //datetime-local必须格式化成"yyyy-MM-ddTHH:mm:ss"的格式
+
+    }
+    function model2(){
+        document.getElementById('Destination').innerText=document.getElementById('bookingDesCh').value
+        document.getElementById('Accommodation').innerText=document.getElementById('bookingAccCh').value
+        document.getElementById('Attraction').innerText=document.getElementById('bookingAttCh').value
+        let Sta1 = document.getElementById('bookingStaCh').innerText.split(" ")[0]
+        let Start1 = Sta1.split("-")[0]
+        let Start2 = Sta1.split("-")[1]
+        let Start3 = Sta1.split("-")[2]
+        let Sta2 = document.getElementById('bookingStaCh').innerText.split(" ")[1]
+        let Start21 = Sta2.split(":")[0]
+        let Start22 = Sta2.split(":")[1]
+
+
+
+        let End1 = document.getElementById('bookingEndCh').innerText.split(" ")[0]
+        let End11 = End1.split("-")[0]
+        let End12 = End1.split("-")[1]
+        let End13 = End1.split("-")[2]
+        let End2 = document.getElementById('bookingEndCh').innerText.split(" ")[1]
+        let End21 = End2.split(":")[0]
+        let End22 = End2.split(":")[1]
+
+
+        //全局变量
+
+        var format = "";
+        var format2 = "";
+
+        function getFormat(){
+            format = "";
+            format += Start1+"-";
+            format += Start2;
+            format += "-";
+            format += Start3;
+            format += "T";
+            format += Start21;
+            format += ":";
+            format += Start22;
+            format += ":00";
+        }
+
+        function getFormat2(){
+            format2 = "";
+            format2 += End11+"-";
+            format2 += End12;
+            format2 += "-";
+            format2 += End13;
+            format2 += "T";
+            format2 += End21;
+            format2 += ":";
+            format2 += End22;
+            format2 += ":00";
+        }
+
+
+
+        $(function(){
+            console.log(format)
+            console.log(format2)
+            getFormat();
+            getFormat2();
+            document.getElementById("start").value = format;
+            document.getElementById("end").value = format2;
+
+        })
+        //datetime-local必须格式化成"yyyy-MM-ddTHH:mm:ss"的格式
+
+    }
+
+
+
+
+    function f() {
+        var bid = $("#bookingIdEn").val();
+        // var phone = $("#examplePhone").val();
+        var start = $("#start").val();
+
+        var end = $("#end").val();
+        // var pwdV = $("#exampleInputPassword2").val();
+        console.log(2);
+        // get the order id
+        $.ajax({
+            url: "/editBooking",
+            method: "POST",
+            data: {
+                "bid": bid,
+                "start": start,
+                "end": end
+            },
+            // pass it to order.py
+            success: function (result) {
+                console.log(22);
+                console.log(result);
+                if (result.state === 0) {
+                    // if successfully submitted
+                    console.log(result.message);
+                    alert(result.message);
+                    // top.location.href = "/";
+                } else {
+                    alert(result.message);
+                    $(".warning").text(result.message)
+                }
+            },
+            error: function (result) {
+                console.log(result);
+                alert("No such User Found");
+            }
+        });
+    }
+    function f2() {
+        var bid = $("#bookingIdEn").val();
+        // var phone = $("#examplePhone").val();
+        var start = $("#start").val();
+
+        var end = $("#end").val();
+        // var pwdV = $("#exampleInputPassword2").val();
+        console.log(2);
+        // get the order id
+        $.ajax({
+            url: "/deleteBooking",
+            method: "POST",
+            data: {
+                "bid": bid,
+            },
+            // pass it to order.py
+            success: function (result) {
+                console.log(22);
+                console.log(result);
+                if (result.state === 0) {
+                    // if successfully submitted
+                    console.log(result.message);
+                    alert(result.message);
+                    // top.location.href = "/";
+                } else {
+                    alert(result.message);
+                    $(".warning").text(result.message)
+                }
+            },
+            error: function (result) {
+                console.log(result);
+                alert("No such User Found");
+            }
+        });
+    }
+
+
+
+    $(".viewD").on("click",function () {
+        a = $(this).val();
+        top.location.href = "/showBookingsOfCustomer?customerId="+a;
+        console.log(a)
+    })
+
+
+</script>
+
+
+
+
+</body><!-- End of .page_wrapper -->
+</html>

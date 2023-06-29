@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Travel Agent</title>
+
+    <!-- Fav Icon -->
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,500;1,9..144,600;1,9..144,700;1,9..144,800;1,9..144,900&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+          rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/font-awesome-all.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/flaticon.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/owl.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/bootstrap.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/jquery.fancybox.min.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/animate.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/nice-select.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/elpath.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/color/theme-color.css" id="jssDefault" type="text/css" media="all">
+
+    <link rel="stylesheet" href="../css/switcher-style.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/rtl.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/style.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/module-css/page-title.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/module-css/news.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/module-css/sidebar.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/responsive.css" type="text/css" media="all">
+
+
+</head>
+
+
+<!-- page wrapper -->
+<body>
+
+<div th:insert="~{Navigation :: #mainNoSearch}" th:if="${language ne 1}"></div>
+<div th:insert="~{Navigation :: #mainChineseNoSearch}" th:if="${language eq 1}"></div>
+
+
+<div class="boxed_wrapper ltr">
+
+
+
+
+
+    <!-- page-title -->
+    <section class="page-title p_relative centred" th:if="${language ne 1}">
+        <div class="bg-layer" style="background-image: url(/images/background/house.jpg);"></div>
+        <div class="pattern-layer">
+
+        </div>
+        <div class="auto-container">
+            <div class="content-box">
+                <h1>Staff Page</h1>
+                <ul class="bread-crumb clearfix">
+                    <li><a href="Trueindex.html">Home</a></li>
+                    <li>Staff Page</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="page-title p_relative centred" th:if="${language eq 1}">
+        <div class="bg-layer" style="background-image: url(/images/background/house.jpg);"></div>
+        <div class="pattern-layer">
+
+        </div>
+        <div class="auto-container">
+            <div class="content-box">
+                <h1>管理员主页</h1>
+                <ul class="bread-crumb clearfix">
+                    <li><a href="Trueindex.html">主页</a></li>
+                    <li>管理员主页</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- page-title end -->
+
+
+    <!-- sidebar-page-container -->
+    <section class="sidebar-page-container pt_150 pb_150" th:if="${language ne 1}">
+        <div class="auto-container">
+            <div class="row clearfix">
+                <div class="col-lg-8 col-md-12 col-sm-12" style="margin-left: 250px">
+                    <div class="popup-inner">
+                        <div class="upper-box clearfix">
+                        </div>
+                        <div class="overlay-layer"></div>
+                        <div class="auto-container">
+                            <div class="group-title">
+                                <h3>Add Travel Package</h3>
+                            </div>
+                            <br>
+                            <div class="search-form">
+                                <div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control travelPackageName" name="name"
+                                               placeholder="Type the name of the travel package">
+                                        <br>
+                                        <input type="text" class="form-control travelPackageNameCn" name="nameCn"
+                                               placeholder="Type the chinese name of the travel package">
+
+                                        <!--                                            <button class="fa" type="submit"></button>-->
+                                        <br>
+                                        <input type="text" class="form-control travelPackagePrice" name="price"
+                                               placeholder="set a price for the package">
+
+                                        <!--                                            <button class="fa" type="submit"></button>-->
+                                        <br>
+                                        <input type="file" name="file" id="file2" class="form-control-file file"
+                                               style='display:none;' onchange="$('#fileShowName2').val($(this).val());">
+                                        <div class="btn-box">
+                                            <button type="button" class="theme-btn btn-one fileCn"
+                                                    style="width: 300px;height: 50px">upload picture
+                                            </button>
+                                        </div>
+                                        <br>
+                                        <input type="text" id="fileShowName2" class="form-control"  readonly="readonly" >
+                                        <br>
+                                        <div class="btn-box">
+                                            <button class="theme-btn btn-one" type="submit" onclick="checkingPackage()"
+                                                    style="width: 80px;height: 50px">Add
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="sidebar-page-container pt_150 pb_150" th:if="${language eq 1}">
+        <div class="auto-container">
+            <div class="row clearfix">
+                <div class="col-lg-8 col-md-12 col-sm-12" style="margin-left: 250px">
+                    <div class="popup-inner">
+                        <div class="upper-box clearfix">
+                        </div>
+                        <div class="overlay-layer"></div>
+                        <div class="auto-container">
+                            <div class="group-title">
+                                <h3>添加目的地</h3>
+                            </div>
+                            <br>
+                            <div class="search-form">
+                                <div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control travelPackageName" name="name"
+                                               placeholder="输入英文旅行包名称">
+                                        <br>
+                                        <input type="text" class="form-control travelPackageNameCn" name="nameCn"
+                                               placeholder="输入中文旅行包名称">
+                                        <!--                                            <button class="fa" type="submit"></button>-->
+                                        <br>
+                                        <input type="text" class="form-control travelPackagePrice" name="price"
+                                               placeholder="设置套餐价格">
+
+                                        <!--                                            <button class="fa" type="submit"></button>-->
+                                        <br>
+                                        <input type="file" name="file" id="file3" class="form-control-file file"
+                                               style='display:none;' onchange="$('#fileShowName3').val($(this).val());">
+                                        <div class="btn-box">
+                                            <button type="button" class="theme-btn btn-one fileCn2"
+                                                    style="width: 300px;height: 50px">上传
+                                            </button>
+                                        </div>
+                                        <input type="text" id="fileShowName3" class="form-control"  readonly="readonly" >
+                                        <div class="btn-box">
+                                            <button class="theme-btn btn-one travelPackagePrice" type="submit"
+                                                    onclick="checkingPackageCn()"
+                                                    style="width: 80px;height: 50px">添加
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- sidebar-page-container end -->
+
+
+    <!--Scroll to top-->
+    <div class="scroll-to-top" th:if="${language ne 1}">
+        <div>
+            <div class="scroll-top-inner">
+                <div class="scroll-bar">
+                    <div class="bar-inner"></div>
+                </div>
+                <div class="scroll-bar-text">Go To Top</div>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-to-top" th:if="${language eq 1}">
+        <div>
+            <div class="scroll-top-inner">
+                <div class="scroll-bar">
+                    <div class="bar-inner"></div>
+                </div>
+                <div class="scroll-bar-text">返回顶部</div>
+            </div>
+        </div>
+    </div>
+    <!-- Scroll to top end -->
+
+</div>
+
+
+<!-- jequery plugins -->
+<script src="../js/jquery.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/owl.js"></script>
+<script src="../js/wow.js"></script>
+<script src="../js/validation.js"></script>
+<script src="../js/jquery.fancybox.js"></script>
+<script src="../js/appear.js"></script>
+<script src="../js/isotope.js"></script>
+<script src="../js/parallax-scroll.js"></script>
+<script src="../js/jquery.nice-select.min.js"></script>
+<script src="../js/jQuery.style.switcher.min.js"></script>
+<script src="../js/click.js"></script>
+
+<!-- main-js -->
+<script src="../js/script.js"></script>
+
+<!--<script>-->
+<!--    const fileUploader = document.getElementById('file-uploader');-->
+
+<!--    // 听更 change 件并读取元数据-->
+<!--    fileUploader.addEventListener('change', (event) => {-->
+<!--        // 获取文件列表数组-->
+<!--        const files = event.target.files;-->
+
+<!--        // 遍历并获取元数据-->
+<!--        for (const file of files) {-->
+<!--            const name = file.name;-->
+<!--            const type = file.type ? file.type: 'NA';-->
+<!--            const size = file.size;-->
+<!--            const lastModified = file.lastModified;-->
+<!--            console.log({ file, name, type, size, lastModified });-->
+<!--        }-->
+<!--    });-->
+
+
+<!--</script>-->
+<script th:inline="javascript">
+
+    $(".fileCn").click(function (e) {
+        document.getElementById('file2').click();
+    });
+    $(".fileCn2").click(function (e) {
+        document.getElementById('file3').click();
+    });
+
+    function checkingPackage() {
+        var travelPackageName = $(".travelPackageName").val();
+        var travelPackageNameCn = $(".travelPackageNameCn").val();
+        var travelPackagePrice = $(".travelPackagePrice").val();
+        var formData = new FormData();
+        var img_file = document.getElementById("file2");
+        var fileObj = img_file.files[0];
+        // Judge numbers
+        var numericPattern = /^\d+$/;
+
+        if (numericPattern.test(travelPackagePrice)) {
+            formData.append("name", travelPackageName);
+            formData.append("nameCn", travelPackageNameCn);
+            formData.append("price", travelPackagePrice);
+            formData.append("file", fileObj);
+            $.ajax({
+                url: "/createPackage",
+                method: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                async: false,
+                // pass it to sb.py
+                success: function (result) {
+
+                    console.log(result);
+                    if (result.state === 0) {
+                        // if successfully submitted
+                        console.log(result.message);
+                        alert(result.message)
+                        top.location.href = "/getPacks";
+                    } else {
+
+                    }
+                },
+                error: function (result) {
+                    alert("picture too large");
+                }
+            });
+        } else {
+            alert("Please input only numbers in price\n 在价格中请只输入数字");
+        }
+
+
+
+    }
+
+    function checkingPackageCn() {
+        var travelPackageName = $(".travelPackageName").val();
+        var travelPackageNameCn = $(".travelPackageNameCn").val();
+        var travelPackagePrice = $(".travelPackagePrice").val();
+        var formData = new FormData();
+        var img_file = document.getElementById("file3");
+        var fileObj = img_file.files[0];
+        // Judge numbers
+        var numericPattern = /^\d+$/;
+
+        if (numericPattern.test(travelPackagePrice)) {
+            formData.append("name", travelPackageName);
+            formData.append("nameCn", travelPackageNameCn);
+            formData.append("price", travelPackagePrice);
+            formData.append("file", fileObj);
+            $.ajax({
+                url: "/createPackage",
+                method: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                async: false,
+                // pass it to sb.py
+                success: function (result) {
+
+                    console.log(result);
+                    if (result.state === 0) {
+                        // if successfully submitted
+                        console.log(result.message);
+                        alert(result.message)
+                        top.location.href = "/getPacks";
+                    } else {
+
+                    }
+                },
+                error: function (result) {
+                    alert("图片过大");
+                }
+            });
+        } else {
+            alert("Please input only numbers in price\n 在价格中请只输入数字");
+        }
+
+
+    }
+
+</script>
+
+</script>
+</body><!-- End of .page_wrapper -->
+</html>

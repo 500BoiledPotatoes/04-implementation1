@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,500;1,9..144,600;1,9..144,700;1,9..144,800;1,9..144,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link href="../static/css/font-awesome-all.css" rel="stylesheet">
+    <link href="../static/css/flaticon.css" rel="stylesheet">
+    <link href="../static/css/owl.css" rel="stylesheet">
+    <link href="../static/css/bootstrap.css" rel="stylesheet">
+    <link href="../static/css/jquery.fancybox.min.css" rel="stylesheet">
+    <link href="../static/css/animate.css" rel="stylesheet">
+    <link href="../static/css/nice-select.css" rel="stylesheet">
+    <link href="../static/css/elpath.css" rel="stylesheet">
+    <link href="../static/css/color/theme-color.css" id="jssDefault" rel="stylesheet">
+    <link href="../static/css/switcher-style.css" rel="stylesheet">
+    <!--<link href="../static/css/rtl.css" rel="stylesheet">-->
+    <link href="../static/css/style.css" rel="stylesheet">
+    <link href="../static/css/module-css/page-title.css" rel="stylesheet">
+    <link href="../static/css/module-css/team.css" rel="stylesheet">
+    <link href="../static/css/responsive.css" rel="stylesheet">
+
+
+</head>
+<body>
+
+
+
+<form id="addCustomer" th:action="@{/addCustomer}" method="post">
+    <input name="customerName" placeholder="customerName">
+    <input name="email" placeholder="email">
+    <input name="phone_number" placeholder="phone_number">
+    <input name="pwd" placeholder="pwd">
+    <button type="submit">addCustomer</button>
+</form>
+
+
+<form id="findBook" th:action="@{/addDestination}" method="post">
+    <input name="destinationName" placeholder="destinationName">
+    <input name="destinationIntro" placeholder="destinationIntro">
+    <button type="submit">addDestinatio</button>
+</form>
+
+<form id="addBookCopies" th:action="@{/addAccommodation}" method="post" enctype="multipart/form-data">
+    <input name="accommodationName" placeholder="accommodationName">
+    <input name="accommodationIntro" placeholder="accommodationIntro">
+    <input name="address" placeholder="address">
+    <input name="destination" placeholder="destination">
+    <input type="file" name="file" id="file" class="form-control-file">
+    <button type="submit">addAccommodation</button>
+</form>
+
+<form id="findCustomer" th:action="@{/addAttraction}" method="post">
+    <input name="attractionName" placeholder="attractionName">
+    <input name="attractionIntro" placeholder="attractionIntro">
+    <input name="address" placeholder="address">
+    <input name="destination" placeholder="destination">
+    <button type="submit">addAttraction</button>
+</form>
+
+<form id="removeBookCopy" th:action="@{/login}" method="post">
+    <input name="customerEmail" placeholder="Email">
+    <input name="pwd" placeholder="pwd">
+    <button type="submit">login</button>
+</form>
+
+
+<form id="selectBook" th:action="@{/findDestination}" method="post">
+    <input name="destination" placeholder="destination">
+    <button type="submit">findDestination</button>
+</form>
+<form id="addToWaitingList" th:action="@{/addBooking}" method="post">
+    <input name="destinationId" placeholder="destinationId">
+    <input name="accommodationId" placeholder="accommodationId">
+    <input name="attractionId" placeholder="attractionId">
+    <input name="customerId" placeholder="customerId">
+    <input type="date" class="form-control" name="startTime" value="" placeholder="start time (yyyy/mm/dd/hh/mm)">
+    <input type="date" class="form-control" name="endTime" value="" placeholder="end time (yyyy/mm/dd/mm)">
+    <button type="submit">addBooking</button>
+</form>
+
+<form id="addItem" th:action="@{/addItem}" method="post">
+    <input name="destinationId" placeholder="destinationId">
+    <input name="accommodationId" placeholder="accommodationId">
+    <input name="attractionId" placeholder="attractionId">
+    <input type="datetime-local" class="form-control" name="startTime" value="" placeholder="start time (yyyy/mm/dd/hh/mm)">
+    <input type="datetime-local" class="form-control" name="endTime" value="" placeholder="end time (yyyy/mm/dd/mm)">
+    <button type="submit">addItem</button>
+</form>
+
+<form id="addRental" th:action="@{/createPackage}" method="post">
+    <input name="name" placeholder="name">
+    <input name="nameCh" placeholder="nameCh">
+    <button type="submit">createPackage</button>
+</form>
+
+<form id="addReturn" th:action="@{/addItemToPackage}" method="post">
+    <input name="itemId" placeholder="itemId">
+    <input name="travelPackageId" placeholder="travelPackageId">
+    <button type="submit">addItemToPackage</button>
+</form>
+
+<form id="addPayment" th:action="@{/addAccommodationReview}" method="post">
+    <input name="customerId" placeholder="customerId">
+    <input name="title" placeholder="title">
+    <input name="content" placeholder="content">
+    <input name="accommodationId" placeholder="accommodationId">
+    <button type="submit">addAccommodationReview</button>
+</form>
+
+<form id="add" th:action="@{/addAttractionReview}" method="post">
+    <input name="customerId" placeholder="customerId">
+    <input name="content" placeholder="content">
+    <input name="attractionId" placeholder="attractionId">
+    <button type="submit">addAttractionReview</button>
+</form>
+
+
+<form id="a2wdd" th:action="@{/findAttReview}" method="post">
+    <input name="attractionId" placeholder="attractionId">
+    <button type="submit">findAttractionReview</button>
+</form>
+
+<form id="a2wdd2" th:action="@{/findAccReview}" method="post">
+    <input name="accommodationId" placeholder="accommodationId">
+    <button type="submit">findAccReview</button>
+</form>
+<form id="a2wdd22" th:action="@{/addTraffic}" method="post">
+    <input name="type" placeholder="type">
+    <input name="from" placeholder="from">
+    <input name="to" placeholder="to">
+    <input name="price" placeholder="to">
+    <input type="datetime-local" class="form-control" name="start" value="">
+    <input type="datetime-local" class="form-control" name="end" value="">
+    <button type="submit">addTraffic</button>
+</form>
+
+<form  th:action="@{/addTrafficBooking}" method="post">
+    <input name="customer_id" placeholder="customer_id">
+    <input name="traffic_id" placeholder="traffic_id">
+    <button type="submit">addTrafficBooking</button>
+</form>
+
+<form  th:action="@{/getTrafficByCustomer}" method="post">
+    <input name="customer_id" placeholder="customer_id">
+    <button type="submit">getTrafficByCustomer</button>
+</form>
+
+<div >
+    <input name="bid" id="bid" placeholder="bid">
+    <input type="datetime-local" id="start" class="form-control" name="start" value="" placeholder="start time (yyyy/mm/dd/hh/mm)">
+    <input type="datetime-local" id="end" class="form-control" name="end" value="" placeholder="end time (yyyy/mm/dd/mm)">
+    <button type="submit" onclick="f()" >edit Booking</button>
+</div>
+
+<div >
+    <input name="bid" id="bid2" placeholder="bid">
+    <button type="submit" onclick="f2()" >delete Booking</button>
+</div>
+
+<form  th:action="@{/changePackToBooking}" method="post">
+    <input name="customer_id" placeholder="customer_id">
+    <input name="pack_id" placeholder="pack_id">
+    <button type="submit">changePackToBooking</button>
+</form>
+<table th:each="i:${traffics}">
+    <tr>
+        <td>TrafficId</td>
+        <td th:text="${i.getTrafficId()}"></td>
+    </tr>
+</table>
+
+
+
+<table th:each="i:${item}">
+    <tr>
+        <td>Id</td>
+        <td th:text="${i.getPackageItemId()}"></td>
+    </tr>
+    <tr>
+        <td>destination</td>
+        <td th:text="${i.getDestination().getDestinationId()}"></td>
+    </tr>
+</table>
+
+<table th:each="i:${travelPackage}">
+    <tr>
+        <td>Id</td>
+        <td th:text="${i.getName()}"></td>
+    </tr>
+
+    <tr>
+        <td>items</td>
+        <td th:each="a:${i.getItems()}" th:text=" ${a.getPackageItemId()} "></td>
+    </tr>
+</table>
+<table th:each="i:${customer}">
+    <tr>
+        <td>Id</td>
+        <td th:text="${i.getName()}"></td>
+    </tr>
+
+</table>
+
+<table th:each="i:${copies}">
+    <tr>
+        <td>Id</td>
+        <td th:text="${i.getBookCopyId()}"></td>
+    </tr>
+</table>
+
+<table th:each="i:${waitingList}">
+    <tr>
+        <td>Id</td>
+        <td th:text="${i.getName()}"></td>
+
+    </tr>
+</table>
+
+<table th:each="i:${bookRental}">
+    <tr>
+        <td>Id</td>
+        <td th:text="${i.getBookRentalId()}"></td>
+    </tr>
+</table>
+
+<table th:each="i:${accommodationReviews}">
+    <tr>
+        <td>Id</td>
+        <td th:text="${i.getTitle()}"></td>
+    </tr>
+</table>
+
+<table th:each="i:${attractionReviews}">
+    <tr>
+        <td>Id</td>
+        <td th:text="${i.getTitle()}"></td>
+    </tr>
+</table>
+
+<table th:each="i:${error}">
+    <tr>
+        <td>error:</td>
+        <td th:text="${i.msg}"></td>
+    </tr>
+</table>
+
+<table th:each="i:${session.bookings}">
+<tr>
+    <!--iterate the details and use jinja placing the info to the table-->
+    <td><h5  th:text="${i.getBookingId()}"></h5></td>
+    <td><h5 id="bookingCusEn" th:text="${i.getCustomer().getName()}"></h5></td>
+    <td><h5 id="bookingDesEn" th:text="${i.getDestination().getDestinationName()}"></h5></td>
+    <td><h5 id="bookingAccEn" th:text="${i.getAccommodation() != null ? i.getAccommodation().getAccommodationName():' '}"></h5></td>
+    <td><h5 id="bookingAttEn" th:text="${i.getAttraction()!= null ? i.getAttraction().getAttractionName():' '}" ></h5></td>
+    <td><h5 id="bookingStaEn" th:text="${i.Start()}"></h5></td>
+    <td><h5 id="bookingEndEn" th:text="${i.End()}"></h5></td>
+    <td><div class="btn-box">
+        <button th:value="${i.getBookingId()}" id="bookingIdEn" class="theme-btn btn-one"  data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" style="width: 150px;height: 40px" type="button" onclick="model()">View Details</button>
+    </div>
+</tr>
+</table>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/owl.js"></script>
+<script src="../js/wow.js"></script>
+<script src="../js/validation.js"></script>
+<script src="../js/jquery.fancybox.js"></script>
+<script src="../js/appear.js"></script>
+<script src="../js/isotope.js"></script>
+<script src="../js/parallax-scroll.js"></script>
+<script src="../js/jquery.nice-select.min.js"></script>
+<script src="../js/jQuery.style.switcher.min.js"></script>
+
+<!-- main-js -->
+<script type="text/javascript">
+
+    function f() {
+        var bid = $("#bid").val();
+        // var phone = $("#examplePhone").val();
+        var start = $("#start").val();
+
+        var end = $("#end").val();
+        // var pwdV = $("#exampleInputPassword2").val();
+        console.log(2);
+        // get the order id
+        $.ajax({
+            url: "/editBooking",
+            method: "POST",
+            data: {
+                "bid": bid,
+                "start": start,
+                "end": end
+            },
+            // pass it to order.py
+            success: function (result) {
+                console.log(22);
+                console.log(result);
+                if (result.state === 0) {
+                    // if successfully submitted
+                    console.log(result.message);
+                    alert(result.message);
+                    // top.location.href = "/";
+                } else {
+                    alert(result.message);
+                    $(".warning").text(result.message)
+                }
+            },
+            error: function (result) {
+                console.log(result);
+                alert("No such User Found");
+            }
+        });
+    }
+    function f2() {
+        var bid = $("#bid2").val();
+        // var phone = $("#examplePhone").val();
+        var start = $("#start").val();
+
+        var end = $("#end").val();
+        // var pwdV = $("#exampleInputPassword2").val();
+        console.log(2);
+        // get the order id
+        $.ajax({
+            url: "/deleteBooking",
+            method: "POST",
+            data: {
+                "bid": bid,
+            },
+            // pass it to order.py
+            success: function (result) {
+                console.log(22);
+                console.log(result);
+                if (result.state === 0) {
+                    // if successfully submitted
+                    console.log(result.message);
+                    alert(result.message);
+                    // top.location.href = "/";
+                } else {
+                    alert(result.message);
+                    $(".warning").text(result.message)
+                }
+            },
+            error: function (result) {
+                console.log(result);
+                alert("No such User Found");
+            }
+        });
+    }
+
+</script>
+
+
+</body>
+
+
+
+</html>

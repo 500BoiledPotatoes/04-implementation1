@@ -1,0 +1,406 @@
+﻿
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+
+<!-- Head -->
+<head>
+
+    <title>Travel Agent</title>
+
+    <!-- Meta-Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="/css/styleIndex.css" type="text/css" media="all">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,500;1,9..144,600;1,9..144,700;1,9..144,800;1,9..144,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link href="../css/font-awesome-all.css" rel="stylesheet">
+    <link href="../css/flaticon.css" rel="stylesheet">
+    <link href="../css/jquery.fancybox.min.css" rel="stylesheet">
+    <link href="../css/animate.css" rel="stylesheet">
+    <link href="../css/nice-select.css" rel="stylesheet">
+    <link href="../css/elpath.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
+    <link href="../css/loginbody.css" rel="stylesheet">
+
+</head>
+<!-- //Head -->
+<!-- Body -->
+<body>
+
+<section class="section1" th:if="${language ne 1}" style="z-index: 3">
+    <div class="container" style="width: 70%;height:600px" >
+        <div class="user singinBx " >
+            <div class="imgBx" ><img src="/pictureResouce/lvxing.svg" alt=""></div>
+            <div class="formBx">
+                <!--using form to deliver messages-->
+                <div class="form" id="customerLoginForm">
+                <h2>Sign In</h2>
+                <input type="text" name="customerEmail" class="loginCustomerEmail" placeholder="Email">
+                <input type="password" name="pwd" class="loginCustomerPwd" placeholder="Password">
+                <p id = "warning"></p>
+                <button type="submit" class="send-button" onclick="checkLoginCustomer();">Submit
+                </button><!--data detection,  js alert-->
+                <p class="signup">Don't have an account ?<a href="#" onclick="
+                            toggleForm();" style="color:#7d9aff;">Sign Up</a></p> <!--js switching the screen-->
+                </div>
+            </div>
+        </div>
+        <!--this part is for sign up-->
+        <div class="user singupBx">
+            <div class="formBx">
+                <!--form deliver to backend-->
+                <div class="form" >
+                    <h2 >Sign up</h2>
+                    <input type="text" name="customerName" class="registerCustomerName" placeholder="Username">
+                    <input type="email" name="email" class="registerCustomerEmail" placeholder="Email Address">
+                    <input type="text" name="phone_number" class="registerCustomerPhone" placeholder="phone number">
+                    <input type="password" name="pwd" class="registerCustomerPassword1" placeholder="Create Password">
+                    <input type="password" name="passwordV" class="registerCustomerPassword2" placeholder="Confirm Password">
+                    <input class="send-button" type="submit" value="Sign up" onclick="checkRegisterCustomer()"><!--js alert, data validation-->
+                    <p class="signup">Already have an account?     <a href="#" onclick="
+                            toggleForm();" style="color:#7d9aff;">Sign In</a></p><!--js screen switching-->
+                </div>
+            </div>
+            <div class="imgBx"><img src="/pictureResouce/plane.svg" alt=""></div>
+        </div>
+    </div>
+</section>
+<section class="section1" th:if="${language eq 1}" style="z-index: 3">
+    <div class="container" style="width: 70%;height:600px">
+        <div class="user singinBx">
+            <div class="imgBx"><img src="/pictureResouce/lvxing.svg" alt=""></div>
+            <div class="formBx">
+                <!--using form to deliver messages-->
+                <div class="form" >
+                <h2>登录</h2>
+                <input type="text" name="customerEmail"  placeholder="请输入邮箱" class="loginCustomerEmail">
+                <input type="password" name="pwd"  placeholder="请输入密码" class="loginCustomerPwd">
+                <button type="submit" class="send-button" onclick="checkLoginCustomer();">提交
+                </button><!--data detection,  js alert-->
+                <p class="signup">还没有账号 ?<a href="#" onclick="
+                            toggleForm();" style="color:#7d9aff;">注册</a></p> <!--js switching the screen-->
+                </div>
+            </div>
+        </div>
+        <!--this part is for sign up-->
+        <div class="user singupBx" >
+            <div class="formBx">
+                <!--form deliver to backend-->
+                <div class="form">
+                    <h2 style="text-align:center" >注册</h2>
+                    <input type="text" name="customerName" class="registerCustomerName" placeholder="请输入用户名">
+                    <input type="email" name="email" class="registerCustomerEmail" placeholder="请输入邮箱地址">
+                    <input type="text" name="phone_number" class="registerCustomerPhone" placeholder="请输入电话号码">
+                    <input type="password" name="pwd" class="registerCustomerPassword1" placeholder="请输入密码">
+                    <input type="password" name="passwordV" class="registerCustomerPassword2" placeholder="确认您的密码">
+                    <input class="send-button" type="submit" value="注册" onclick="checkRegisterCustomer()"><!--js alert, data validation-->
+                    <p class="signup">已经有一个帐号了?     <a href="#" onclick="
+                            toggleForm();" style="color:#7d9aff;">登录</a></p><!--js screen switching-->
+                </div>
+            </div>
+            <div class="imgBx"><img src="/pictureResouce/plane.svg" alt=""></div>
+        </div>
+    </div>
+</section>
+
+
+<section class="section2" style="z-index: 3"  th:if="${language ne 1}">
+    <div class="container container2" style="width: 70%;height:600px;" >
+        <div class="user signin" id="1" style="display: -webkit-box;">
+            <div class="formBx" style="width: 100%">
+                <!--using form to deliver messages-->
+                <div class="form" >
+                    <h2 style="text-align:center">Sign In</h2>
+                    <input type="text" name="customerEmail" class="loginCustomerEmail2" placeholder="Email">
+                    <input type="password" name="pwd" class="loginCustomerPwd2" placeholder="Password">
+                    <button type="submit" class="send-button" onclick="checkLoginCustomer2();">Submit
+                    </button><!--data detection,  js alert-->
+                    <p class="signup">Don't have an account ?<a href="#" onclick="
+                            mobile1();" style="color:#7d9aff;">Sign Up</a></p> <!--js switching the screen-->
+                </div>
+            </div>
+        </div>
+
+        <!--this part is for sign up-->
+        <div class="user signUP" id="2" style="display: none">
+            <div class="formBx" style="width: 100%">
+                <!--form deliver to backend-->
+                <div class="form" >
+                    <h2 >Sign up</h2>
+                    <input type="text" name="customerName" class="registerCustomerName2" placeholder="Username">
+                    <input type="email" name="email" class="registerCustomerEmail2" placeholder="Email Address">
+                    <input type="text" name="phone_number" class="registerCustomerPhone2" placeholder="phone number">
+                    <input type="password" name="pwd" class="registerCustomerPassword12" placeholder="Create Password">
+                    <input type="password" name="passwordV" class="registerCustomerPassword22" placeholder="Confirm Password">
+                    <input class="send-button" type="submit" value="Sign up" onclick="checkRegisterCustomer2()"><!--js alert, data validation-->
+                    <p class="signup">Already have an account?     <a href="#" onclick="
+                            mobile2();" style="color:#7d9aff;">Sign In</a></p><!--js screen switching-->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section2" th:if="${language eq 1}" style="z-index: 3" >
+    <div class="container container2" style="width: 70%;height:600px">
+        <div class="user signin" id="1" style="display: -webkit-box;">
+            <div class="formBx" style="width: 100%">
+                <!--using form to deliver messages-->
+                <div class="form" >
+                    <h2 style="text-align:center">登录</h2>
+                    <input type="text" name="customerEmail"  placeholder="请输入邮箱" class="loginCustomerEmail2">
+                    <input type="password" name="pwd"  placeholder="请输入密码" class="loginCustomerPwd2">
+                    <button type="submit" class="send-button" onclick="checkLoginCustomer2();">提交
+                    </button><!--data detection,  js alert-->
+                    <p class="signup">还没有账号 ?<a href="#" onclick="
+                            mobile1();" style="color:#7d9aff;">注册</a></p> <!--js switching the screen-->
+                </div>
+            </div>
+        </div>
+        <!--this part is for sign up-->
+        <div class="user signUP" id="2" style="display: none">
+            <div class="formBx" style="width: 100%">
+                <!--form deliver to backend-->
+                <div class="form">
+                    <h2 >注册</h2>
+                    <input type="text" name="customerName" class="registerCustomerName2" placeholder="请输入用户名">
+                    <input type="email" name="email" class="registerCustomerEmail2" placeholder="请输入邮箱地址">
+                    <input type="text" name="phone_number" class="registerCustomerPhone2" placeholder="请输入电话号码">
+                    <input type="password" name="pwd" class="registerCustomerPassword12" placeholder="请输入密码">
+                    <input type="password" name="passwordV" class="registerCustomerPassword22" placeholder="确认您的密码">
+                    <input class="send-button" type="submit" value="注册" onclick="checkRegisterCustomer2()"><!--js alert, data validation-->
+                    <p class="signup">已经有一个帐号了?     <a href="#" onclick="
+                            mobile2();" style="color:#7d9aff;">登录</a></p><!--js screen switching-->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <div class="footer w3layouts agileits">
+        <p>Hardys Team</p>
+    </div>
+
+
+    <script type="text/javascript">
+        function toggleForm() {
+            //js here is used to switch different screens (sign in and sign up)
+            var container = document.querySelector('.container');
+            //using toggle to hide/appear certain elements
+            container.classList.toggle('active')
+        }
+
+        function mobile1() {
+            //js here is used to switch different screens (sign in and sign up)
+
+            $(".signin").css({"display":"none"});
+            $(".signin").css({"z-index":"1"});
+            $(".signUP").css({"display":""});
+            $(".signUP").css({"z-index":"4"});
+            //using toggle to hide/appear certain elements
+        }
+
+        function mobile2() {
+            //js here is used to switch different screens (sign in and sign up)
+            $(".signUP").css({"display":"none"});
+            $(".signUP").css({"z-index":"1"});
+            $(".signin").css({"display":""});
+            $(".signin").css({"z-index":"4"});
+            //using toggle to hide/appear certain elements
+        }
+
+
+        function checkRegisterCustomer() {
+            var name = $(".registerCustomerName").val();
+            var email = $(".registerCustomerEmail").val();
+            var phone = $(".registerCustomerPhone").val();
+            var pwd1 = $(".registerCustomerPassword1").val();
+            var pwd2 = $(".registerCustomerPassword2").val();
+            if (pwd1 === pwd2){
+                $.ajax({
+                    url: "/addCustomer",
+                    method: "POST",
+                    data: {
+                        "customerName": name,
+                        "email": email,
+                        "phone_number": phone,
+                        "pwd": pwd1
+                    },
+                    // pass it to order.py
+                    success: function (result) {
+                        console.log(22);
+                        console.log(result);
+                        if (result.state === 0) {
+                            // if successfully submitted
+                            console.log(result.message);
+                            alert(result.message);
+                            top.location.href = "/";
+                        } else {
+                            alert(result.message);
+                            $(".warning").text(result.message)
+                        }
+                    },
+                    error: function (result) {
+                        console.log(result);
+                        alert("No such User Found\n"+"用户不存在");
+                    }
+                });
+            } else {
+                alert("The Two Password Inputs Are Inconsistent \n"+"两次密码输入不一致");
+            }
+            // var pwdV = $("#exampleInputPassword2").val();
+            console.log(2);
+            // get the order id
+
+        }
+
+        function checkRegisterCustomer2() {
+            var name = $(".registerCustomerName2").val();
+            var email = $(".registerCustomerEmail2").val();
+            var phone = $(".registerCustomerPhone2").val();
+            var pwd1 = $(".registerCustomerPassword12").val();
+            var pwd2 = $(".registerCustomerPassword22").val();
+            if (pwd1 === pwd2){
+                $.ajax({
+                    url: "/addCustomer",
+                    method: "POST",
+                    data: {
+                        "customerName": name,
+                        "email": email,
+                        "phone_number": phone,
+                        "pwd": pwd1
+                    },
+                    // pass it to order.py
+                    success: function (result) {
+                        console.log(22);
+                        console.log(result);
+                        if (result.state === 0) {
+                            // if successfully submitted
+                            console.log(result.message);
+                            alert(result.message);
+                            top.location.href = "/";
+                        } else {
+                            alert(result.message);
+                            $(".warning").text(result.message)
+                        }
+                    },
+                    error: function (result) {
+                        console.log(result);
+                        alert("No such User Found\n"+"用户不存在");
+                    }
+                });
+            } else {
+                alert("The Two Password Inputs Are Inconsistent \n"+"两次密码输入不一致");
+            }
+            // var pwdV = $("#exampleInputPassword2").val();
+            console.log(2);
+            // get the order id
+
+        }
+
+
+        function checkLoginCustomer() {
+            // var username = $("#exampleUserName").val();
+             var email = $(".loginCustomerEmail").val();
+            // var phone = $("#examplePhone").val();
+             var pwd = $(".loginCustomerPwd").val();
+            // var pwdV = $("#exampleInputPassword2").val();
+            console.log(2);
+            // get the order id
+            $.ajax({
+                url: "/login",
+                method: "POST",
+                data: {
+                    "customerEmail": email,
+                    "pwd": pwd
+                },
+                // pass it to order.py
+                success: function (result) {
+                    console.log(22);
+                    console.log(result);
+                    if (result.state === 0) {
+                        // if successfully submitted
+                        console.log(result.message);
+                        alert(result.message);
+                        top.location.href = "/";
+                    }else {
+                        alert(result.message);
+                        $("#warning").text(result.message)
+                    }
+                },
+                error: function (result){
+                    console.log(result);
+                    alert("No such User Found");
+                }
+
+
+            });
+        }
+
+        function checkLoginCustomer2() {
+            // var username = $("#exampleUserName").val();
+            var email = $(".loginCustomerEmail2").val();
+            // var phone = $("#examplePhone").val();
+            var pwd = $(".loginCustomerPwd2").val();
+            // var pwdV = $("#exampleInputPassword2").val();
+            console.log(2);
+            // get the order id
+            $.ajax({
+                url: "/login",
+                method: "POST",
+                data: {
+                    "customerEmail": email,
+                    "pwd": pwd
+                },
+                // pass it to order.py
+                success: function (result) {
+                    console.log(22);
+                    console.log(result);
+                    if (result.state === 0) {
+                        // if successfully submitted
+                        console.log(result.message);
+                        alert(result.message);
+                        top.location.href = "/";
+                    }else {
+                        alert(result.message);
+                        $("#warning").text(result.message)
+                    }
+                },
+                error: function (result){
+                    console.log(result);
+                    alert("No such User Found");
+                }
+
+
+            });
+        }
+    </script>
+
+
+<!-- jequery plugins -->
+<script src="../js/jquery.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/owl.js"></script>
+<script src="../js/wow.js"></script>
+<script src="../js/validation.js"></script>
+<script src="../js/jquery.fancybox.js"></script>
+<script src="../js/appear.js"></script>
+<script src="../js/isotope.js"></script>
+<script src="../js/parallax-scroll.js"></script>
+<script src="../js/jquery.nice-select.min.js"></script>
+<script src="../js/jQuery.style.switcher.min.js"></script>
+
+<!-- map script -->
+<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-CE0deH3Jhj6GN4YvdCFZS7DpbXexzGU"></script>
+<script src="assets/js/gmaps.js"></script>
+<script src="assets/js/map-helper.js"></script>-->
+
+<!-- main-js -->
+<script src="../js/script.js"></script>
+
+</body>
+<!-- //Body -->
+
+</html>
